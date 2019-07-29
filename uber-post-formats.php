@@ -12,19 +12,19 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
-if ( ! class_exists( 'UberPostFormats' ) ) {
+if ( ! class_exists( 'uberPostFormats' ) ) {
 	/**
-	 * class UberPostFormats
+	 * class uberPostFormats
 	 */
-	class UberPostFormats {
+	class uberPostFormats {
 		private static $instance;
 
 		/**
 		 * get instance function
 		 *
-		 * get single instance of UberPostFormats class
+		 * get single instance of uberPostFormats class
 		 *
-		 * @return UberPostFormats
+		 * @return uberPostFormats
 		 */
 		public static function getInstance() {
 			if ( ! ( self::$instance instanceof self ) ) {
@@ -35,7 +35,7 @@ if ( ! class_exists( 'UberPostFormats' ) ) {
 		}
 
 		/**
-		 * UberPostFormat constructor.
+		 * UberPostFormat constructor
 		 */
 		public function __construct() {
 			add_action( 'plugins_loaded', array( $this, 'initPlugin' ) );
@@ -52,37 +52,32 @@ if ( ! class_exists( 'UberPostFormats' ) ) {
 			// include constants
 			require_once 'define.php';
 
-			// include framework and components
-			$this->loadFiles();
+			// include libs
+			require_once UPF_ABS_PATH . '/lib/load.php';
+
+			// include components
+			add_action( 'after_setup_theme', array( $this, 'includeComponents' ), 100 );
 
 			// include scripts
 			// include styles
 			// include admin scripts
 			// include admin styles
+
 			// textdomain
-			$this->setTextdomain();
-		}
-
-		/**
-		 * load files function
-		 *
-		 * @since 1.0.0
-		 */
-		public function loadFiles() {
-			require_once UPF_ABS_PATH . '/lib/load.php';
-			// TODO must be loaded later, on 'after theme setup' hook, we need template tags available in plugin
-			require_once UPF_ABS_PATH . '/components/load.php';
-		}
-
-		/**
-		 * set textdomain function
-		 *
-		 * @since 1.0.0
-		 */
-		public function setTextdomain() {
 			load_plugin_textdomain( 'upf', false, UPF_REL_PATH . '/languages' );
+		}
+
+		/**
+		 * include components function
+		 *
+		 * hooked on 'after_setup_theme'
+		 *
+		 * @since 1.0.0
+		 */
+		public function includeComponents() {
+			require_once UPF_ABS_PATH . '/components/load.php';
 		}
 	}
 }
 
-UberPostFormats::getInstance();
+uberPostFormats::getInstance();

@@ -1,10 +1,10 @@
 <?php
 
-if ( ! class_exists( 'UberPostFormatsFramework' ) ) {
+if ( ! class_exists( 'uberPostFormatsFramework' ) ) {
 	/**
-	 * class UberPostFormatsFramework
+	 * class uberPostFormatsFramework
 	 */
-	class UberPostFormatsFramework {
+	class uberPostFormatsFramework {
 		// base var
 		private $post_format;
 
@@ -13,7 +13,7 @@ if ( ! class_exists( 'UberPostFormatsFramework' ) ) {
 		private $nonce;
 
 		/**
-		 * UberPostFormatsFramework constructor
+		 * uberPostFormatsFramework constructor
 		 *
 		 * @param string $post_format
 		 *
@@ -83,7 +83,7 @@ if ( ! class_exists( 'UberPostFormatsFramework' ) ) {
 				'meta_box_id' => $this->meta_box_id,
 			);
 
-			UberPostFormatsHelper::getComponentTemplate( $this->post_format, 'meta-box', $params );
+			uberPostFormatsHelper::getComponentTemplate( $this->post_format, 'meta-box', $params );
 		}
 
 		/**
@@ -122,7 +122,7 @@ if ( ! class_exists( 'UberPostFormatsFramework' ) ) {
 				// check if key starts with plugins prefix
 				if ( preg_match( '/^upf/', $input_field_name ) ) {
 					// get posted key
-					$meta_key = UberPostFormatsHelper::swapUnderscoreDash( $input_field_name, 'reverse' );
+					$meta_key = uberPostFormatsHelper::swapUnderscoreDash( $input_field_name, 'reverse' );
 					// FIXME figure out how to sanitize dropdowns...
 					// get posted value and sanitize it
 					$new_meta_value = ( ! empty( $_POST[ $input_field_name ] ) ? sanitize_text_field( $_POST[ $input_field_name ] ) : '' );

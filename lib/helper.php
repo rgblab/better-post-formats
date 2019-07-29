@@ -1,10 +1,10 @@
 <?php
 
-if ( ! class_exists( 'UberPostFormatsHelper' ) ) {
+if ( ! class_exists( 'uberPostFormatsHelper' ) ) {
 	/**
-	 * class UberPostFormatsHelper
+	 * class uberPostFormatsHelper
 	 */
-	class UberPostFormatsHelper {
+	class uberPostFormatsHelper {
 		/**
 		 * is post format supported function
 		 * check if post format is supported by current theme
@@ -15,18 +15,17 @@ if ( ! class_exists( 'UberPostFormatsHelper' ) ) {
 		 * @since 1.0.0
 		 */
 		public static function isPostFormatSupported( $post_format ) {
-			// FIXME method must be as standalone function loaded on 'after_theme_setup' hook
+			if ( current_theme_supports( 'post-formats' ) ) {
+				$post_formats = get_theme_support( 'post-formats' );
 
-			// if ( current_theme_supports( 'post-formats' ) ) {
-			// 	$post_formats = get_theme_support( 'post-formats' );
-			//
-			// 	if ( is_array( $post_formats[0] ) ) {
-			// 		print_r( $post_formats[0] );
-			// 		// Array( supported_format_1, supported_format_2 ... )
-			// 	}
-			// }
+				if ( is_array( $post_formats[0] ) ) {
+					if ( in_array( $post_format, $post_formats[0] ) ) {
+						return true;
+					}
+				}
+			}
 
-			return true;
+			return false;
 		}
 
 		/**

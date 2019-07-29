@@ -1,7 +1,7 @@
 <?php
 
 $meta_key         = $meta_box_id;
-$input_field_attr = UberPostFormatsHelper::swapUnderscoreDash( $meta_key );
+$input_field_attr = uberPostFormatsHelper::swapUnderscoreDash( $meta_key );
 
 ?>
 
@@ -12,5 +12,5 @@ $input_field_attr = UberPostFormatsHelper::swapUnderscoreDash( $meta_key );
     </div>
 </div>
 <p>
-	<?php echo sprintf( '%1s <a href="https://wordpress.org/support/article/embeds/#okay-so-what-sites-can-i-embed-from" target="_blank">%2s %3s</a>', esc_html__( 'You can use all of these', 'upf' ), esc_html__( 'web sites', 'upf' ), UberPostFormatsHelper::getSVG( 'external-link' ) ); ?>
+	<?php echo sprintf( '%1s <a href="https://wordpress.org/support/article/embeds/#okay-so-what-sites-can-i-embed-from" target="_blank">%2s %3s</a>', esc_html__( 'You can use all of these', 'upf' ), esc_html__( 'web sites', 'upf' ), uberPostFormatsHelper::getSVG( 'external-link' ) ); ?>
 </p>

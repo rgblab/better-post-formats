@@ -1,3 +1,3 @@
 <?php
 
-new UberPostFormatsFramework( 'audio' );
+new uberPostFormatsFramework( 'audio' );
