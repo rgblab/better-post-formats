@@ -24,7 +24,7 @@ if ( ! class_exists( 'uberPostFormats' ) ) {
 		 *
 		 * get single instance of uberPostFormats class
 		 *
-		 * @return uberPostFormats
+		 * @return object uberPostFormats
 		 */
 		public static function getInstance() {
 			if ( ! ( self::$instance instanceof self ) ) {
@@ -35,7 +35,7 @@ if ( ! class_exists( 'uberPostFormats' ) ) {
 		}
 
 		/**
-		 * UberPostFormat constructor
+		 * uberPostFormats constructor
 		 */
 		public function __construct() {
 			add_action( 'plugins_loaded', array( $this, 'initPlugin' ) );
@@ -52,16 +52,24 @@ if ( ! class_exists( 'uberPostFormats' ) ) {
 			// include constants
 			require_once 'define.php';
 
-			// include libs
-			require_once UPF_ABS_PATH . '/lib/load.php';
+			// include helper
+			require_once UPF_ABS_PATH . '/lib/helper.php';
+
+			if ( is_admin() ) {
+				// include backend
+				require_once UPF_ABS_PATH . '/lib/backend.php';
+
+				// include admin scripts
+				// include admin styles
+			} else {
+				// include frontend
+				require_once UPF_ABS_PATH . '/lib/frontend.php';
+				// include scripts
+				// include styles
+			}
 
 			// include components
 			add_action( 'after_setup_theme', array( $this, 'includeComponents' ), 100 );
-
-			// include scripts
-			// include styles
-			// include admin scripts
-			// include admin styles
 
 			// textdomain
 			load_plugin_textdomain( 'upf', false, UPF_REL_PATH . '/languages' );
