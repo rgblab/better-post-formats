@@ -30,7 +30,7 @@ if ( ! class_exists( 'uberPostFormatsHelper' ) ) {
 
 		/**
 		 * get post formats function
-		 * get array of all post formats handled by plugin
+		 * get array of all post formats in current theme handled by plugin
 		 *
 		 * @return array
 		 * @since 1.0.0
@@ -48,6 +48,8 @@ if ( ! class_exists( 'uberPostFormatsHelper' ) ) {
 		 * @param array $post_formats - all post formats handled by plugin
 		 * @param string $post_format
 		 *
+		 * hooked on 'upf_set_post_format' filter
+		 *
 		 * @return array
 		 * @since 1.0.0
 		 */
@@ -58,24 +60,63 @@ if ( ! class_exists( 'uberPostFormatsHelper' ) ) {
 		}
 
 		/**
-		 * check featured media function
-		 * check if post has featured media or gif as featured image
+		 * set featured function
+		 * set output to true if post has featured image or media
+		 *
+		 * hooked on 'has_post_thumbnail' filter
 		 *
 		 * @return bool
 		 * @see has_post_thumbnail
 		 * @since 1.0.0
 		 */
-		public static function checkFeaturedMedia() {
-			// TODO check if current posts post format is handled by plugin
-			// TODO check if current post have featured media for saved post format
-			// TODO ckeck GIF for thumbnails if no featured media
+		public static function setFeatured() {
+			if ( self::checkFeaturedMedia() || self::checkFeaturedImage() ) {
+				return true;
+			} else {
+				return false;
+			}
+		}
 
-			return true;
+		/**
+		 * check featured image function
+		 * check if post has featured image
+		 * can't use 'has_post_thumbnail' function since we're modifying it via 'has_post_thumbnail' filter
+		 * we're using 'get_post_thumbnail_id' instead
+		 *
+		 * @return bool
+		 * @since 1.0.0
+		 */
+		public static function checkFeaturedImage() {
+			// return has_post_thumbnail( $post->ID );
+			return (bool) get_post_thumbnail_id();
+		}
+
+		/**
+		 * check featured media function
+		 * check if post has featured media meta
+		 *
+		 * @return bool
+		 * @since 1.0.0
+		 */
+		public static function checkFeaturedMedia() {
+			// get current post format
+			$post_format = get_post_format();
+
+			// if current post format is handled by plugin
+			if ( in_array( $post_format, self::getPostFormats() ) ) {
+				// if current post have featured media for current post format
+				if ( ! empty( get_post_meta( get_the_ID(), UPF_PREFIX . '_' . $post_format, true ) ) ) {
+					return true;
+				}
+			}
 		}
 
 		/**
 		 * get featured media function
-		 * filter themes post thumbnail output w/ plugins html
+		 * filter themes post thumbnail output w/ plugins html if post has featured media
+		 * otherwise return default wp generated output
+		 *
+		 * @param $html - default wp generated output
 		 *
 		 * hooked on 'post_thumbnail_html' filter
 		 *
@@ -83,30 +124,24 @@ if ( ! class_exists( 'uberPostFormatsHelper' ) ) {
 		 * @see get_the_post_thumbnail
 		 * @since 1.0.0
 		 */
-		public static function getFeaturedMedia() {
+		public static function getFeaturedMedia( $html ) {
 			global $post;
 
-			// TODO get current post format
-			$post_format = 'audio';
-			// TODO check if current posts post format is handled by plugin
-			// TODO check if current post have featured media for saved post format
-			// TODO ckeck GIF for thumbnails if no featured media, use full size image
-			// TODO $size = apply_filters( 'post_thumbnail_size', $size, $post->ID );
-			// TODO get original featured image before overriding it
-			$featured_image_url = get_the_post_thumbnail_url();
+			// get current post format
+			$post_format = get_post_format();
 
-			$params = array(
-				'featured_image_url' => $featured_image_url
-			);
+			// if current post have featured media for saved post format
+			if ( self::checkFeaturedMedia() ) {
+				$featured_image_url = get_the_post_thumbnail_url( null, 'full' );
 
-			$html = '';
+				$params = array(
+					'featured_image_url' => $featured_image_url
+				);
 
-			if ( $post_format === get_post_format( $post ) ) {
-				$html .= self::getComponentTemplate( $post_format, 'media', 'return', $params );
+				return self::getComponentTemplate( $post_format, 'media', 'return', $params );;
+			} else {
+				return $html;
 			}
-			$html .= '<h1>' . $post->ID . '</h1>';
-
-			return $html;
 		}
 
 		/**
@@ -189,7 +224,7 @@ if ( ! class_exists( 'uberPostFormatsHelper' ) ) {
 		 * convert underscore to dash or vice versa
 		 *
 		 * @param string $string
-		 * @param string $direction
+		 * @param string $direction - either empty or reverse
 		 *
 		 * @return string
 		 * @since 1.0.0
@@ -205,7 +240,7 @@ if ( ! class_exists( 'uberPostFormatsHelper' ) ) {
 		/**
 		 * get svg function
 		 *
-		 * @param $name
+		 * @param $name - name of svg image
 		 *
 		 * @return string
 		 * @since 1.0.0

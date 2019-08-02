@@ -36,8 +36,8 @@ if ( ! class_exists( 'uberPostFormatsBackend' ) ) {
 		/**
 		 * init function
 		 *
-		 * hooked on 'load-posts.php'
-		 * hooked on 'load-posts-new.php'
+		 * hooked on 'load-posts.php' action
+		 * hooked on 'load-posts-new.php' action
 		 *
 		 * @since 1.0.0
 		 */
@@ -52,7 +52,7 @@ if ( ! class_exists( 'uberPostFormatsBackend' ) ) {
 		/**
 		 * add meta box function
 		 *
-		 * hooked on 'add_meta_boxes'
+		 * hooked on 'add_meta_boxes' action
 		 *
 		 * @since 1.0.0
 		 */
@@ -90,7 +90,7 @@ if ( ! class_exists( 'uberPostFormatsBackend' ) ) {
 		 * save meta box value function
 		 * add, update or delete meta value for given meta key
 		 *
-		 * hooked on 'save_post'
+		 * hooked on 'save_post' action
 		 *
 		 * @param int $post_id
 		 * @param object $post
@@ -120,11 +120,10 @@ if ( ! class_exists( 'uberPostFormatsBackend' ) ) {
 			// loop through all posted keys
 			foreach ( $_POST as $input_field_name => $input_field_value ) {
 				// check if key starts with plugins prefix
+				// FIXME set prefix from constant
 				if ( preg_match( '/^upf/', $input_field_name ) ) {
 					// get posted key
 					$meta_key = uberPostFormatsHelper::swapUnderscoreDash( $input_field_name, 'reverse' );
-					// TODO figure out how to sanitize dropdowns...
-					// TODO maybe use filters to populate which input field is sanitized as dropdown
 					// get posted value and sanitize it
 					$new_meta_value = ( ! empty( $_POST[ $input_field_name ] ) ? sanitize_text_field( $_POST[ $input_field_name ] ) : '' );
 					// get last saved meta value

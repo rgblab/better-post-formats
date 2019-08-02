@@ -44,7 +44,7 @@ if ( ! class_exists( 'uberPostFormats' ) ) {
 		/**
 		 * init function
 		 *
-		 * hooked on 'plugins_loaded'
+		 * hooked on 'plugins_loaded' action
 		 *
 		 * @since 1.0.0
 		 */
@@ -78,7 +78,7 @@ if ( ! class_exists( 'uberPostFormats' ) ) {
 		/**
 		 * include components function
 		 *
-		 * hooked on 'after_setup_theme'
+		 * hooked on 'after_setup_theme' action
 		 *
 		 * @since 1.0.0
 		 */
