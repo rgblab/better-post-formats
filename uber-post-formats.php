@@ -57,7 +57,8 @@ if ( ! class_exists( 'uberPostFormats' ) ) {
 
 			if ( is_admin() ) {
 				// include backend
-				require_once UPF_ABS_PATH . '/lib/backend.php';
+				require_once UPF_ABS_PATH . '/lib/option.php';
+				require_once UPF_ABS_PATH . '/lib/meta.php';
 
 				// include admin scripts
 				// include admin styles
@@ -89,3 +90,12 @@ if ( ! class_exists( 'uberPostFormats' ) ) {
 }
 
 uberPostFormats::getInstance();
+
+function gallery_metabox_enqueue( $hook ) {
+	if ( 'post.php' == $hook || 'post-new.php' == $hook ) {
+		wp_enqueue_script( 'gallery-metabox', UPF_URL_PATH . '/components/gallery/assets/gallery-metabox.js', array(), false, true );
+		wp_enqueue_style( 'gallery-metabox', UPF_URL_PATH . '/components/gallery/assets/gallery-metabox.css' );
+	}
+}
+
+add_action( 'admin_enqueue_scripts', 'gallery_metabox_enqueue', 5 );

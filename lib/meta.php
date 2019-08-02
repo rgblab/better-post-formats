@@ -1,10 +1,10 @@
 <?php
 
-if ( ! class_exists( 'uberPostFormatsBackend' ) ) {
+if ( ! class_exists( 'uberPostFormatsMeta' ) ) {
 	/**
-	 * class uberPostFormatsBackend
+	 * class uberPostFormatsMeta
 	 */
-	class uberPostFormatsBackend {
+	class uberPostFormatsMeta {
 		// base var
 		private $post_format;
 
@@ -13,7 +13,7 @@ if ( ! class_exists( 'uberPostFormatsBackend' ) ) {
 		private $nonce;
 
 		/**
-		 * uberPostFormatsBackend constructor
+		 * uberPostFormatsMeta constructor
 		 *
 		 * @param string $post_format
 		 *

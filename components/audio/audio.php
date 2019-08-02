@@ -1,3 +1,3 @@
 <?php
 
-new uberPostFormatsBackend( 'audio' );
+new uberPostFormatsMeta( 'audio' );

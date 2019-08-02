@@ -12,6 +12,10 @@ if ( ! defined( 'UPF_REL_PATH' ) ) {
 	define( 'UPF_REL_PATH', dirname( plugin_basename( __FILE__ ) ) );
 }
 
+if ( ! defined( 'UPF_URL_PATH' ) ) {
+	define( 'UPF_URL_PATH', plugin_dir_url( __FILE__ ) );
+}
+
 if ( ! defined( 'UPF_PREFIX' ) ) {
 	define( 'UPF_PREFIX', 'upf' );
 }
