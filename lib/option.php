@@ -1,6 +1,7 @@
 <?php
 
 // TODO create proper object for options
+// TODO add options for slider: navigation, pagination, direction
 add_action( 'admin_menu', 'upf_add_admin_menu' );
 add_action( 'admin_init', 'upf_settings_init' );
 

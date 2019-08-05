@@ -9,7 +9,7 @@ if ( ! class_exists( 'uberPostFormatsMeta' ) ) {
 		private $post_format;
 
 		// additional vars
-		private $meta_box_id;
+		private $meta_key;
 		private $nonce;
 
 		/**
@@ -24,7 +24,7 @@ if ( ! class_exists( 'uberPostFormatsMeta' ) ) {
 			$this->post_format = $post_format;
 
 			// set additional vars
-			$this->meta_box_id = UPF_PREFIX . '_' . $this->post_format;
+			$this->meta_key = UPF_PREFIX . '_' . $this->post_format;
 			$this->nonce       = UPF_PREFIX . '_' . $this->post_format . '_nonce';
 
 			// init meta box on 'load-posts.php' hook
@@ -58,7 +58,7 @@ if ( ! class_exists( 'uberPostFormatsMeta' ) ) {
 		 */
 		public function add_meta_box() {
 			add_meta_box(
-				$this->meta_box_id, // meta box id
+				$this->meta_key, // meta box id
 				esc_html__( 'Featured Content', 'upf' ), // meta box title
 				array( $this, 'display_meta_box' ), // callback function to display meta box html
 				'post', // where to show meta box, admin page or post type
@@ -80,7 +80,7 @@ if ( ! class_exists( 'uberPostFormatsMeta' ) ) {
 
 			// get meta box html
 			$params = array(
-				'meta_box_id' => $this->meta_box_id,
+				'meta_key' => $this->meta_key,
 			);
 
 			uberPostFormatsHelper::getComponentTemplate( $this->post_format, 'meta-box', 'require', $params );
@@ -125,7 +125,7 @@ if ( ! class_exists( 'uberPostFormatsMeta' ) ) {
 					// get posted key
 					$meta_key = uberPostFormatsHelper::swapUnderscoreDash( $input_field_name, 'reverse' );
 					// get posted value and sanitize it
-					$new_meta_value = ( ! empty( $_POST[ $input_field_name ] ) ? sanitize_text_field( $_POST[ $input_field_name ] ) : '' );
+					$new_meta_value = ( ! empty( $_POST[ $input_field_name ] ) ? uberPostFormatsHelper::sanitizeInput( $_POST[ $input_field_name ] ) : '' );
 					// get last saved meta value
 					$meta_value = get_post_meta( $post_id, $meta_key, true );
 

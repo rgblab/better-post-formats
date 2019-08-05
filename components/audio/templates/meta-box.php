@@ -1,14 +1,13 @@
 <?php
 
-$meta_key         = $meta_box_id;
-$input_field_attr = uberPostFormatsHelper::swapUnderscoreDash( $meta_key );
+$input_field_attr = uberPostFormatsHelper::swapUnderscoreDash( $meta_key ); // upf-audio
 
 ?>
 
-<div class="components-base-control">
-    <div class="components-base-control__field">
-        <label class="components-base-control__label" for="<?php echo esc_attr( $input_field_attr ); ?>"><?php esc_html_e( 'Enter URL pointing to audio file or audio streaming provider', 'upf' ) ?></label>
-        <input class="components-base-control__input" type="text" name="<?php echo esc_attr( $input_field_attr ); ?>" id="<?php echo esc_attr( $input_field_attr ); ?>" value="<?php echo esc_attr( get_post_meta( $post->ID, $meta_key, true ) ); ?>">
+<div class="upf-control upf-control--text">
+    <div class="upf-control__field">
+        <label class="upf-control__label" for="<?php echo esc_attr( $input_field_attr ); ?>"><?php esc_html_e( 'Enter URL pointing to audio file or audio streaming provider', 'upf' ) ?></label>
+        <input class="upf-control__input" type="text" name="<?php echo esc_attr( $input_field_attr ); ?>" id="<?php echo esc_attr( $input_field_attr ); ?>" value="<?php echo esc_attr( get_post_meta( $post->ID, $meta_key, true ) ); ?>">
 
         <input type="text" name="<?php echo esc_attr( $input_field_attr . '-1' ); ?>" id="<?php echo esc_attr( $input_field_attr . '-1' ); ?>" value="<?php echo esc_attr( get_post_meta( $post->ID, $meta_key . '_1', true ) ); ?>">
 

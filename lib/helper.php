@@ -238,6 +238,27 @@ if ( ! class_exists( 'uberPostFormatsHelper' ) ) {
 		}
 
 		/**
+		 * sanitize input function
+		 * make sure input value is XSS OK before saving to database
+		 *
+		 * @param mixed $input
+		 *
+		 * @return mixed
+		 * @since 1.0.0
+		 */
+		public static function sanitizeInput( $input ) {
+			if ( is_array( $input ) ) {
+				foreach ( $input as $key => $value ) {
+					$input[ $key ] = sanitize_text_field( $value );
+				}
+
+				return $input;
+			} else {
+				return sanitize_text_field( $input );
+			}
+		}
+
+		/**
 		 * get svg function
 		 *
 		 * @param $name - name of svg image

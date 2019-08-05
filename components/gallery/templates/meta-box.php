@@ -1,9 +1,5 @@
 <?php
 
-$meta_key         = $meta_box_id;
-$input_field_attr = uberPostFormatsHelper::swapUnderscoreDash( $meta_key );
-
-// TODO use proper vars in template
 
 ?>
 
@@ -21,28 +17,42 @@ $input_field_attr = uberPostFormatsHelper::swapUnderscoreDash( $meta_key );
 <!--</p>-->
 
 
-<?php $ids = get_post_meta( $post->ID, 'vdw_gallery_id', true ); ?>
+<?php
 
-<table class="form-table">
-    <tr>
-        <td>
-            <a class="gallery-add button" href="#" data-uploader-title="Add image(s) to gallery" data-uploader-button-text="Add image(s)">Add
-                image(s)</a>
+$input_field_attr = uberPostFormatsHelper::swapUnderscoreDash( $meta_key );
+$ids              = get_post_meta( $post->ID, $meta_key, true );
 
-            <ul id="upf_gallery-list">
-				<?php if ( $ids ) : foreach ( $ids as $key => $value ) : $image = wp_get_attachment_image_src( $value ); ?>
+?>
 
-                    <li>
-                        <input type="hidden" name="vdw_gallery_id[<?php echo $key; ?>]" value="<?php echo $value; ?>">
-                        <img class="image-preview" src="<?php echo $image[0]; ?>">
-                        <a class="change-image button button-small" href="#" data-uploader-title="Change image" data-uploader-button-text="Change image">Change
-                            image</a><br>
-                        <small><a class="remove-image" href="#">Remove image</a></small>
-                    </li>
+<div class="upf-control upf-control--gallery">
+    <a class="upf-control__add" href="#" data-uploader-title="<?php esc_attr_e( 'Add images to gallery', 'upf' ); ?>" data-uploader-button-text="<?php esc_attr_e( 'Add images', 'upf' ); ?>"><?php esc_html_e( 'Add images', 'upf' ); ?></a>
+    <ul id="upf-control__gallery">
 
-				<?php endforeach; endif; ?>
-            </ul>
+		<?php
 
-        </td>
-    </tr>
-</table>
+		if ( $ids ) {
+			foreach ( $ids as $key => $value ) {
+				$image = wp_get_attachment_image_url( $value );
+
+				?>
+
+                <li>
+                    <input type="hidden" name="<?php echo esc_attr( $input_field_attr ); ?>[<?php echo esc_attr( $key ); ?>]" value="<?php echo esc_attr( $value ); ?>">
+                    <img alt="thumbnail" class="upf-control__image" src="<?php echo esc_url( $image ); ?>">
+                    <a class="upf-control__replace" href="#" data-uploader-title="<?php esc_attr_e( 'Replace image', 'upf' ); ?>" data-uploader-button-text="<?php esc_attr_e( 'Replace image', 'upf' ); ?>">
+                        <span class="dashicons dashicons-edit"></span>
+                    </a>
+                    <a class="upf-control__remove" href="#">
+                        <span class="dashicons dashicons-trash"></span>
+                    </a>
+                </li>
+
+				<?php
+
+			}
+		}
+
+		?>
+
+    </ul>
+</div>
