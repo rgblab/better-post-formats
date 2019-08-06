@@ -1,93 +1,121 @@
-// TODO use objects, train yourself :)))
+jQuery(function ($) {
+    'use strict';
 
-jQuery(document).ready(function ($) {
+    // var file_frame;
 
-    var file_frame;
+    $(document).ready(function () {
+        upfGallery.init();
 
-    $(document).on('click', '.upf-control__add', function (e) {
-
-
-        e.preventDefault();
-
-        if (file_frame) file_frame.close();
-
-        file_frame = wp.media.frames.file_frame = wp.media({
-            title: $(this).data('uploader-title'),
-            button: {
-                text: $(this).data('uploader-button-text'),
-            },
-            multiple: true
-        });
-
-        file_frame.on('select', function () {
-            var listIndex = $('#upf-control__gallery li').index($('#upf-control__gallery li:last')),
-                selection = file_frame.state().get('selection');
-
-            selection.map(function (attachment, i) {
-                attachment = attachment.toJSON(),
-                    index = listIndex + (i + 1);
-
-                $('#upf-control__gallery').append('<li><input type="hidden" name="upf-gallery[' + index + ']" value="' + attachment.id + '"><img class="upf-control__image" src="' + attachment.sizes.thumbnail.url + '"><a class="upf-control__replace" href="#" data-uploader-title="Replace image" data-uploader-button-text="Replace image"><span class="dashicons dashicons-edit"></span></a><a class="upf-control__remove" href="#"><span class="dashicons dashicons-trash"></span></a></li>');
-            });
-        });
-
-        makeSortable();
-
-        file_frame.open();
-
+        upfGallery.makeSortable();
     });
 
-    $(document).on('click', '.upf-control__replace', function (e) {
+    var upfGallery = {
+        init: function () {
+            var holder = $('.upf-control--gallery');
 
-        e.preventDefault();
+            if (holder.length) {
+                holder.each(function () {
+                    // add
+                    $(document).on('click', '.upf-control__add', function (event) {
+                        event.preventDefault();
 
-        var that = $(this);
+                        upfGallery.getMediaFrame($(this), true);
+                    });
 
-        if (file_frame) file_frame.close();
+                    // replace
+                    $(document).on('click', '.upf-control__replace', function (event) {
+                        event.preventDefault();
 
-        file_frame = wp.media.frames.file_frame = wp.media({
-            title: $(this).data('uploader-title'),
-            button: {
-                text: $(this).data('uploader-button-text'),
-            },
-            multiple: false
-        });
+                        upfGallery.getMediaFrame($(this), false);
+                    });
 
-        file_frame.on('select', function () {
-            attachment = file_frame.state().get('selection').first().toJSON();
+                    // remove
+                    $(document).on('click', '.upf-control__remove', function (event) {
+                        event.preventDefault();
 
-            that.parent().find('input:hidden').attr('value', attachment.id);
-            that.parent().find('img.upf-control__image').attr('src', attachment.sizes.thumbnail.url);
-        });
-
-        file_frame.open();
-
-    });
-
-    function resetIndex() {
-        $('#upf-control__gallery li').each(function (i) {
-            $(this).find('input:hidden').attr('name', 'upf-gallery[' + i + ']');
-        });
-    }
-
-    function makeSortable() {
-        $('#upf-control__gallery').sortable({
-            opacity: 0.6,
-            stop: function () {
-                resetIndex();
+                        upfGallery.removeItem($(this));
+                    });
+                });
             }
-        });
-    }
+        },
 
-    $(document).on('click', '.upf-control__remove', function (e) {
-        e.preventDefault();
+        getMediaFrame: function (button, multiple) {
+            var mediaFrame = '';
 
-        $(this).parents('li').animate({opacity: 0}, 200, function () {
-            $(this).remove();
-            resetIndex();
-        });
-    });
+            // if media frame already exist open it
+            if (mediaFrame) {
+                mediaFrame.open();
+            }
 
-    makeSortable();
+            // create media frame
+            mediaFrame = wp.media.frames.mediaFrame = wp.media({
+                title: button.data('uploader-title'),
+                button: {
+                    text: button.data('uploader-button-text'),
+                },
+                library: {
+                    type: 'image'
+                },
+                multiple: multiple,
+            });
 
+            // if add
+            if (button.hasClass('upf-control__add')) {
+                mediaFrame.on('select', function () {
+                    var listIndex = $('#upf-control__gallery li').index($('#upf-control__gallery li:last')), // last item index
+                        selection = mediaFrame.state().get('selection');
+
+                    selection.map(function (attachment, i) {
+                        var index = listIndex + (i + 1); // last item index plus one plus current selection in media frame index
+                        attachment = attachment.toJSON();
+
+                        // append markup as in meta box template
+                        $('#upf-control__gallery').append('<li><input type="hidden" name="upf-gallery[' + index + ']" value="' + attachment.id + '"><img class="upf-control__image" src="' + attachment.sizes.thumbnail.url + '"><a class="upf-control__replace" href="#" data-uploader-title="Replace image" data-uploader-button-text="Replace image"><span class="dashicons dashicons-edit"></span></a><a class="upf-control__remove" href="#"><span class="dashicons dashicons-trash"></span></a></li>');
+                    });
+                });
+
+                upfGallery.makeSortable();
+            }
+
+            // if replace
+            if (button.hasClass('upf-control__replace')) {
+                mediaFrame.on('select', function () {
+                    var attachment = mediaFrame.state().get('selection').first().toJSON();
+
+                    // replace value and preview image
+                    button.parent().find('input:hidden').attr('value', attachment.id);
+                    button.parent().find('.upf-control__image').attr('src', attachment.sizes.thumbnail.url);
+                });
+            }
+
+            mediaFrame.open();
+        },
+
+        removeItem: function (button) {
+            // get parent of clicked button and remove it
+            button.parents('li').fadeOut(400, function () {
+                $(this).remove();
+
+                upfGallery.resetIndex();
+            });
+        },
+
+        resetIndex: function () {
+            var i = '';
+
+            // rename in order of appearance
+            $('#upf-control__gallery li').each(function (i) {
+                $(this).find('input:hidden').attr('name', 'upf-gallery[' + i + ']');
+            });
+        },
+
+        makeSortable: function () {
+            $('#upf-control__gallery').sortable({
+                opacity: 0.6,
+                stop: function () {
+                    upfGallery.resetIndex();
+                }
+            });
+        },
+    };
 });

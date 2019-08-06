@@ -91,10 +91,16 @@ if ( ! class_exists( 'uberPostFormats' ) ) {
 
 uberPostFormats::getInstance();
 
+// TODO properly enqueue scripts
+// TODO set scripts for translation
+// @see https://make.wordpress.org/core/2018/11/09/new-javascript-i18n-support-in-wordpress/
+
 function gallery_metabox_enqueue( $hook ) {
 	if ( 'post.php' == $hook || 'post-new.php' == $hook ) {
-		wp_enqueue_script( 'gallery-metabox', UPF_URL_PATH . '/components/gallery/assets/gallery-metabox.js', array(), false, true );
-		wp_enqueue_style( 'gallery-metabox', UPF_URL_PATH . '/components/gallery/assets/gallery-metabox.css' );
+		wp_enqueue_script( 'upf-gallery-metabox', UPF_URL_PATH . '/components/gallery/assets/gallery-metabox.js', array(), false, true );
+		wp_enqueue_script( 'upf-common', UPF_URL_PATH . '/components/common/assets/common.js', array(), false, true );
+
+		wp_enqueue_style( 'upf-gallery-metabox', UPF_URL_PATH . '/components/gallery/assets/gallery-metabox.css' );
 	}
 }
 
