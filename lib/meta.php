@@ -25,7 +25,7 @@ if ( ! class_exists( 'uberPostFormatsMeta' ) ) {
 
 			// set additional vars
 			$this->meta_key = UPF_PREFIX . '_' . $this->post_format;
-			$this->nonce       = UPF_PREFIX . '_' . $this->post_format . '_nonce';
+			$this->nonce    = UPF_PREFIX . '_' . $this->post_format . '_nonce';
 
 			// init meta box on 'load-posts.php' hook
 			add_action( 'load-post.php', array( $this, 'init_meta_box' ) );
@@ -58,12 +58,12 @@ if ( ! class_exists( 'uberPostFormatsMeta' ) ) {
 		 */
 		public function add_meta_box() {
 			add_meta_box(
-				$this->meta_key, // meta box id
-				esc_html__( 'Featured Content', 'upf' ), // meta box title
-				array( $this, 'display_meta_box' ), // callback function to display meta box html
-				'post', // where to show meta box, admin page or post type
-				'side', // position of meta box
-				'default' // priority
+				$this->meta_key, // id
+				esc_html__( 'Featured Content', 'upf' ), // title
+				array( $this, 'display_meta_box' ), // callback, function to display meta box html
+				'post', // screen, where to show meta box
+				'side', // context, position of meta box
+				'low' // priority
 			);
 		}
 

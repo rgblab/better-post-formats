@@ -1,8 +1,6 @@
 jQuery(function ($) {
     'use strict';
 
-    // var file_frame;
-
     $(document).ready(function () {
         upfGallery.init();
 

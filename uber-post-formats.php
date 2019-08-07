@@ -60,8 +60,8 @@ if ( ! class_exists( 'uberPostFormats' ) ) {
 				require_once UPF_ABS_PATH . '/lib/option.php';
 				require_once UPF_ABS_PATH . '/lib/meta.php';
 
-				// include admin scripts
-				// include admin styles
+				// include backend assets
+				add_action( 'admin_enqueue_scripts', array( $this, 'enqueueBackendAssets' ), 5 );
 			} else {
 				// include frontend
 				require_once UPF_ABS_PATH . '/lib/frontend.php';
@@ -86,6 +86,13 @@ if ( ! class_exists( 'uberPostFormats' ) ) {
 		public function includeComponents() {
 			require_once UPF_ABS_PATH . '/components/load.php';
 		}
+
+		public function enqueueBackendAssets( $hook ) {
+			if ( 'post.php' == $hook || 'post-new.php' == $hook ) {
+				wp_enqueue_script( 'upf-backend', UPF_URL_PATH . '/assets/backend.js', array(), false, true );
+				wp_enqueue_style( 'upf-backend', UPF_URL_PATH . '/assets/backend.css' );
+			}
+		}
 	}
 }
 
@@ -94,14 +101,3 @@ uberPostFormats::getInstance();
 // TODO properly enqueue scripts
 // TODO set scripts for translation
 // @see https://make.wordpress.org/core/2018/11/09/new-javascript-i18n-support-in-wordpress/
-
-function gallery_metabox_enqueue( $hook ) {
-	if ( 'post.php' == $hook || 'post-new.php' == $hook ) {
-		wp_enqueue_script( 'upf-gallery-metabox', UPF_URL_PATH . '/components/gallery/assets/gallery-metabox.js', array(), false, true );
-		wp_enqueue_script( 'upf-common', UPF_URL_PATH . '/components/common/assets/common.js', array(), false, true );
-
-		wp_enqueue_style( 'upf-gallery-metabox', UPF_URL_PATH . '/components/gallery/assets/gallery-metabox.css' );
-	}
-}
-
-add_action( 'admin_enqueue_scripts', 'gallery_metabox_enqueue', 5 );
