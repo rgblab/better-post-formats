@@ -3,7 +3,6 @@ jQuery(function ($) {
 
     $(document).ready(function () {
         upfGallery.init();
-
         upfGallery.makeSortable();
     });
 
@@ -60,7 +59,7 @@ jQuery(function ($) {
             // if add
             if (button.hasClass('upf-control__add')) {
                 mediaFrame.on('select', function () {
-                    var listIndex = $('#upf-control__gallery li').index($('#upf-control__gallery li:last')), // last item index
+                    var listIndex = $('.upf-control__gallery li').index($('.upf-control__gallery li:last')), // last item index
                         selection = mediaFrame.state().get('selection');
 
                     selection.map(function (attachment, i) {
@@ -68,7 +67,7 @@ jQuery(function ($) {
                         attachment = attachment.toJSON();
 
                         // append markup as in meta box template
-                        $('#upf-control__gallery').append('<li><input type="hidden" name="upf-gallery[' + index + ']" value="' + attachment.id + '"><img class="upf-control__image" src="' + attachment.sizes.thumbnail.url + '"><a class="upf-control__replace" href="#" data-uploader-title="Replace image" data-uploader-button-text="Replace image"><span class="dashicons dashicons-edit"></span></a><a class="upf-control__remove" href="#"><span class="dashicons dashicons-trash"></span></a></li>');
+                        $('.upf-control__gallery').append('<li><input type="hidden" name="upf-gallery[' + index + ']" value="' + attachment.id + '"><img class="upf-control__image" src="' + attachment.sizes.thumbnail.url + '"><a class="upf-control__replace" href="#" data-uploader-title="Replace image" data-uploader-button-text="Replace image"><span class="dashicons dashicons-edit"></span></a><a class="upf-control__remove" href="#"><span class="dashicons dashicons-trash"></span></a></li>');
                     });
                 });
 
@@ -102,13 +101,13 @@ jQuery(function ($) {
             var i = '';
 
             // rename in order of appearance
-            $('#upf-control__gallery li').each(function (i) {
+            $('.upf-control__gallery li').each(function (i) {
                 $(this).find('input:hidden').attr('name', 'upf-gallery[' + i + ']');
             });
         },
 
         makeSortable: function () {
-            $('#upf-control__gallery').sortable({
+            $('.upf-control__gallery').sortable({
                 opacity: 0.6,
                 stop: function () {
                     upfGallery.resetIndex();

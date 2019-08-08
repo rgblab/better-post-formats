@@ -1,0 +1,14 @@
+@import "../../common/assets/common.scss";
+
+.upf-control {
+    margin: $backend-distance--large 0 0 0;
+
+    &__text {
+        margin: 0 0 $backend-distance--large 0;
+    }
+
+    &__label {
+        display: block;
+        margin: 0 0 $backend-distance--small 0;
+    }
+}

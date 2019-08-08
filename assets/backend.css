@@ -1,0 +1,171 @@
+{"version":3,"sources":["components/common/assets/common-backend.scss","components/common/assets/common-backend.css"],"names":[],"mappings":"AAEA;EACI,kBAAsC;ACD1C;;ADGI;EACI,kBAAsC;ACA9C;;ADGI;EACI,cAAc;EACd,iBAAsC;ACA9C","file":"common-backend.css","sourcesContent":["@import \"../../common/assets/common.scss\";\r\n\r\n.upf-control {\r\n    margin: $backend-distance--large 0 0 0;\r\n\r\n    &__text {\r\n        margin: 0 0 $backend-distance--large 0;\r\n    }\r\n\r\n    &__label {\r\n        display: block;\r\n        margin: 0 0 $backend-distance--small 0;\r\n    }\r\n}",".upf-control {\n  margin: 12px 0 0 0;\n}\n\n.upf-control__text {\n  margin: 0 0 12px 0;\n}\n\n.upf-control__label {\n  display: block;\n  margin: 0 0 6px 0;\n}\n"]}
+.upf-control {
+  margin: 12px 0 0 0;
+}
+
+.upf-control__text {
+  margin: 0 0 12px 0;
+}
+
+.upf-control__label {
+  display: block;
+  margin: 0 0 6px 0;
+}
+
+/*# sourceMappingURL=common-backend.css.map */
+
+{"version":3,"sources":["components/gallery/assets/gallery-backend.scss","components/gallery/assets/gallery-backend.css","components/common/assets/_common.scss"],"names":[],"mappings":"AAKI;EACI,aAAa;EACb,eAAe;EACf,8BAA8B;EAE9B,mBAA6D;ACLrE;;ADAK;EAQO,cAAc;EACd,iBAAsC;EACtC,kBAAkB;EAClB,uCAA+D;ACJ3E;;ADPK;EAee,UAAU;ACJ9B;;ADXK;;EAoBe,mBAAmB;ACJvC;;ADhBK;EA2BW,YAAY;ACP5B;;ADYI;EACI,4BAAiD;ACTzD;;ADYI;EACI,YAAY;EACZ,cAAc;EACd,eAAe;EACf,kBAAkB;ACT1B;;ADYI;EAEI,8BAA8B;EAC9B,yBAAyB;EACzB,kBAAkB;EAClB,sBAAsB;EACtB,YEjDW;EFkDX,kBAAkB;EAClB,qBAAqB;EACrB,QElDiB;EFmDjB,kBAAkB;EAClB,WEtDW;AD4CnB;;ADDK;EAcO,cAAc;EACd,eAAe;EACf,YE1D0B;EF2D1B,iBE3D0B;EF4D1B,WE5D0B;ADmDtC;;ADaI;EACI,WAAiD;ACVzD;;ADaI;EACI,UEpEiB;AD0DzB","file":"gallery-backend.css","sourcesContent":["// TODO controll buttons on images visible on hover\r\n// TODO check cursor, should be drag over image but pointer over buttons\r\n@import \"../../common/assets/common.scss\";\r\n\r\n.upf-control {\r\n    &__gallery {\r\n        display: flex;\r\n        flex-wrap: wrap;\r\n        justify-content: space-between;\r\n        //margin: $backend-distance--small 0 0 0;\r\n        margin: $backend-distance--small 0 $backend-distance--small 0;\r\n\r\n        li {\r\n            display: block;\r\n            margin: $backend-distance--small 0 0 0;\r\n            position: relative;\r\n            width: calc((100% / 3) - (#{$backend-distance--small} * 2 / 3));\r\n\r\n            &:hover {\r\n                .upf-control__image {\r\n                    opacity: 1;\r\n                }\r\n\r\n                .upf-control__replace,\r\n                .upf-control__remove {\r\n                    visibility: visible;\r\n                }\r\n            }\r\n        }\r\n\r\n        &:hover {\r\n            .upf-control__image {\r\n                opacity: 0.8;\r\n            }\r\n        }\r\n    }\r\n\r\n    &__add {\r\n        margin: $backend-distance--small 0 0 0 !important; // to override default wp button margin\r\n    }\r\n\r\n    &__image {\r\n        cursor: move;\r\n        display: block;\r\n        max-width: 100%;\r\n        position: relative;\r\n    }\r\n\r\n    &__replace,\r\n    &__remove {\r\n        background-color: currentColor;\r\n        border: 1px solid #ffffff;\r\n        border-radius: 50%;\r\n        box-sizing: border-box;\r\n        height: $backend-icon;\r\n        position: absolute;\r\n        text-decoration: none;\r\n        top: $backend-icon-offset;\r\n        visibility: hidden;\r\n        width: $backend-icon;\r\n\r\n        .dashicons {\r\n            color: #ffffff;\r\n            font-size: 13px;\r\n            height: $backend-icon-inner;\r\n            line-height: $backend-icon-inner;\r\n            width: $backend-icon-inner;\r\n        }\r\n    }\r\n\r\n    &__replace {\r\n        right: $backend-icon + ($backend-icon-offset * 2);\r\n    }\r\n\r\n    &__remove {\r\n        right: $backend-icon-offset;\r\n    }\r\n}",".upf-control__gallery {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-between;\n  margin: 6px 0 6px 0;\n}\n\n.upf-control__gallery li {\n  display: block;\n  margin: 6px 0 0 0;\n  position: relative;\n  width: calc((100% / 3) - (6px * 2 / 3));\n}\n\n.upf-control__gallery li:hover .upf-control__image {\n  opacity: 1;\n}\n\n.upf-control__gallery li:hover .upf-control__replace,\n.upf-control__gallery li:hover .upf-control__remove {\n  visibility: visible;\n}\n\n.upf-control__gallery:hover .upf-control__image {\n  opacity: 0.8;\n}\n\n.upf-control__add {\n  margin: 6px 0 0 0 !important;\n}\n\n.upf-control__image {\n  cursor: move;\n  display: block;\n  max-width: 100%;\n  position: relative;\n}\n\n.upf-control__replace, .upf-control__remove {\n  background-color: currentColor;\n  border: 1px solid #ffffff;\n  border-radius: 50%;\n  box-sizing: border-box;\n  height: 20px;\n  position: absolute;\n  text-decoration: none;\n  top: 3px;\n  visibility: hidden;\n  width: 20px;\n}\n\n.upf-control__replace .dashicons, .upf-control__remove .dashicons {\n  color: #ffffff;\n  font-size: 13px;\n  height: 18px;\n  line-height: 18px;\n  width: 18px;\n}\n\n.upf-control__replace {\n  right: 26px;\n}\n\n.upf-control__remove {\n  right: 3px;\n}\n","// variables\r\n$backend-distance: 12px;\r\n$backend-distance--large: $backend-distance;\r\n$backend-distance--small: $backend-distance--large / 2;\r\n\r\n$backend-icon: 20px;\r\n$backend-icon-inner: $backend-icon - 2;\r\n$backend-icon-offset: 3px;\r\n\r\n// mixins\r\n//@mixin upfClearfix() {\r\n//    &:after {\r\n//        clear: both;\r\n//        content: '';\r\n//        display: table;\r\n//    }\r\n//}"]}
+.upf-control__gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 6px 0 6px 0;
+}
+
+.upf-control__gallery li {
+  display: block;
+  margin: 6px 0 0 0;
+  position: relative;
+  width: calc((100% / 3) - (6px * 2 / 3));
+}
+
+.upf-control__gallery li:hover .upf-control__image {
+  opacity: 1;
+}
+
+.upf-control__gallery li:hover .upf-control__replace,
+.upf-control__gallery li:hover .upf-control__remove {
+  visibility: visible;
+}
+
+.upf-control__gallery:hover .upf-control__image {
+  opacity: 0.8;
+}
+
+.upf-control__add {
+  margin: 6px 0 0 0 !important;
+}
+
+.upf-control__image {
+  cursor: move;
+  display: block;
+  max-width: 100%;
+  position: relative;
+}
+
+.upf-control__replace, .upf-control__remove {
+  background-color: currentColor;
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+  box-sizing: border-box;
+  height: 20px;
+  position: absolute;
+  text-decoration: none;
+  top: 3px;
+  visibility: hidden;
+  width: 20px;
+}
+
+.upf-control__replace .dashicons, .upf-control__remove .dashicons {
+  color: #ffffff;
+  font-size: 13px;
+  height: 18px;
+  line-height: 18px;
+  width: 18px;
+}
+
+.upf-control__replace {
+  right: 26px;
+}
+
+.upf-control__remove {
+  right: 3px;
+}
+
+/*# sourceMappingURL=gallery-backend.css.map */
+
+.upf-control {
+  margin: 12px 0 0 0;
+}
+
+.upf-control__text {
+  margin: 0 0 12px 0;
+}
+
+.upf-control__label {
+  display: block;
+  margin: 0 0 6px 0;
+}
+
+/*# sourceMappingURL=common-backend.css.map */
+
+.upf-control__gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 6px 0 6px 0;
+}
+
+.upf-control__gallery li {
+  display: block;
+  margin: 6px 0 0 0;
+  position: relative;
+  width: calc((100% / 3) - (6px * 2 / 3));
+}
+
+.upf-control__gallery li:hover .upf-control__image {
+  opacity: 1;
+}
+
+.upf-control__gallery li:hover .upf-control__replace,
+.upf-control__gallery li:hover .upf-control__remove {
+  visibility: visible;
+}
+
+.upf-control__gallery:hover .upf-control__image {
+  opacity: 0.8;
+}
+
+.upf-control__add {
+  margin: 6px 0 0 0 !important;
+}
+
+.upf-control__image {
+  cursor: move;
+  display: block;
+  max-width: 100%;
+  position: relative;
+}
+
+.upf-control__replace, .upf-control__remove {
+  background-color: currentColor;
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+  box-sizing: border-box;
+  height: 20px;
+  position: absolute;
+  text-decoration: none;
+  top: 3px;
+  visibility: hidden;
+  width: 20px;
+}
+
+.upf-control__replace .dashicons, .upf-control__remove .dashicons {
+  color: #ffffff !important;
+  font-size: 13px;
+  height: 18px;
+  line-height: 18px;
+  width: 18px;
+}
+
+.upf-control__replace {
+  right: 26px;
+}
+
+.upf-control__remove {
+  right: 3px;
+}
+
+/*# sourceMappingURL=gallery-backend.css.map */
+
+/*# sourceMappingURL=backend.css.map */

@@ -1,0 +1,17 @@
+// variables
+$backend-distance: 12px;
+$backend-distance--large: $backend-distance;
+$backend-distance--small: $backend-distance--large / 2;
+
+$backend-icon: 20px;
+$backend-icon-inner: $backend-icon - 2;
+$backend-icon-offset: 3px;
+
+// mixins
+//@mixin upfClearfix() {
+//    &:after {
+//        clear: both;
+//        content: '';
+//        display: table;
+//    }
+//}

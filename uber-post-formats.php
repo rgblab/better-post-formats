@@ -89,8 +89,8 @@ if ( ! class_exists( 'uberPostFormats' ) ) {
 
 		public function enqueueBackendAssets( $hook ) {
 			if ( 'post.php' == $hook || 'post-new.php' == $hook ) {
-				wp_enqueue_script( 'upf-backend', UPF_URL_PATH . '/assets/backend.js', array(), false, true );
-				wp_enqueue_style( 'upf-backend', UPF_URL_PATH . '/assets/backend.css' );
+				wp_enqueue_script( 'upf-backend', UPF_URL_PATH . 'assets/backend.min.js', array(), false, true );
+				wp_enqueue_style( 'upf-backend', UPF_URL_PATH . 'assets/backend.min.css' );
 			}
 		}
 	}
