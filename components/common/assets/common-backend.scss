@@ -1,14 +1,32 @@
-@import "../../common/assets/common.scss";
+// import mixins and variables
+@import '../../common/assets/_common.scss';
 
 .upf-control {
     margin: $backend-distance--large 0 0 0;
 
-    &__text {
+    &__text,
+    &__textarea {
         margin: 0 0 $backend-distance--large 0;
     }
 
     &__label {
         display: block;
         margin: 0 0 $backend-distance--small 0;
+    }
+
+    &__text,
+    &__textarea,
+    &__select {
+        &-field {
+            margin: 0;
+            width: 100%;
+        }
+    }
+}
+
+// select fix for gutenberg
+.block-editor__container {
+    .upf-control__select-field {
+        width: calc(100% - 6px); // reduce width for padding and border, can't use box sizing
     }
 }

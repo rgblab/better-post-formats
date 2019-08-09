@@ -1,20 +1,18 @@
-// TODO controll buttons on images visible on hover
-// TODO check cursor, should be drag over image but pointer over buttons
-@import "../../common/assets/common.scss";
+// import mixins and variables
+@import '../../common/assets/_common.scss';
 
 .upf-control {
     &__gallery {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        //margin: $backend-distance--small 0 0 0;
-        margin: $backend-distance--small 0 $backend-distance--small 0;
+        margin: $backend-distance--small -#{$backend-distance--small} $backend-distance--small 0;
+
+        @include upfClearfix();
 
         li {
             display: block;
-            margin: $backend-distance--small 0 0 0;
+            float: left;
+            margin: $backend-distance--small $backend-distance--small 0 0;
             position: relative;
-            width: calc((100% / 3) - (#{$backend-distance--small} * 2 / 3));
+            width: calc((100% / 3) - #{$backend-distance--small});
 
             &:hover {
                 .upf-control__image {

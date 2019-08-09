@@ -1,15 +1,19 @@
 .upf-control__gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 6px 0 6px 0;
+  margin: 6px -6px 6px 0;
+}
+
+.upf-control__gallery:after {
+  clear: both;
+  content: '';
+  display: table;
 }
 
 .upf-control__gallery li {
   display: block;
-  margin: 6px 0 0 0;
+  float: left;
+  margin: 6px 6px 0 0;
   position: relative;
-  width: calc((100% / 3) - (6px * 2 / 3));
+  width: calc((100% / 3) - 6px);
 }
 
 .upf-control__gallery li:hover .upf-control__image {

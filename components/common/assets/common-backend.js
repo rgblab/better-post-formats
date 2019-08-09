@@ -1,17 +1,17 @@
 jQuery(function ($) {
     'use strict';
 
-    $(window).load(function () {
-        //
-        console.log('load 1');
-        //
-
+    $(document).ready(function () {
         upfDependency.init();
     });
 
-    // $(document).ready(function () {
-    //     upfDependency.init();
-    // });
+    $(window).load(function () {
+        // test begin
+        console.log('load 5');
+        // test end
+
+        upfDependency.init();
+    });
 
     var upfDependency = {
         init: function () {
@@ -31,10 +31,6 @@ jQuery(function ($) {
 
         gutenbergEditorHandler: function (holder) {
             holder.find('option').each(function () {
-                //
-                console.log('gutenberg 1');
-                //
-
                 // show if selected
                 if ($(this).is(':selected')) {
                     upfDependency.setMetaBoxVisibility('show', $(this).val());

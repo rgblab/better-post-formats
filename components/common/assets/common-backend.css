@@ -2,13 +2,22 @@
   margin: 12px 0 0 0;
 }
 
-.upf-control__text {
+.upf-control__text, .upf-control__textarea {
   margin: 0 0 12px 0;
 }
 
 .upf-control__label {
   display: block;
   margin: 0 0 6px 0;
+}
+
+.upf-control__text-field, .upf-control__textarea-field, .upf-control__select-field {
+  margin: 0;
+  width: 100%;
+}
+
+.block-editor__container .upf-control__select-field {
+  width: calc(100% - 6px);
 }
 
 /*# sourceMappingURL=common-backend.css.map */

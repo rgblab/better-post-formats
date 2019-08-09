@@ -1,6 +1,6 @@
 <?php
 
-$input_field_attr = uberPostFormatsHelper::swapUnderscoreDash( $meta_key );
+$input_field_attr = uberPostFormatsHelper::swapUnderscoreDash( $meta_key ); // upf-gallery
 $ids              = get_post_meta( $post->ID, $meta_key, true );
 
 ?>
