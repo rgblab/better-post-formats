@@ -56,17 +56,18 @@ if ( ! class_exists( 'uberPostFormats' ) ) {
 			require_once UPF_ABS_PATH . '/lib/helper.php';
 
 			if ( is_admin() ) {
-				// include backend
+				// include backend logic
 				require_once UPF_ABS_PATH . '/lib/option.php';
 				require_once UPF_ABS_PATH . '/lib/meta.php';
 
 				// include backend assets
 				add_action( 'admin_enqueue_scripts', array( $this, 'enqueueBackendAssets' ), 5 );
 			} else {
-				// include frontend
+				// include frontend logic
 				require_once UPF_ABS_PATH . '/lib/frontend.php';
-				// include scripts
-				// include styles
+
+				// include frontend assets
+				add_action( 'wp_enqueue_scripts', array( $this, 'enqueueFrontendAssets' ) );
 			}
 
 			// include components
@@ -90,14 +91,20 @@ if ( ! class_exists( 'uberPostFormats' ) ) {
 		public function enqueueBackendAssets( $hook ) {
 			if ( 'post.php' == $hook || 'post-new.php' == $hook ) {
 				wp_enqueue_script( 'upf-backend', UPF_URL_PATH . 'assets/backend.min.js', array(), false, true );
+			}
+			if ( 'edit.php' == $hook || 'post.php' == $hook || 'post-new.php' == $hook ) {
 				wp_enqueue_style( 'upf-backend', UPF_URL_PATH . 'assets/backend.min.css' );
 			}
+		}
+
+		public function enqueueFrontendAssets() {
+			wp_enqueue_script( 'upf-frontend', UPF_URL_PATH . 'assets/frontend.min.js', array(), false, true );
+			wp_enqueue_style( 'upf-frontend', UPF_URL_PATH . 'assets/frontend.min.css' );
 		}
 	}
 }
 
 uberPostFormats::getInstance();
 
-// TODO properly enqueue scripts
 // TODO set scripts for translation
 // @see https://make.wordpress.org/core/2018/11/09/new-javascript-i18n-support-in-wordpress/

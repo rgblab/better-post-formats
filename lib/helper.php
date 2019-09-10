@@ -99,6 +99,8 @@ if ( ! class_exists( 'uberPostFormatsHelper' ) ) {
 		 * @since 1.0.0
 		 */
 		public static function checkFeaturedMedia() {
+			// TODO check future global option is enabled on list or single
+
 			// get current post format
 			$post_format = get_post_format();
 
@@ -132,9 +134,10 @@ if ( ! class_exists( 'uberPostFormatsHelper' ) ) {
 
 			// if current post have featured media for saved post format
 			if ( self::checkFeaturedMedia() ) {
-				$featured_image_url = get_the_post_thumbnail_url( null, 'full' );
+				$featured_image_url = get_the_post_thumbnail_url( $post->ID, 'full' );
 
 				$params = array(
+					'meta_key'           => UPF_PREFIX . '_' . $post_format,
 					'featured_image_url' => $featured_image_url
 				);
 

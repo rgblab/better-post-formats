@@ -15,3 +15,8 @@ $backend-icon-offset: 3px;
         display: table;
     }
 }
+
+@mixin upfDisplayBlock() {
+    display: block;
+    width: 100%;
+}

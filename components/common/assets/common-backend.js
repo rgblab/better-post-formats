@@ -6,10 +6,6 @@ jQuery(function ($) {
     });
 
     $(window).load(function () {
-        // test begin
-        console.log('load 5');
-        // test end
-
         upfDependency.init();
     });
 

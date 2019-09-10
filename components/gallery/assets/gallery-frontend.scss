@@ -1,2 +1,26 @@
 // import mixins and variables
 @import '../../common/assets/common.scss';
+
+.upf-content {
+    &--gallery {
+        position: relative;
+    }
+
+    &__gallery-image {
+        display: block;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+        width: 100%;
+
+        &:not(:first-child) {
+            left: 0;
+            position: absolute;
+            top: 0;
+        }
+
+        &.active {
+            opacity: 1;
+        }
+    }
+}
+

@@ -6,13 +6,8 @@ jQuery(function ($) {
     });
 
     $(window).load(function () {
-        // test begin
-        console.log('load 5');
-        // test end
-
         upfDependency.init();
     });
-
 
     var upfDependency = {
         init: function () {
@@ -93,21 +88,21 @@ jQuery(function ($) {
                     // add
                     $(document).on('click', '.upf-control__add', function (event) {
                         event.preventDefault();
-
+                        // call media frame handler
                         upfGallery.getMediaFrame($(this), true);
                     });
 
                     // replace
                     $(document).on('click', '.upf-control__replace', function (event) {
                         event.preventDefault();
-
+                        // call media frame handler
                         upfGallery.getMediaFrame($(this), false);
                     });
 
                     // remove
                     $(document).on('click', '.upf-control__remove', function (event) {
                         event.preventDefault();
-
+                        // call remove item handler
                         upfGallery.removeItem($(this));
                     });
                 });

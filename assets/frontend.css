@@ -1,0 +1,117 @@
+{"version":3,"sources":["components/audio/assets/audio-frontend.scss","components/common/assets/_common.scss","components/audio/assets/audio-frontend.css"],"names":[],"mappings":"AAGA;ECgBI,cAAc;EACd,WAAW;ACjBf","file":"audio-frontend.css","sourcesContent":["// import mixins and variables\r\n@import '../../common/assets/common.scss';\r\n\r\naudio {\r\n    @include upfDisplayBlock();\r\n}","// variables\r\n$backend-distance: 12px;\r\n$backend-distance--large: $backend-distance;\r\n$backend-distance--small: $backend-distance--large / 2;\r\n\r\n$backend-icon: 20px;\r\n$backend-icon-inner: $backend-icon - 2;\r\n$backend-icon-offset: 3px;\r\n\r\n// mixins\r\n@mixin upfClearfix() {\r\n    &:after {\r\n        clear: both;\r\n        content: '';\r\n        display: table;\r\n    }\r\n}\r\n\r\n@mixin upfDisplayBlock() {\r\n    display: block;\r\n    width: 100%;\r\n}","audio {\n  display: block;\n  width: 100%;\n}\n"]}
+audio {
+  display: block;
+  width: 100%;
+}
+
+/*# sourceMappingURL=audio-frontend.css.map */
+
+{"version":3,"sources":["components/common/assets/common-frontend.scss","components/common/assets/common-frontend.css"],"names":[],"mappings":"AAGA;EAEQ,cAAc;EACd,SAAS;EACT,WAAW;ACHnB;;ADMI;EACI,cAAc;ACHtB","file":"common-frontend.css","sourcesContent":["// import mixins and variables\r\n@import '../../common/assets/common.scss';\r\n\r\n.upf-content {\r\n    iframe {\r\n        display: block;\r\n        margin: 0;\r\n        width: 100%;\r\n    }\r\n\r\n    &__image {\r\n        display: block;\r\n    }\r\n}",".upf-content iframe {\n  display: block;\n  margin: 0;\n  width: 100%;\n}\n\n.upf-content__image {\n  display: block;\n}\n"]}
+.upf-content iframe {
+  display: block;
+  margin: 0;
+  width: 100%;
+}
+
+.upf-content__image {
+  display: block;
+}
+
+/*# sourceMappingURL=common-frontend.css.map */
+
+{"version":3,"sources":["components/gallery/assets/gallery-frontend.scss","components/gallery/assets/gallery-frontend.css"],"names":[],"mappings":"AAII;EACI,kBAAkB;ACH1B;;ADMI;EACI,cAAc;EACd,UAAU;EACV,kCAAkC;EAClC,WAAW;ACHnB;;ADDK;EAOO,OAAO;EACP,kBAAkB;EAClB,MAAM;ACFlB;;ADPK;EAaO,UAAU;ACFtB","file":"gallery-frontend.css","sourcesContent":["// import mixins and variables\r\n@import '../../common/assets/common.scss';\r\n\r\n.upf-content {\r\n    &--gallery {\r\n        position: relative;\r\n    }\r\n\r\n    &__gallery-image {\r\n        display: block;\r\n        opacity: 0;\r\n        transition: opacity 1s ease-in-out;\r\n        width: 100%;\r\n\r\n        &:not(:first-child) {\r\n            left: 0;\r\n            position: absolute;\r\n            top: 0;\r\n        }\r\n\r\n        &.active {\r\n            opacity: 1;\r\n        }\r\n    }\r\n}\r\n\r\n",".upf-content--gallery {\n  position: relative;\n}\n\n.upf-content__gallery-image {\n  display: block;\n  opacity: 0;\n  transition: opacity 1s ease-in-out;\n  width: 100%;\n}\n\n.upf-content__gallery-image:not(:first-child) {\n  left: 0;\n  position: absolute;\n  top: 0;\n}\n\n.upf-content__gallery-image.active {\n  opacity: 1;\n}\n"]}
+.upf-content--gallery {
+  position: relative;
+}
+
+.upf-content__gallery-image {
+  display: block;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  width: 100%;
+}
+
+.upf-content__gallery-image:not(:first-child) {
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+.upf-content__gallery-image.active {
+  opacity: 1;
+}
+
+/*# sourceMappingURL=gallery-frontend.css.map */
+
+{"version":3,"sources":[],"names":[],"mappings":"","file":"link-frontend.css","sourcesContent":[]}
+
+/*# sourceMappingURL=link-frontend.css.map */
+
+{"version":3,"sources":[],"names":[],"mappings":"","file":"quote-frontend.css","sourcesContent":[]}
+
+/*# sourceMappingURL=quote-frontend.css.map */
+
+{"version":3,"sources":["components/video/assets/video-frontend.scss","components/common/assets/_common.scss","components/video/assets/video-frontend.css"],"names":[],"mappings":"AAGA;ECgBI,cAAc;EACd,WAAW;ACjBf","file":"video-frontend.css","sourcesContent":["// import mixins and variables\r\n@import '../../common/assets/_common.scss';\r\n\r\nvideo {\r\n    @include upfDisplayBlock();\r\n}","// variables\r\n$backend-distance: 12px;\r\n$backend-distance--large: $backend-distance;\r\n$backend-distance--small: $backend-distance--large / 2;\r\n\r\n$backend-icon: 20px;\r\n$backend-icon-inner: $backend-icon - 2;\r\n$backend-icon-offset: 3px;\r\n\r\n// mixins\r\n@mixin upfClearfix() {\r\n    &:after {\r\n        clear: both;\r\n        content: '';\r\n        display: table;\r\n    }\r\n}\r\n\r\n@mixin upfDisplayBlock() {\r\n    display: block;\r\n    width: 100%;\r\n}","video {\n  display: block;\n  width: 100%;\n}\n"]}
+video {
+  display: block;
+  width: 100%;
+}
+
+/*# sourceMappingURL=video-frontend.css.map */
+
+audio {
+  display: block;
+  width: 100%;
+}
+
+/*# sourceMappingURL=audio-frontend.css.map */
+
+.upf-content iframe {
+  display: block;
+  margin: 0;
+  width: 100%;
+}
+
+.upf-content__image {
+  display: block;
+}
+
+/*# sourceMappingURL=common-frontend.css.map */
+
+.upf-content--gallery {
+  position: relative;
+}
+
+.upf-content__gallery-image {
+  display: block;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  width: 100%;
+}
+
+.upf-content__gallery-image:not(:first-child) {
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+.upf-content__gallery-image.active {
+  opacity: 1;
+}
+
+/*# sourceMappingURL=gallery-frontend.css.map */
+
+
+/*# sourceMappingURL=link-frontend.css.map */
+
+
+/*# sourceMappingURL=quote-frontend.css.map */
+
+video {
+  display: block;
+  width: 100%;
+}
+
+/*# sourceMappingURL=video-frontend.css.map */
+
+/*# sourceMappingURL=frontend.css.map */

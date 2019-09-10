@@ -20,4 +20,38 @@
   width: calc(100% - 6px);
 }
 
+.wp-list-table.posts .row-title:before {
+  color: #dddddd;
+  display: inline-block;
+  font-family: dashicons;
+  font-size: 20px;
+  font-weight: 400;
+  height: 20px;
+  line-height: 1em;
+  margin-right: 7px;
+  position: relative;
+  top: 4px;
+  width: 20px;
+}
+
+.wp-list-table.posts .format-audio .row-title:before {
+  content: '\f127';
+}
+
+.wp-list-table.posts .format-gallery .row-title:before {
+  content: '\f161';
+}
+
+.wp-list-table.posts .format-link .row-title:before {
+  content: '\f103';
+}
+
+.wp-list-table.posts .format-quote .row-title:before {
+  content: '\f122';
+}
+
+.wp-list-table.posts .format-video .row-title:before {
+  content: '\f126';
+}
+
 /*# sourceMappingURL=common-backend.css.map */

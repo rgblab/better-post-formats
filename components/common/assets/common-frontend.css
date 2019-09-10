@@ -1,0 +1,11 @@
+.upf-content iframe {
+  display: block;
+  margin: 0;
+  width: 100%;
+}
+
+.upf-content__image {
+  display: block;
+}
+
+/*# sourceMappingURL=common-frontend.css.map */

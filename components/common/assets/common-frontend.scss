@@ -1,2 +1,14 @@
 // import mixins and variables
 @import '../../common/assets/common.scss';
+
+.upf-content {
+    iframe {
+        display: block;
+        margin: 0;
+        width: 100%;
+    }
+
+    &__image {
+        display: block;
+    }
+}

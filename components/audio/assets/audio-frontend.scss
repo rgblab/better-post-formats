@@ -1,2 +1,6 @@
 // import mixins and variables
 @import '../../common/assets/common.scss';
+
+audio {
+    @include upfDisplayBlock();
+}

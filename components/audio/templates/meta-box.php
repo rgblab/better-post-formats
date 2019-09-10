@@ -1,13 +1,14 @@
 <?php
 
 $input_field_attr = uberPostFormatsHelper::swapUnderscoreDash( $meta_key ); // upf-audio
+$meta_value       = get_post_meta( $post->ID, $meta_key, true );
 
 ?>
 
 <div class="upf-control upf-control--audio">
     <div class="upf-control__text">
         <label class="upf-control__label" for="<?php echo esc_attr( $input_field_attr ); ?>"><?php esc_html_e( 'Enter URL pointing to audio file or audio streaming provider', 'upf' ) ?></label>
-        <input class="upf-control__text-field" type="text" name="<?php echo esc_attr( $input_field_attr ); ?>" value="<?php echo esc_attr( get_post_meta( $post->ID, $meta_key, true ) ); ?>">
+        <input class="upf-control__text-field" type="text" name="<?php echo esc_attr( $input_field_attr ); ?>" value="<?php echo esc_attr( $meta_value ); ?>">
     </div>
 </div>
 <p>
