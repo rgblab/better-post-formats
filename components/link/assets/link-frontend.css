@@ -1,0 +1,44 @@
+@charset "UTF-8";
+.upf-content--format-link {
+  background-color: #808080;
+  background-position: center;
+  background-size: cover;
+}
+
+.upf-content__link {
+  cursor: pointer;
+  right: 0;
+  top: 0;
+  text-align: center;
+  height: 40px;
+  position: absolute;
+  width: 40px;
+}
+
+.single .upf-content__link {
+  width: 100%;
+  height: 100%;
+}
+
+.upf-content__link:after {
+  display: block;
+  width: 40px;
+  content: "";
+  font-family: dashicons;
+  font-size: 40px;
+  font-weight: 400;
+  height: 40px;
+  line-height: 100%;
+  right: 0;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  width: 40px;
+}
+
+.upf-content__title {
+  padding: 1.5em;
+}
+
+/*# sourceMappingURL=link-frontend.css.map */

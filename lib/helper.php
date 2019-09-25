@@ -6,6 +6,32 @@ if ( ! class_exists( 'uberPostFormatsHelper' ) ) {
 	 */
 	class uberPostFormatsHelper {
 		/**
+		 * check appearance function
+		 * determine where to apply plugin
+		 *
+		 * @return bool
+		 * @since 1.0.0
+		 */
+		public static function checkAppearance() {
+			$appearance = '';
+			$location   = 'both'; // TODO check global value for appearance
+
+			if ( 'both' === $location ) {
+				$appearance = true;
+			}
+
+			if ( 'single' === $location ) {
+				$appearance = is_single() ? true : false;
+			}
+
+			if ( 'list' === $location ) {
+				$appearance = is_single() ? false : true;
+			}
+
+			return $appearance;
+		}
+
+		/**
 		 * is post format supported function
 		 * check if post format is supported by current theme
 		 *
@@ -99,16 +125,19 @@ if ( ! class_exists( 'uberPostFormatsHelper' ) ) {
 		 * @since 1.0.0
 		 */
 		public static function checkFeaturedMedia() {
-			// TODO check future global option is enabled on list or single
+			if ( self::checkAppearance() ) {
+				// get current post format
+				$post_format = get_post_format();
 
-			// get current post format
-			$post_format = get_post_format();
+				// if current post format is handled by plugin
+				if ( in_array( $post_format, self::getPostFormats() ) ) {
+					$meta_value = get_post_meta( get_the_ID(), UPF_PREFIX . '_' . $post_format, true );
 
-			// if current post format is handled by plugin
-			if ( in_array( $post_format, self::getPostFormats() ) ) {
-				// if current post have featured media for current post format
-				if ( ! empty( get_post_meta( get_the_ID(), UPF_PREFIX . '_' . $post_format, true ) ) ) {
-					return true;
+					// if current post have featured media for current post format
+					// meta value array must have more than one element (gallery) and first element must be not empty
+					if ( count( $meta_value ) > 1 && ! empty( $meta_value[0] ) ) {
+						return true;
+					}
 				}
 			}
 		}
@@ -264,7 +293,7 @@ if ( ! class_exists( 'uberPostFormatsHelper' ) ) {
 		/**
 		 * get svg function
 		 *
-		 * @param $name - name of svg image
+		 * @param string $name - name of svg image
 		 *
 		 * @return string
 		 * @since 1.0.0
@@ -283,6 +312,25 @@ if ( ! class_exists( 'uberPostFormatsHelper' ) ) {
 			}
 
 			return $svg;
+		}
+
+		/**
+		 * get skin function
+		 * return global if local is set to default
+		 * otherwise return local
+		 *
+		 * @param string $local_skin - local skin value, either default, light or dark
+		 *
+		 * @return string
+		 * @since 1.0.0
+		 */
+		public static function getSkin( $local_skin ) {
+			$global_skin = 'light'; // TODO check global value for skin
+
+			$skin = ( 'default' === $local_skin ) ? $global_skin : $local_skin;
+			$skin = UPF_PREFIX . '-content--' . $skin;
+
+			return $skin;
 		}
 	}
 }

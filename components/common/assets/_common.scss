@@ -1,11 +1,32 @@
-// variables
+// backend variables
+$backend-transition-timing: 0.15s;
+$backend-transition-easing: ease-in-out;
+$backend-opacity-transition: opacity $backend-transition-timing $backend-transition-easing;
+
 $backend-distance: 12px;
 $backend-distance--large: $backend-distance;
 $backend-distance--small: $backend-distance--large / 2;
 
+$backend-color--light: #ffffff;
+
 $backend-icon: 20px;
 $backend-icon-inner: $backend-icon - 2;
 $backend-icon-offset: 3px;
+
+// frontend variables
+$frontend-transition-timing: 0.3s;
+$frontend-transition-easing: ease-in-out;
+$frontend-opacity-transition: opacity 1s $frontend-transition-easing; // hardcode timing, for gallery transitions only
+$frontend-color-transition: color $frontend-transition-timing $frontend-transition-easing;
+$frontend-background-color-transition: background-color $frontend-transition-timing $frontend-transition-easing;
+
+$frontend-color--light: #ffffff;
+$frontend-color--medium: #808080;
+$frontend-color--dark: #000000;
+
+$frontend-arrow-size: 40px;
+$frontend-bullet-size: 10px;
+$frontend-icon-size: 40px;
 
 // mixins
 @mixin upfClearfix() {
@@ -16,7 +37,33 @@ $backend-icon-offset: 3px;
     }
 }
 
-@mixin upfDisplayBlock() {
+@mixin upfDisplayBlock($width:100%) {
     display: block;
-    width: 100%;
+    width: $width;
+}
+
+@mixin upfPositionAbsolute($height,$width) {
+    height: $height;
+    position: absolute;
+    width: $width;
+}
+
+@mixin upfBackgroundStyle() {
+    background-color: $frontend-color--medium;
+    background-position: center;
+    background-size: cover;
+}
+
+@mixin upfIcon($content,$size) {
+    content: $content;
+    font-family: dashicons;
+    font-size: $size;
+    font-weight: 400;
+    height: $size;
+    line-height: 100%;
+    right: 0;
+    top: 0;
+    width: $size;
+
+    @include upfPositionAbsolute($size, $size);
 }

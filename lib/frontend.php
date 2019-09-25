@@ -1,7 +1,5 @@
 <?php
 
-// TODO determine should be applied on lists only or on single as well
-
 // filter has post thumbnail
 add_filter( 'has_post_thumbnail', function () {
 	return uberPostFormatsHelper::setFeatured();

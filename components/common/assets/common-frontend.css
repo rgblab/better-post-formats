@@ -1,11 +1,37 @@
+.upf-hide-default-title .entry-title {
+  display: none;
+}
+
+.upf-content {
+  position: relative;
+}
+
+.upf-content--light {
+  color: #ffffff;
+}
+
+.upf-content--dark {
+  color: #000000;
+}
+
 .upf-content iframe {
   display: block;
+  width: 100%;
   margin: 0;
+}
+
+.upf-content__permalink {
+  cursor: pointer;
+  left: 0;
+  top: 0;
+  height: 100%;
+  position: absolute;
   width: 100%;
 }
 
-.upf-content__image {
-  display: block;
+.upf-content__title {
+  color: inherit;
+  margin: 0;
 }
 
 /*# sourceMappingURL=common-frontend.css.map */

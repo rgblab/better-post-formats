@@ -7,8 +7,9 @@
 }
 
 .upf-control__label {
-  display: block;
   margin: 0 0 6px 0;
+  display: block;
+  width: 100%;
 }
 
 .upf-control__text-field, .upf-control__textarea-field, .upf-control__select-field {
@@ -21,7 +22,7 @@
 }
 
 .wp-list-table.posts .row-title:before {
-  color: #dddddd;
+  color: currentColor;
   display: inline-block;
   font-family: dashicons;
   font-size: 20px;
@@ -29,6 +30,7 @@
   height: 20px;
   line-height: 1em;
   margin-right: 7px;
+  opacity: 0.3;
   position: relative;
   top: 4px;
   width: 20px;

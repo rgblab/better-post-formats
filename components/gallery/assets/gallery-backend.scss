@@ -12,7 +12,8 @@
             float: left;
             margin: $backend-distance--small $backend-distance--small 0 0;
             position: relative;
-            width: calc((100% / 3) - #{$backend-distance--small});
+
+            @include upfDisplayBlock(calc((100% / 3) - #{$backend-distance--small}));
 
             &:hover {
                 .upf-control__image {
@@ -39,26 +40,26 @@
 
     &__image {
         cursor: move;
-        display: block;
-        max-width: 100%;
         position: relative;
+        transition: $backend-opacity-transition;
+
+        @include upfDisplayBlock();
     }
 
     &__replace,
     &__remove {
         background-color: currentColor;
-        border: 1px solid #ffffff;
+        border: 1px solid $backend-color--light;
         border-radius: 50%;
         box-sizing: border-box;
-        height: $backend-icon;
-        position: absolute;
         text-decoration: none;
         top: $backend-icon-offset;
         visibility: hidden;
-        width: $backend-icon;
+
+        @include upfPositionAbsolute($backend-icon, $backend-icon);
 
         .dashicons {
-            color: #ffffff;
+            color: $backend-color--light;
             font-size: 13px;
             height: $backend-icon-inner;
             line-height: $backend-icon-inner;

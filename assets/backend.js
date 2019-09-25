@@ -136,7 +136,7 @@ jQuery(function ($) {
                         selection = mediaFrame.state().get('selection');
 
                     selection.map(function (attachment, i) {
-                        var index = listIndex + (i + 1); // last item index plus one plus current selection in media frame index
+                        var index = listIndex + (i + 1 + 1); // last item index plus one (since adding as next) plus one (skin dropdown already exists) plus current selection in media frame index
                         attachment = attachment.toJSON();
 
                         // append markup as in meta box template
@@ -175,7 +175,7 @@ jQuery(function ($) {
 
             // rename in order of appearance
             $('.upf-control__gallery li').each(function (i) {
-                $(this).find('input:hidden').attr('name', 'upf-gallery[' + i + ']');
+                $(this).find('input:hidden').attr('name', 'upf-gallery[' + (i + 1) + ']');
             });
         },
 

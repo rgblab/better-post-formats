@@ -13,6 +13,7 @@
   float: left;
   margin: 6px 6px 0 0;
   position: relative;
+  display: block;
   width: calc((100% / 3) - 6px);
 }
 
@@ -35,9 +36,10 @@
 
 .upf-control__image {
   cursor: move;
-  display: block;
-  max-width: 100%;
   position: relative;
+  transition: opacity 0.15s ease-in-out;
+  display: block;
+  width: 100%;
 }
 
 .upf-control__replace, .upf-control__remove {
@@ -45,11 +47,11 @@
   border: 1px solid #ffffff;
   border-radius: 50%;
   box-sizing: border-box;
-  height: 20px;
-  position: absolute;
   text-decoration: none;
   top: 3px;
   visibility: hidden;
+  height: 20px;
+  position: absolute;
   width: 20px;
 }
 
