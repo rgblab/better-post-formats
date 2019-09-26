@@ -6,6 +6,10 @@
   position: relative;
 }
 
+.upf-content *:not([class*="upf-content"]) {
+  display: none !important;
+}
+
 .upf-content--light {
   color: #ffffff;
 }
@@ -21,17 +25,18 @@
 }
 
 .upf-content__permalink {
-  cursor: pointer;
-  left: 0;
-  top: 0;
   height: 100%;
   position: absolute;
   width: 100%;
+  cursor: pointer;
+  left: 0;
+  top: 0;
 }
 
 .upf-content__title {
-  color: inherit;
-  margin: 0;
+  color: inherit !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 /*# sourceMappingURL=common-frontend.css.map */

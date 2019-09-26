@@ -8,6 +8,8 @@
 }
 
 .upf-content {
+    @include upfClearForeignContent();
+
     position: relative;
 
     &--light {
@@ -25,15 +27,14 @@
     }
 
     &__permalink {
+        @include upfPositionAbsolute(100%, 100%);
+
         cursor: pointer;
         left: 0;
         top: 0;
-
-        @include upfPositionAbsolute(100%, 100%);
     }
 
     &__title {
-        color: inherit;
-        margin: 0;
+        @include upfResetText();
     }
 }

@@ -1,2 +1,22 @@
 // import mixins and variables
 @import '../../common/assets/_common.scss';
+
+.upf-content {
+    &--format-quote {
+        @include upfBackgroundStyle();
+
+        padding: $frontend-link-quote-distance;
+    }
+
+    &__quote {
+        @include upfResetText();
+
+        &-text {
+            @include upfResetText();
+        }
+
+        &-author {
+            @include upfResetText();
+        }
+    }
+}

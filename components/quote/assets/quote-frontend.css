@@ -1,2 +1,26 @@
+.upf-content--format-quote {
+  background-color: rgba(128, 128, 128, 0.3);
+  background-position: center;
+  background-size: cover;
+  padding: 2.5em;
+}
+
+.upf-content__quote {
+  color: inherit !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.upf-content__quote-text {
+  color: inherit !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.upf-content__quote-author {
+  color: inherit !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
 
 /*# sourceMappingURL=quote-frontend.css.map */

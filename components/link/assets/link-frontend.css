@@ -1,8 +1,14 @@
 @charset "UTF-8";
 .upf-content--format-link {
-  background-color: #808080;
+  background-color: rgba(128, 128, 128, 0.3);
   background-position: center;
   background-size: cover;
+  padding: 2.5em;
+  transition: color 0.3s ease-in-out;
+}
+
+.upf-content--format-link:hover {
+  color: #808080;
 }
 
 .upf-content__link {
@@ -38,7 +44,9 @@
 }
 
 .upf-content__title {
-  padding: 1.5em;
+  color: inherit !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 /*# sourceMappingURL=link-frontend.css.map */

@@ -175,7 +175,7 @@ jQuery(function ($) {
 
             // rename in order of appearance
             $('.upf-control__gallery li').each(function (i) {
-                $(this).find('input:hidden').attr('name', 'upf-gallery[' + (i + 1) + ']');
+                $(this).find('input:hidden').attr('name', 'upf-gallery[' + (i + 1) + ']'); // plus one (skin dropdown already exists)
             });
         },
 

@@ -4,6 +4,13 @@
 .upf-content {
     &--format-link {
         @include upfBackgroundStyle();
+
+        padding: $frontend-link-quote-distance;
+        transition: $frontend-color-transition;
+
+        &:hover {
+            color: $frontend-color--medium;
+        }
     }
 
     &__link {
@@ -26,6 +33,6 @@
     }
 
     &__title {
-        padding: 1.5em;
+        @include upfResetText();
     }
 }

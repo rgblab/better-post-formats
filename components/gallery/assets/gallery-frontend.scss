@@ -15,6 +15,7 @@
 
             &:not(:first-child) {
                 left: 0;
+                object-fit: cover;
                 top: 0;
 
                 @include upfPositionAbsolute(100%, 100%);
@@ -30,7 +31,6 @@
 
         &-prev,
         &-next {
-            color: $frontend-color--medium;
             cursor: pointer;
             font-size: $frontend-arrow-size;
             text-align: center;
@@ -41,7 +41,7 @@
             @include upfPositionAbsolute($frontend-arrow-size, $frontend-arrow-size);
 
             &:hover {
-                color: $frontend-color--dark;
+                color: $frontend-color--medium;
             }
         }
 
@@ -72,7 +72,7 @@
             @include upfPositionAbsolute(auto, 100%);
 
             li {
-                background-color: $frontend-color--medium;
+                background-color: currentColor;
                 cursor: pointer;
                 height: 5px;
                 margin: 0 5px;
@@ -83,7 +83,7 @@
 
                 &:hover,
                 &.active {
-                    background-color: $frontend-color--dark;
+                    background-color: $frontend-color--medium;
                 }
             }
         }

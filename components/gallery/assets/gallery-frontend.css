@@ -12,6 +12,8 @@
 
 .upf-content__gallery-image:not(:first-child) {
   left: 0;
+  -o-object-fit: cover;
+  object-fit: cover;
   top: 0;
   height: 100%;
   position: absolute;
@@ -23,7 +25,6 @@
 }
 
 .upf-content__gallery-prev, .upf-content__gallery-next {
-  color: #808080;
   cursor: pointer;
   font-size: 40px;
   text-align: center;
@@ -36,7 +37,7 @@
 }
 
 .upf-content__gallery-prev:hover, .upf-content__gallery-next:hover {
-  color: #000000;
+  color: #808080;
 }
 
 .upf-content__gallery-prev {
@@ -90,7 +91,7 @@
 }
 
 .upf-content__gallery-pagination li {
-  background-color: #808080;
+  background-color: currentColor;
   cursor: pointer;
   height: 5px;
   margin: 0 5px;
@@ -101,7 +102,7 @@
 }
 
 .upf-content__gallery-pagination li:hover, .upf-content__gallery-pagination li.active {
-  background-color: #000000;
+  background-color: #808080;
 }
 
 /*# sourceMappingURL=gallery-frontend.css.map */

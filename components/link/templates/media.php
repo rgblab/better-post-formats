@@ -3,8 +3,8 @@
 $meta_value       = get_post_meta( $post->ID, $meta_key, true );
 $skin             = uberPostFormatsHelper::getSkin( $meta_value[2] );
 $background_image = ! empty( $featured_image_url ) ? 'background-image:url(' . $featured_image_url . ')' : '';
-$permalink        = get_permalink();
 $single           = is_single();
+$permalink        = get_permalink();
 $link             = $meta_value[0];
 $target           = $meta_value[1];
 $tag              = $single ? 'h1' : 'h2';

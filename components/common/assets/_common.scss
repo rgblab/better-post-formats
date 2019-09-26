@@ -28,6 +28,8 @@ $frontend-arrow-size: 40px;
 $frontend-bullet-size: 10px;
 $frontend-icon-size: 40px;
 
+$frontend-link-quote-distance: 2.5em;
+
 // mixins
 @mixin upfClearfix() {
     &:after {
@@ -49,7 +51,7 @@ $frontend-icon-size: 40px;
 }
 
 @mixin upfBackgroundStyle() {
-    background-color: $frontend-color--medium;
+    background-color: rgba($frontend-color--medium, 0.3);
     background-position: center;
     background-size: cover;
 }
@@ -66,4 +68,16 @@ $frontend-icon-size: 40px;
     width: $size;
 
     @include upfPositionAbsolute($size, $size);
+}
+
+@mixin upfResetText() {
+    color: inherit !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+@mixin upfClearForeignContent() {
+    *:not([class*="upf-content"]) {
+        display: none !important;
+    }
 }
