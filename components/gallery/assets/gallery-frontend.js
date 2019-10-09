@@ -119,10 +119,5 @@ jQuery(function ($) {
         pause: function (interval) {
             clearInterval(interval);
         }
-
-        // TODO getNewIndex, when clicked on pagination bullets
-
     };
-
-
 });

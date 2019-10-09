@@ -19,3 +19,11 @@ if ( ! defined( 'UPF_URL_PATH' ) ) {
 if ( ! defined( 'UPF_PREFIX' ) ) {
 	define( 'UPF_PREFIX', 'upf' );
 }
+
+if ( ! defined( 'UPF_OPTIONS' ) ) {
+	define( 'UPF_OPTIONS', UPF_PREFIX . '_options' );
+}
+
+if ( ! defined( 'UPF_OPTIONS_PANEL' ) ) {
+	define( 'UPF_OPTIONS_PANEL', UPF_PREFIX . '_options_panel' );
+}

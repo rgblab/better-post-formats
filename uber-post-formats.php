@@ -17,6 +17,7 @@ if ( ! class_exists( 'uberPostFormats' ) ) {
 	 * class uberPostFormats
 	 */
 	class uberPostFormats {
+		// instance var
 		private static $instance;
 
 		/**
@@ -36,6 +37,8 @@ if ( ! class_exists( 'uberPostFormats' ) ) {
 
 		/**
 		 * uberPostFormats constructor
+		 *
+		 * @since 1.0.0
 		 */
 		public function __construct() {
 			add_action( 'plugins_loaded', array( $this, 'initPlugin' ) );
@@ -57,10 +60,10 @@ if ( ! class_exists( 'uberPostFormats' ) ) {
 
 			if ( is_admin() ) {
 				// include backend logic
-				require_once UPF_ABS_PATH . '/lib/option.php';
 				require_once UPF_ABS_PATH . '/lib/meta.php';
 
 				// include backend assets
+				// priority 5 to ensure loading before gutenberg
 				add_action( 'admin_enqueue_scripts', array( $this, 'enqueueBackendAssets' ), 5 );
 			} else {
 				// include frontend logic
@@ -70,11 +73,28 @@ if ( ! class_exists( 'uberPostFormats' ) ) {
 				add_action( 'wp_enqueue_scripts', array( $this, 'enqueueFrontendAssets' ) );
 			}
 
+			// include options
+			// priority 1 to ensure loading before panel and sections w/ settings
+			add_action( 'customize_register', array( $this, 'includeOptions' ), 1 );
+
 			// include components
+			// priority 100 to ensure loading after theme
 			add_action( 'after_setup_theme', array( $this, 'includeComponents' ), 100 );
 
 			// textdomain
 			load_plugin_textdomain( 'upf', false, UPF_REL_PATH . '/languages' );
+		}
+
+		/**
+		 * include options function
+		 *
+		 * hooked on 'customize_register' hook
+		 *
+		 * @since 1.0.0
+		 */
+		public function includeOptions() {
+			// include options
+			require_once UPF_ABS_PATH . '/lib/option.php';
 		}
 
 		/**
@@ -107,5 +127,6 @@ if ( ! class_exists( 'uberPostFormats' ) ) {
 
 uberPostFormats::getInstance();
 
-// TODO set scripts for translation
+// FIXME set scripts for translation
 // @see https://make.wordpress.org/core/2018/11/09/new-javascript-i18n-support-in-wordpress/
+

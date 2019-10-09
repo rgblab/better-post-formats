@@ -14,7 +14,7 @@ if ( ! class_exists( 'uberPostFormatsHelper' ) ) {
 		 */
 		public static function checkAppearance() {
 			$appearance = '';
-			$location   = 'both'; // TODO check global value for appearance
+			$location   = 'both'; // FIXME check global value for appearance
 
 			if ( 'both' === $location ) {
 				$appearance = true;
@@ -325,7 +325,7 @@ if ( ! class_exists( 'uberPostFormatsHelper' ) ) {
 		 * @since 1.0.0
 		 */
 		public static function getSkin( $local_skin ) {
-			$global_skin = 'light'; // TODO check global value for skin
+			$global_skin = 'light'; // FIXME check global value for skin
 
 			$skin = ( 'default' === $local_skin ) ? $global_skin : $local_skin;
 			$skin = UPF_PREFIX . '-content--' . $skin;

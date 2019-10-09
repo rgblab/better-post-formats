@@ -28,9 +28,9 @@ if ( ! class_exists( 'uberPostFormatsMeta' ) ) {
 			$this->nonce    = UPF_PREFIX . '_' . $this->post_format . '_nonce';
 
 			// init meta box on 'load-posts.php' hook
-			add_action( 'load-post.php', array( $this, 'init_meta_box' ) );
+			add_action( 'load-post.php', array( $this, 'initMetaBox' ) );
 			// init meta box on 'load-posts-new.php' hook
-			add_action( 'load-post-new.php', array( $this, 'init_meta_box' ) );
+			add_action( 'load-post-new.php', array( $this, 'initMetaBox' ) );
 		}
 
 		/**
@@ -41,12 +41,12 @@ if ( ! class_exists( 'uberPostFormatsMeta' ) ) {
 		 *
 		 * @since 1.0.0
 		 */
-		public function init_meta_box() {
+		public function initMetaBox() {
 			// add meta box field on the 'add_meta_boxes' hook
-			add_action( 'add_meta_boxes', array( $this, 'add_meta_box' ) );
+			add_action( 'add_meta_boxes', array( $this, 'addMetaBox' ) );
 
 			// save meta box value on the 'save_post' hook
-			add_action( 'save_post', array( $this, 'save_meta_box' ), 10, 2 );
+			add_action( 'save_post', array( $this, 'saveMetaBox' ), 10, 2 );
 		}
 
 		/**
@@ -56,11 +56,11 @@ if ( ! class_exists( 'uberPostFormatsMeta' ) ) {
 		 *
 		 * @since 1.0.0
 		 */
-		public function add_meta_box() {
+		public function addMetaBox() {
 			add_meta_box(
 				$this->meta_key, // id
 				esc_html__( 'Featured Content', 'upf' ), // title
-				array( $this, 'display_meta_box' ), // callback, function to display meta box html
+				array( $this, 'displayMetaBox' ), // callback, function to display meta box html
 				'post', // screen, where to show meta box
 				'side', // context, position of meta box
 				'low' // priority
@@ -74,7 +74,7 @@ if ( ! class_exists( 'uberPostFormatsMeta' ) ) {
 		 *
 		 * @since 1.0.0
 		 */
-		public function display_meta_box( $post ) {
+		public function displayMetaBox( $post ) {
 			// create nonce field
 			wp_nonce_field( basename( __FILE__ ), $this->nonce );
 
@@ -98,7 +98,7 @@ if ( ! class_exists( 'uberPostFormatsMeta' ) ) {
 		 * @return mixed
 		 * @since 1.0.0
 		 */
-		public function save_meta_box( $post_id, $post ) {
+		public function saveMetaBox( $post_id, $post ) {
 			// bail if doing autosave
 			if ( defined( "DOING_AUTOSAVE" ) && DOING_AUTOSAVE ) {
 				return $post_id;

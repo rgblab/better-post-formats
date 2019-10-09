@@ -11,4 +11,10 @@ if ( uberPostFormatsHelper::isPostFormatSupported( $post_format ) ) {
 
 	// include component
 	uberPostFormatsHelper::getComponent( $post_format, 'require' );
+
+	// add section w/ settings
+	// priority 3 to ensure loading after init and panel
+	add_action( 'customize_register', function () use ( $post_format ) {
+		new uberPostFormatsOptions( $post_format );
+	}, 3 );
 }
