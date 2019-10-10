@@ -16,8 +16,8 @@ $skin_input_field_attr = $input_field_attr . '[' . $skin_key . ']';
     <div class="upf-control__select">
         <label class="upf-control__label" for="<?php echo esc_attr( $input_field_attr . '[1]' ); ?>"><?php esc_html_e( 'Set where to open link', 'upf' ) ?></label>
         <select class="upf-control__select-field" name="<?php echo esc_attr( $input_field_attr . '[1]' ); ?>">
-            <option value="new" <?php echo ( 'new' === $meta_value[1] ) ? 'selected' : ''; ?>><?php esc_html_e( 'New Window', 'upf' ); ?></option>
-            <option value="same" <?php echo ( 'same' === $meta_value[1] ) ? 'selected' : ''; ?>><?php esc_html_e( 'Same Window', 'upf' ); ?></option>
+            <option value="_blank" <?php echo ( '_blank' === $meta_value[1] ) ? 'selected' : ''; ?>><?php esc_html_e( 'New Browser Tab', 'upf' ); ?></option>
+            <option value="_self" <?php echo ( '_self' === $meta_value[1] ) ? 'selected' : ''; ?>><?php esc_html_e( 'Same Browser Tab', 'upf' ); ?></option>
         </select>
     </div>
     <div class="upf-control__select">

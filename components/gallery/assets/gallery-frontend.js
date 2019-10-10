@@ -79,7 +79,7 @@ jQuery(function ($) {
             var paginationHolder = holder.find('.upf-content__gallery-pagination');
 
             while (noOfItems--) {
-                paginationHolder.append('<li></li>');
+                paginationHolder.append('<li class="upf-content__gallery-page"></li>');
             }
         },
 

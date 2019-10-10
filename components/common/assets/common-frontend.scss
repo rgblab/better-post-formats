@@ -7,9 +7,11 @@
     }
 }
 
-.upf-content {
+#upf-content{
     @include upfClearForeignContent();
+}
 
+.upf-content {
     position: relative;
 
     &--light {
@@ -24,17 +26,31 @@
         @include upfDisplayBlock();
 
         margin: 0;
+        background-color: $frontend-color--dark;
     }
 
     &__permalink {
         @include upfPositionAbsolute(100%, 100%);
 
-        cursor: pointer;
         left: 0;
         top: 0;
+        z-index: 10;
     }
 
     &__title {
         @include upfResetText();
+    }
+
+    &__icon {
+        @include upfPositionAbsolute($frontend-icon-size, $frontend-icon-size);
+
+        left: $frontend-icon-distance;
+        text-align: center;
+        top: $frontend-link-quote-distance;
+        z-index: 20;
+
+        &:after {
+            @include upfDisplayBlock($frontend-icon-size);
+        }
     }
 }

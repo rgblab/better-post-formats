@@ -13,8 +13,9 @@ $author           = $meta_value[1];
 
 <div class="upf-content upf-content--format-quote <?php echo esc_attr( $skin ); ?>" style="<?php echo esc_attr( $background_image ); ?>">
 	<?php if ( ! $single ): ?>
-        <div class="upf-content__permalink" data-href="<?php echo esc_url( $permalink ); ?>"></div>
+        <var class="upf-content__permalink" data-href="<?php echo esc_url( $permalink ); ?>" title="<?php the_title_attribute(); ?>"></var>
 	<?php endif; ?>
+    <div class="upf-content__icon"></div>
     <blockquote class="upf-content__quote">
 		<?php echo '<' . esc_attr( $tag ); ?> class="upf-content__quote-text">
 		<?php echo esc_html( $quote ); ?>

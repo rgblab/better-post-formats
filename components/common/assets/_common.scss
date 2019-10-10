@@ -27,6 +27,7 @@ $frontend-color--dark: #000000;
 $frontend-arrow-size: 40px;
 $frontend-bullet-size: 10px;
 $frontend-icon-size: 40px;
+$frontend-icon-distance: 1em;
 
 $frontend-link-quote-distance: 2.5em;
 
@@ -77,7 +78,15 @@ $frontend-link-quote-distance: 2.5em;
 }
 
 @mixin upfClearForeignContent() {
-    *:not([class*="upf-content"]) {
-        display: none !important;
+    .upf-content {
+        * {
+            &:not([class*="upf-content"]) {
+                display: none;
+            }
+        }
+
+        iframe {
+            display: block !important;
+        }
     }
 }

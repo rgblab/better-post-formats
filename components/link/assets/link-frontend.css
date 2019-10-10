@@ -3,7 +3,7 @@
   background-color: rgba(128, 128, 128, 0.3);
   background-position: center;
   background-size: cover;
-  padding: 2.5em;
+  padding: 2.5em 2.5em 2.5em calc(1em * 2 + 40px);
   transition: color 0.3s ease-in-out;
 }
 
@@ -11,24 +11,7 @@
   color: #808080;
 }
 
-.upf-content__link {
-  cursor: pointer;
-  right: 0;
-  top: 0;
-  text-align: center;
-  height: 40px;
-  position: absolute;
-  width: 40px;
-}
-
-.single .upf-content__link {
-  width: 100%;
-  height: 100%;
-}
-
-.upf-content__link:after {
-  display: block;
-  width: 40px;
+.upf-content--format-link .upf-content__icon:after {
   content: "";
   font-family: dashicons;
   font-size: 40px;
@@ -41,6 +24,15 @@
   height: 40px;
   position: absolute;
   width: 40px;
+}
+
+.upf-content__link {
+  color: inherit;
+}
+
+.single .upf-content__link {
+  width: 100%;
+  height: 100%;
 }
 
 .upf-content__title {

@@ -1,8 +1,24 @@
+@charset "UTF-8";
 .upf-content--format-quote {
   background-color: rgba(128, 128, 128, 0.3);
   background-position: center;
   background-size: cover;
-  padding: 2.5em;
+  padding: 2.5em 2.5em 2.5em calc(1em * 2 + 40px);
+}
+
+.upf-content--format-quote .upf-content__icon:after {
+  content: "";
+  font-family: dashicons;
+  font-size: 40px;
+  font-weight: 400;
+  height: 40px;
+  line-height: 100%;
+  right: 0;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  width: 40px;
 }
 
 .upf-content__quote {

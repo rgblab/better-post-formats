@@ -13,10 +13,9 @@ $tag              = $single ? 'h1' : 'h2';
 
 <div class="upf-content upf-content--format-link <?php echo esc_attr( $skin ); ?>" style="<?php echo esc_attr( $background_image ); ?>">
 	<?php if ( ! $single ): ?>
-        <div class="upf-content__permalink" data-href="<?php echo esc_url( $permalink ); ?>"></div>
+        <var class="upf-content__permalink" data-href="<?php echo esc_url( $permalink ); ?>" title="<?php the_title_attribute(); ?>"></var>
 	<?php endif; ?>
-    <div class="upf-content__link" data-href="<?php echo esc_url( $link ); ?>" data-target="<?php echo esc_attr( $target ); ?>">
-    </div>
+    <var class="upf-content__icon upf-content__link" data-href="<?php echo esc_url( $link ); ?>" data-target="<?php echo esc_attr( $target ); ?>"></var>
 	<?php echo '<' . esc_attr( $tag ); ?> class="upf-content__title">
 	<?php the_title(); ?>
 	<?php echo '</' . esc_attr( $tag ); ?>>

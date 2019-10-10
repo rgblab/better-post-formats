@@ -5,30 +5,26 @@
     &--format-link {
         @include upfBackgroundStyle();
 
-        padding: $frontend-link-quote-distance;
+        padding: $frontend-link-quote-distance $frontend-link-quote-distance $frontend-link-quote-distance calc(#{$frontend-icon-distance} * 2 + #{$frontend-icon-size});
         transition: $frontend-color-transition;
 
         &:hover {
             color: $frontend-color--medium;
         }
+
+        .upf-content__icon {
+            &:after {
+                @include upfIcon('\f103', $frontend-icon-size);
+            }
+        }
     }
 
     &__link {
-        cursor: pointer;
-        right: 0;
-        top: 0;
-        text-align: center;
-
-        @include upfPositionAbsolute($frontend-icon-size, $frontend-icon-size);
+        color: inherit;
 
         .single & {
             width: 100%;
             height: 100%;
-        }
-
-        &:after {
-            @include upfDisplayBlock($frontend-icon-size);
-            @include upfIcon('\f103', $frontend-icon-size);
         }
     }
 
