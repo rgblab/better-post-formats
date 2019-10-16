@@ -4,11 +4,6 @@
   background-position: center;
   background-size: cover;
   padding: 2.5em 2.5em 2.5em calc(1em * 2 + 40px);
-  transition: color 0.3s ease-in-out;
-}
-
-.upf-content--format-link:hover {
-  color: #808080;
 }
 
 .upf-content--format-link .upf-content__icon:after {
@@ -26,19 +21,25 @@
   width: 40px;
 }
 
-.upf-content__link {
-  color: inherit;
+.upf-content__permalink:hover ~ .upf-content__title {
+  color: #808080 !important;
 }
 
-.single .upf-content__link {
-  width: 100%;
-  height: 100%;
+.upf-content__link {
+  color: inherit !important;
+  transition: color 0.3s ease-in-out;
+}
+
+.upf-content__link:hover {
+  color: #808080 !important;
 }
 
 .upf-content__title {
+  border: 0 !important;
   color: inherit !important;
   margin: 0 !important;
   padding: 0 !important;
+  transition: color 0.3s ease-in-out;
 }
 
 /*# sourceMappingURL=link-frontend.css.map */

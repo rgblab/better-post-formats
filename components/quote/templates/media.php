@@ -5,7 +5,7 @@ $skin             = uberPostFormatsHelper::getSkin( $meta_value[2] );
 $background_image = ! empty( $featured_image_url ) ? 'background-image:url(' . $featured_image_url . ')' : '';
 $single           = is_single();
 $permalink        = get_permalink();
-$tag              = $single ? 'h1' : 'h2';
+$title_tag        = $single ? 'h1' : 'h2';
 $quote            = $meta_value[0];
 $author           = $meta_value[1];
 
@@ -17,9 +17,9 @@ $author           = $meta_value[1];
 	<?php endif; ?>
     <div class="upf-content__icon"></div>
     <blockquote class="upf-content__quote">
-		<?php echo '<' . esc_attr( $tag ); ?> class="upf-content__quote-text">
+		<?php echo '<' . esc_attr( $title_tag ); ?> class="upf-content__quote-text">
 		<?php echo esc_html( $quote ); ?>
-		<?php echo '</' . esc_attr( $tag ); ?>>
+		<?php echo '</' . esc_attr( $title_tag ); ?>>
 		<?php if ( ! empty( $author ) ) : ?>
             <cite class="upf-content__quote-author"><?php echo esc_html( $author ); ?></cite>
 		<?php endif; ?>

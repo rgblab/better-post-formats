@@ -14,8 +14,18 @@
         }
     }
 
+    &__permalink {
+        &:hover {
+            ~ .upf-content__quote {
+                color: $frontend-color--medium !important;
+            }
+        }
+    }
+
     &__quote {
         @include upfResetText();
+
+        transition: $frontend-color-transition;
 
         &-text {
             @include upfResetText();

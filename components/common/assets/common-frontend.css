@@ -39,6 +39,7 @@
 }
 
 .upf-content__title {
+  border: 0 !important;
   color: inherit !important;
   margin: 0 !important;
   padding: 0 !important;

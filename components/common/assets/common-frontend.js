@@ -33,14 +33,16 @@ jQuery(function ($) {
         modifyTag: function (holder) {
             var default_permalink = holder.closest('a');
 
-            default_permalink.replaceWith(function () {
-                var html = this.innerHTML.replace(/var/g, 'a').replace(/data-/g, '');
+            if (default_permalink.length) {
+                default_permalink.replaceWith(function () {
+                    var html = this.innerHTML.replace(/var/g, 'a').replace(/data-/g, '');
 
-                return $('<div/>', {
-                    class: 'upf-default-permalink--replaced',
-                    html: html,
+                    return $('<div/>', {
+                        class: 'upf-default-permalink--replaced',
+                        html: html,
+                    });
                 });
-            });
+            }
         },
     };
 

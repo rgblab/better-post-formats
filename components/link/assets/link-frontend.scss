@@ -6,11 +6,6 @@
         @include upfBackgroundStyle();
 
         padding: $frontend-link-quote-distance $frontend-link-quote-distance $frontend-link-quote-distance calc(#{$frontend-icon-distance} * 2 + #{$frontend-icon-size});
-        transition: $frontend-color-transition;
-
-        &:hover {
-            color: $frontend-color--medium;
-        }
 
         .upf-content__icon {
             &:after {
@@ -19,16 +14,26 @@
         }
     }
 
-    &__link {
-        color: inherit;
+    &__permalink {
+        &:hover {
+            ~ .upf-content__title {
+                color: $frontend-color--medium !important;
+            }
+        }
+    }
 
-        .single & {
-            width: 100%;
-            height: 100%;
+    &__link {
+        color: inherit !important;
+        transition: $frontend-color-transition;
+
+        &:hover {
+            color: $frontend-color--medium !important;
         }
     }
 
     &__title {
         @include upfResetText();
+
+        transition: $frontend-color-transition;
     }
 }
