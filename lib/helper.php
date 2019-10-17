@@ -325,18 +325,27 @@ if ( ! class_exists( 'uberPostFormatsHelper' ) ) {
 		 * @since 1.0.0
 		 */
 		public static function getSkin( $local_skin ) {
-			$global_skin = 'light'; // FIXME check global value for skin
+			$global_skin = get_option( UPF_OPTIONS )['skin'];
 
 			$skin = ( 'default' === $local_skin ) ? $global_skin : $local_skin;
-			$skin = UPF_PREFIX . '-content--' . $skin;
+			$skin = ( 'none' === $skin ) ? '' : UPF_PREFIX . '-content--' . $skin;
 
 			return $skin;
 		}
 	}
 }
 
-function upf_var_dump( $data ) {
-	echo '<pre>';
-	var_dump( $data );
-	echo '</pre>';
+if ( ! function_exists( 'upf_var_dump' ) ) {
+	/**
+	 * formatted var dump function
+	 *
+	 * @param mixed $data
+	 *
+	 * @since 1.0.0
+	 */
+	function upf_var_dump( $data ) {
+		echo '<pre>';
+		var_dump( $data );
+		echo '</pre>';
+	}
 }

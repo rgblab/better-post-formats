@@ -1,5 +1,8 @@
 <?php
 
+// FIXME add only one section, remove panel
+// FIXME put all options in that section
+
 if ( ! class_exists( 'uberPostsFormatOptionsPanel' ) ) {
 	/**
 	 * class uberPostFormatsOptionsPanel
@@ -101,9 +104,10 @@ if ( ! class_exists( 'uberPostFormatsOptions' ) ) {
 
 			// content width on lists setting
 			$wp_customize->add_setting( UPF_OPTIONS . '[content_width_list]', array(
-				'capability' => 'edit_theme_options',
-				'default'    => '100%',
-				'type'       => 'option',
+				'capability'        => 'edit_theme_options',
+				'default'           => '100%',
+				'sanitize_callback' => 'sanitize_text_field',
+				'type'              => 'option',
 			) );
 
 			// content width on lists control
@@ -115,9 +119,10 @@ if ( ! class_exists( 'uberPostFormatsOptions' ) ) {
 
 			// content width on single setting
 			$wp_customize->add_setting( UPF_OPTIONS . '[content_width_single]', array(
-				'capability' => 'edit_theme_options',
-				'default'    => '1200px',
-				'type'       => 'option',
+				'capability'        => 'edit_theme_options',
+				'default'           => '1200px',
+				'sanitize_callback' => 'sanitize_text_field',
+				'type'              => 'option',
 			) );
 
 			// content width on single control
@@ -129,9 +134,10 @@ if ( ! class_exists( 'uberPostFormatsOptions' ) ) {
 
 			// skin setting
 			$wp_customize->add_setting( UPF_OPTIONS . '[skin]', array(
-				'capability' => 'edit_theme_options',
-				'default'    => 'none',
-				'type'       => 'option',
+				'capability'        => 'edit_theme_options',
+				'default'           => 'none',
+				'sanitize_callback' => 'sanitize_text_field',
+				'type'              => 'option',
 			) );
 
 			// skin control
