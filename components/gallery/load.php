@@ -13,8 +13,8 @@ if ( uberPostFormatsHelper::isPostFormatSupported( $post_format ) ) {
 	uberPostFormatsHelper::getComponent( $post_format, 'require' );
 
 	// add section w/ settings
-	// priority 3 to ensure loading after init and panel
+	// priority 3 to ensure loading after init and section
 	add_action( 'customize_register', function () use ( $post_format ) {
-		new uberPostFormatsOptions( $post_format );
+		new uberPostFormatsCustomizerSettings( $post_format );
 	}, 3 );
 }

@@ -14,7 +14,7 @@ if ( ! class_exists( 'uberPostFormatsHelper' ) ) {
 		 */
 		public static function checkAppearance() {
 			$appearance = '';
-			$location   = 'both'; // FIXME check global value for appearance
+			$location   = get_option( UPF_OPTIONS )['location'];
 
 			if ( 'both' === $location ) {
 				$appearance = true;

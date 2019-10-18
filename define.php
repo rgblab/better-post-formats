@@ -24,6 +24,6 @@ if ( ! defined( 'UPF_OPTIONS' ) ) {
 	define( 'UPF_OPTIONS', UPF_PREFIX . '_options' );
 }
 
-if ( ! defined( 'UPF_OPTIONS_PANEL' ) ) {
-	define( 'UPF_OPTIONS_PANEL', UPF_PREFIX . '_options_panel' );
+if ( ! defined( 'UPF_OPTIONS_SECTION' ) ) {
+	define( 'UPF_OPTIONS_SECTION', UPF_PREFIX . '_options_section' );
 }

@@ -93,7 +93,7 @@ if ( ! class_exists( 'uberPostFormatsMeta' ) ) {
 		 * hooked on 'save_post' action
 		 *
 		 * @param int $post_id
-		 * @param object $post
+		 * @param object $post - global wp var containing post object
 		 *
 		 * @return mixed
 		 * @since 1.0.0

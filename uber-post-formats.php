@@ -2,11 +2,10 @@
 
 /*
 Plugin Name: Uber Post Formats
-Plugin URI: http://demo.rgblab.net/uber-post-formats
 Author: RGB Lab
 Author URI: http://rgblab.net
 Version: 1.0.0
-Description: WordPress plugin
+Description: Use proper "featured content" instead of "featured images" for audio, video, gallery, link and quote post formats. Just Like in any premium WP theme.
 Text Domain: uber-post-formats
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -62,27 +61,81 @@ if ( ! class_exists( 'uberPostFormats' ) ) {
 				// include backend logic
 				require_once UPF_ABS_PATH . '/lib/meta.php';
 
-				// include backend assets
+				// include additional links on dashboard on 'plugin_row_meta' hook
+				add_filter( 'plugin_row_meta', array( $this, 'dashboardLinks' ), 10, 2 );
+
+				// include backend assets on 'admin_enqueue_scripts' hook
 				// priority 5 to ensure loading before gutenberg
 				add_action( 'admin_enqueue_scripts', array( $this, 'enqueueBackendAssets' ), 5 );
 			} else {
 				// include frontend logic
 				require_once UPF_ABS_PATH . '/lib/frontend.php';
 
-				// include frontend assets
+				// include frontend assets on 'wp_enqueue_scripts' hook
 				add_action( 'wp_enqueue_scripts', array( $this, 'enqueueFrontendAssets' ) );
 			}
 
-			// include options
-			// priority 1 to ensure loading before panel and sections w/ settings
+			// include options logic on 'customize_register' hook
+			// priority 1 to ensure loading before section and settings w/ controls
 			add_action( 'customize_register', array( $this, 'includeOptions' ), 1 );
 
-			// include components
+			// include components on 'after_setup_theme' hook
 			// priority 100 to ensure loading after theme
 			add_action( 'after_setup_theme', array( $this, 'includeComponents' ), 100 );
 
 			// textdomain
 			load_plugin_textdomain( 'upf', false, UPF_REL_PATH . '/languages' );
+		}
+
+		/**
+		 * dashboard links function
+		 *
+		 * @param array $links - plugin links from plugin meta
+		 * @param string $file - name of main plugin file
+		 *
+		 * hooked on 'plugin_row_meta' hook
+		 *
+		 * @return array
+		 * @since 1.0.0
+		 */
+		public function dashboardLinks( $links, $file ) {
+			if ( plugin_basename( dirname( __FILE__ ) . '/uber-post-formats.php' ) === $file ) {
+				$links[] = '<a href="http://demo.rgblab.net/uber-post-formats" target="_blank">' . esc_html__( 'Docs & Demo', 'upf' ) . '</a>';
+				$links[] = '<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TZHDKYP4K759W&source=url" target="_blank">' . esc_html__( 'Donate', 'upf' ) . '</a>';
+			}
+
+			return $links;
+		}
+
+		/**
+		 * enqueue backend assets
+		 *
+		 * @param string $hook
+		 *
+		 * hooked on 'admin_enqueue_scripts' hook
+		 *
+		 * @since 1.0.0
+		 */
+		public function enqueueBackendAssets( $hook ) {
+			if ( 'post.php' === $hook || 'post-new.php' == $hook ) {
+				wp_enqueue_script( 'upf-backend', UPF_URL_PATH . 'assets/backend.min.js', array(), false, true );
+			}
+			if ( 'edit.php' === $hook || 'post.php' == $hook || 'post-new.php' == $hook ) {
+				wp_enqueue_style( 'upf-backend', UPF_URL_PATH . 'assets/backend.min.css' );
+			}
+		}
+
+		/**
+		 * enqueue frontend assets
+		 *
+		 * hooked on 'wp_enqueue_scripts' hook
+		 *
+		 * @since 1.0.0
+		 */
+		public function enqueueFrontendAssets() {
+			wp_enqueue_style( 'dashicons' );
+			wp_enqueue_script( 'upf-frontend', UPF_URL_PATH . 'assets/frontend.min.js', array(), false, true );
+			wp_enqueue_style( 'upf-frontend', UPF_URL_PATH . 'assets/frontend.min.css' );
 		}
 
 		/**
@@ -106,21 +159,6 @@ if ( ! class_exists( 'uberPostFormats' ) ) {
 		 */
 		public function includeComponents() {
 			require_once UPF_ABS_PATH . '/components/load.php';
-		}
-
-		public function enqueueBackendAssets( $hook ) {
-			if ( 'post.php' == $hook || 'post-new.php' == $hook ) {
-				wp_enqueue_script( 'upf-backend', UPF_URL_PATH . 'assets/backend.min.js', array(), false, true );
-			}
-			if ( 'edit.php' == $hook || 'post.php' == $hook || 'post-new.php' == $hook ) {
-				wp_enqueue_style( 'upf-backend', UPF_URL_PATH . 'assets/backend.min.css' );
-			}
-		}
-
-		public function enqueueFrontendAssets() {
-			wp_enqueue_style( 'dashicons' );
-			wp_enqueue_script( 'upf-frontend', UPF_URL_PATH . 'assets/frontend.min.js', array(), false, true );
-			wp_enqueue_style( 'upf-frontend', UPF_URL_PATH . 'assets/frontend.min.css' );
 		}
 	}
 }
