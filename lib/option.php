@@ -71,9 +71,6 @@ if ( ! class_exists( 'uberPostFormatsCustomizerSettings' ) ) {
 						add_action( 'customize_register', array( $this, 'initCommon' ) );
 					}
 					break;
-				case 'gallery':
-					add_action( 'customize_register', array( $this, 'initGallery' ) );
-					break;
 			}
 		}
 
@@ -160,37 +157,6 @@ if ( ! class_exists( 'uberPostFormatsCustomizerSettings' ) ) {
 					'none'  => esc_html__( 'None', 'upf' ),
 					'light' => esc_html__( 'Light', 'upf' ),
 					'dark'  => esc_html__( 'Dark', 'upf' ),
-				),
-			) );
-		}
-
-		/**
-		 * init customizer gallery settings function
-		 *
-		 * @param object $wp_customize - global wp var containing customizer object
-		 *
-		 * hooked on 'customize_register' action
-		 *
-		 * @since 1.0.0
-		 */
-		public function initGallery( $wp_customize ) {
-			// slider animation setting
-			$wp_customize->add_setting( UPF_OPTIONS . '[slider_animation]', array(
-				'default'    => 'fade',
-				'capability' => 'edit_theme_options',
-				'type'       => 'option',
-			) );
-
-			// slider animation control
-			$wp_customize->add_control( UPF_PREFIX . '_slider_animation', array(
-				'description' => esc_html__( 'Choose slider animation type for "Gallery" post formats', 'upf' ),
-				'label'       => esc_html__( 'Slider animation type', 'upf' ),
-				'section'     => UPF_OPTIONS_SECTION,
-				'settings'    => UPF_OPTIONS . '[slider_animation]',
-				'type'        => 'select',
-				'choices'     => array(
-					'fade'  => esc_html__( 'Fade', 'upf' ),
-					'slide' => esc_html__( 'Slide', 'upf' ),
 				),
 			) );
 		}

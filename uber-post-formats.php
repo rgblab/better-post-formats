@@ -93,7 +93,7 @@ if ( ! class_exists( 'uberPostFormats' ) ) {
 		 * @param array $links - plugin links from plugin meta
 		 * @param string $file - name of main plugin file
 		 *
-		 * hooked on 'plugin_row_meta' hook
+		 * hooked on 'plugin_row_meta' filter
 		 *
 		 * @return array
 		 * @since 1.0.0
@@ -112,7 +112,7 @@ if ( ! class_exists( 'uberPostFormats' ) ) {
 		 *
 		 * @param string $hook
 		 *
-		 * hooked on 'admin_enqueue_scripts' hook
+		 * hooked on 'admin_enqueue_scripts' action
 		 *
 		 * @since 1.0.0
 		 */
@@ -128,7 +128,7 @@ if ( ! class_exists( 'uberPostFormats' ) ) {
 		/**
 		 * enqueue frontend assets
 		 *
-		 * hooked on 'wp_enqueue_scripts' hook
+		 * hooked on 'wp_enqueue_scripts' action
 		 *
 		 * @since 1.0.0
 		 */
@@ -141,7 +141,7 @@ if ( ! class_exists( 'uberPostFormats' ) ) {
 		/**
 		 * include options function
 		 *
-		 * hooked on 'customize_register' hook
+		 * hooked on 'customize_register' action
 		 *
 		 * @since 1.0.0
 		 */
