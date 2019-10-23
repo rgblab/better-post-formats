@@ -5,11 +5,15 @@
     &--format-quote {
         @include upfBackgroundStyle();
 
-        padding: $frontend-link-quote-distance $frontend-link-quote-distance $frontend-link-quote-distance calc(#{$frontend-icon-distance} * 2 + #{$frontend-icon-size});
+        .upf-content {
+            &__grid {
+                padding: $frontend-link-quote-distance $frontend-link-quote-distance $frontend-link-quote-distance calc(#{$frontend-icon-distance} * 2 + #{$frontend-icon-size});
+            }
 
-        .upf-content__icon {
-            &:after {
-                @include upfIcon('\f122', $frontend-icon-size);
+            &__icon {
+                &:after {
+                    @include upfIcon('\f122', $frontend-icon-size);
+                }
             }
         }
     }

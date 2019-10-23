@@ -14,12 +14,14 @@ $title_tag        = $single ? 'h1' : 'h2';
 ?>
 
 <div class="upf-content upf-content--format-link <?php echo esc_attr( $skin ); ?>" style="<?php echo esc_attr( $background_image ); ?>">
-	<?php if ( ! $single ): ?>
-        <var class="upf-content__permalink" data-href="<?php echo esc_url( $permalink ); ?>" title="<?php the_title_attribute(); ?>"></var>
-	<?php endif; ?>
-	<?php echo '<' . esc_attr( $link_tag ); ?> class="upf-content__icon upf-content__link" <?php echo esc_attr( $data_prefix ); ?>href="<?php echo esc_url( $link ); ?>" <?php echo esc_attr( $data_prefix ); ?>target="<?php echo esc_attr( $target ); ?>">
-	<?php echo '</' . esc_attr( $link_tag ); ?>>
-	<?php echo '<' . esc_attr( $title_tag ); ?> class="upf-content__title">
-	<?php the_title(); ?>
-	<?php echo '</' . esc_attr( $title_tag ); ?>>
+    <div class="upf-content__grid">
+		<?php if ( ! $single ): ?>
+            <var class="upf-content__permalink" data-href="<?php echo esc_url( $permalink ); ?>" title="<?php the_title_attribute(); ?>"></var>
+		<?php endif; ?>
+		<?php echo '<' . esc_attr( $link_tag ); ?> class="upf-content__icon upf-content__link" <?php echo esc_attr( $data_prefix ); ?>href="<?php echo esc_url( $link ); ?>" <?php echo esc_attr( $data_prefix ); ?>target="<?php echo esc_attr( $target ); ?>">
+		<?php echo '</' . esc_attr( $link_tag ); ?>>
+		<?php echo '<' . esc_attr( $title_tag ); ?> class="upf-content__title">
+		<?php the_title(); ?>
+		<?php echo '</' . esc_attr( $title_tag ); ?>>
+    </div>
 </div>

@@ -5,6 +5,10 @@ jQuery(function ($) {
         upfGallery.init();
     });
 
+    $(document).ajaxComplete(function (event, request, settings) {
+        upfGallery.init();
+    });
+
     var upfGallery = {
         init: function () {
             var holder = $('.upf-content--format-gallery');

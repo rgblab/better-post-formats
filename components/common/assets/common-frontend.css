@@ -29,6 +29,12 @@
   background-color: #000000;
 }
 
+.upf-content__grid {
+  margin: 0 auto;
+  max-width: 100%;
+  position: relative;
+}
+
 .upf-content__permalink {
   height: 100%;
   position: absolute;

@@ -12,16 +12,18 @@ $author           = $meta_value[1];
 ?>
 
 <div class="upf-content upf-content--format-quote <?php echo esc_attr( $skin ); ?>" style="<?php echo esc_attr( $background_image ); ?>">
-	<?php if ( ! $single ): ?>
-        <var class="upf-content__permalink" data-href="<?php echo esc_url( $permalink ); ?>" title="<?php the_title_attribute(); ?>"></var>
-	<?php endif; ?>
-    <div class="upf-content__icon"></div>
-    <blockquote class="upf-content__quote">
-		<?php echo '<' . esc_attr( $title_tag ); ?> class="upf-content__quote-text">
-		<?php echo esc_html( $quote ); ?>
-		<?php echo '</' . esc_attr( $title_tag ); ?>>
-		<?php if ( ! empty( $author ) ) : ?>
-            <cite class="upf-content__quote-author"><?php echo esc_html( $author ); ?></cite>
-		<?php endif; ?>
-    </blockquote>
+    <div class="upf-content__grid">
+        <?php if ( ! $single ): ?>
+            <var class="upf-content__permalink" data-href="<?php echo esc_url( $permalink ); ?>" title="<?php the_title_attribute(); ?>"></var>
+        <?php endif; ?>
+        <div class="upf-content__icon"></div>
+        <blockquote class="upf-content__quote">
+            <?php echo '<' . esc_attr( $title_tag ); ?> class="upf-content__quote-text">
+            <?php echo esc_html( $quote ); ?>
+            <?php echo '</' . esc_attr( $title_tag ); ?>>
+            <?php if ( ! empty( $author ) ) : ?>
+                <cite class="upf-content__quote-author"><?php echo esc_html( $author ); ?></cite>
+            <?php endif; ?>
+        </blockquote>
+    </div>
 </div>

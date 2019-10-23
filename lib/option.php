@@ -116,7 +116,7 @@ if ( ! class_exists( 'uberPostFormatsCustomizerSettings' ) ) {
 
 			// content width on lists control
 			$wp_customize->add_control( UPF_PREFIX . '_content_width_list', array(
-				'description' => esc_html__( 'Set UPF content width on lists', 'upf' ),
+				'description' => esc_html__( 'Set UPF content width on lists. Default value is "100%"', 'upf' ),
 				'label'       => esc_html__( 'Content width on lists', 'upf' ),
 				'section'     => UPF_OPTIONS_SECTION,
 				'settings'    => UPF_OPTIONS . '[content_width_list]',
@@ -132,7 +132,7 @@ if ( ! class_exists( 'uberPostFormatsCustomizerSettings' ) ) {
 
 			// content width on single control
 			$wp_customize->add_control( UPF_PREFIX . '_content_width_single', array(
-				'description' => esc_html__( 'Set UPF content width on singles', 'upf' ),
+				'description' => esc_html__( 'Set UPF content width on singles. Default value is "1200px"', 'upf' ),
 				'label'       => esc_html__( 'Content width on singles', 'upf' ),
 				'section'     => UPF_OPTIONS_SECTION,
 				'settings'    => UPF_OPTIONS . '[content_width_single]',

@@ -12,9 +12,11 @@ $animation  = 'upf-content--fade'; // TODO check global value for slider animati
             <img alt="<?php esc_attr_e( 'Gallery Image', 'upf' ); ?>" class="upf-content__gallery-image" src="<?php echo esc_attr( wp_get_attachment_url( $image ) ) ?>">
 		<?php endif; ?>
 	<?php endforeach; ?>
-    <div class="upf-content__gallery-navigation">
-        <div class="upf-content__gallery-prev"></div>
-        <div class="upf-content__gallery-next"></div>
+    <div class="upf-content__grid">
+        <div class="upf-content__gallery-navigation">
+            <div class="upf-content__gallery-prev"></div>
+            <div class="upf-content__gallery-next"></div>
+        </div>
+        <ul class="upf-content__gallery-pagination"></ul>
     </div>
-    <ul class="upf-content__gallery-pagination"></ul>
 </div>

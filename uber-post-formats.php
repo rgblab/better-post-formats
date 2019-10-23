@@ -136,6 +136,8 @@ if ( ! class_exists( 'uberPostFormats' ) ) {
 			wp_enqueue_style( 'dashicons' );
 			wp_enqueue_script( 'upf-frontend', UPF_URL_PATH . 'assets/frontend.min.js', array(), false, true );
 			wp_enqueue_style( 'upf-frontend', UPF_URL_PATH . 'assets/frontend.min.css' );
+
+			uberPostFormatsHelper::generateStyles();
 		}
 
 		/**

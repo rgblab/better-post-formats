@@ -3,6 +3,9 @@
   background-color: rgba(128, 128, 128, 0.3);
   background-position: center;
   background-size: cover;
+}
+
+.upf-content--format-link .upf-content__grid {
   padding: 2.5em 2.5em 2.5em calc(1em * 2 + 40px);
 }
 

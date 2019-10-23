@@ -29,6 +29,12 @@
         background-color: $frontend-color--dark;
     }
 
+    &__grid {
+        margin: 0 auto;
+        max-width: 100%;
+        position: relative;
+    }
+
     &__permalink {
         @include upfPositionAbsolute(100%, 100%);
 

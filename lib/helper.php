@@ -332,6 +332,13 @@ if ( ! class_exists( 'uberPostFormatsHelper' ) ) {
 
 			return $skin;
 		}
+
+		public static function generateStyles() {
+			$style = '';
+			$style = apply_filters( 'upf_set_style', $style );
+
+			wp_add_inline_style( 'upf-frontend', $style );
+		}
 	}
 }
 
