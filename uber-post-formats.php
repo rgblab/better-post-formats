@@ -5,7 +5,7 @@ Plugin Name: Uber Post Formats
 Author: RGB Lab
 Author URI: http://rgblab.net
 Version: 1.0.0
-Description: Use proper "featured content" instead of "featured images" for audio, video, gallery, link and quote post formats. Just Like in any premium WP theme.
+Description: Use proper "featured content" instead of "featured images" for audio, video, gallery, link and quote post formats. Just like in any premium WP theme.
 Text Domain: uber-post-formats
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -61,8 +61,14 @@ if ( ! class_exists( 'uberPostFormats' ) ) {
 				// include backend logic
 				require_once UPF_ABS_PATH . '/lib/meta.php';
 
-				// include additional links on dashboard on 'plugin_row_meta' hook
+				// show additional links in dashboard on 'plugin_row_meta' hook
 				add_filter( 'plugin_row_meta', array( $this, 'dashboardLinks' ), 10, 2 );
+
+				// show admin notice in dashboard on 'admin_notices' hook
+				add_action( 'admin_notices', array( $this, 'adminNoticeShow' ) );
+
+				// handle admin notice dismiss on 'admin_init' hook
+				add_action( 'admin_init', array( $this, 'adminNoticeDismissed' ) );
 
 				// include backend assets on 'admin_enqueue_scripts' hook
 				// priority 5 to ensure loading before gutenberg
@@ -101,10 +107,52 @@ if ( ! class_exists( 'uberPostFormats' ) ) {
 		public function dashboardLinks( $links, $file ) {
 			if ( plugin_basename( dirname( __FILE__ ) . '/uber-post-formats.php' ) === $file ) {
 				$links[] = '<a href="http://demo.rgblab.net/uber-post-formats" target="_blank">' . esc_html__( 'Docs & Demo', 'upf' ) . '</a>';
+				$links[] = '<a href="https://wordpress.org/support/plugin/uber-post-formats/reviews/#new-post" target="_blank">Please rate with ★★★★★</a>';
 				$links[] = '<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TZHDKYP4K759W&source=url" target="_blank">' . esc_html__( 'Donate', 'upf' ) . '</a>';
 			}
 
 			return $links;
+		}
+
+		/**
+		 * admin notice show function
+		 *
+		 * @hooked on 'admin_notices' hook
+		 *
+		 * @since 1.0.0
+		 */
+		public function adminNoticeShow() {
+			if ( empty( uberPostFormatsHelper::getPostFormats() ) ) {
+				$html      = '';
+				$user_id   = get_current_user_id();
+				$dont_show = get_user_meta( $user_id, UPF_PREFIX . '_notice_dismissed' );
+
+				if ( ! $dont_show ) {
+					$html .= '<div class="notice notice-warning is-dismissible">';
+					$html .= '<p>';
+					$html .= __( 'Looks like your theme doesn\'t support post formats and therefore isn\'t compatible with Uber Post Formats plugin.', 'sample-text-domain' );
+					$html .= '<a style="float:right" href="?' . UPF_PREFIX . '-notice-dismissed">Dismiss this message</a>';
+					$html .= '</p>';
+					$html .= '</div>';
+				}
+
+				echo wp_kses_post( $html );
+			}
+		}
+
+		/**
+		 * admin notice dismissed function
+		 *
+		 * @hooked on 'admin_init' hook
+		 *
+		 * @sine 1.0.0
+		 */
+		public function adminNoticeDismissed() {
+			$user_id = get_current_user_id();
+
+			if ( isset( $_GET[ UPF_PREFIX . '-notice-dismissed' ] ) ) {
+				add_user_meta( $user_id, UPF_PREFIX . '_notice_dismissed', 'true', true );
+			}
 		}
 
 		/**

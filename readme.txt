@@ -1,9 +1,10 @@
 === Uber Post Formats ===
 Contributors: rgblab
-Tags: comments, spam
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TZHDKYP4K759W&source=url
+Tags: post format, featured image, featured media
 Requires at least: 5.0
-Tested up to: 5.2
-Stable tag: 1.0
+Tested up to: 5.2.4
+Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -66,5 +67,5 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 
 == Changelog ==
 
-= 1.0 =
+= 1.0.0 =
 * Initial release
