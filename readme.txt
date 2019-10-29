@@ -8,62 +8,66 @@ Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Here is a short description of the plugin.  This should be no more than 150 characters.  No markup here.
+Use proper "featured content" instead of "featured images" for audio, video, gallery, link and quote post formats. Just
+like in any premium WordPress theme.
 
 == Description ==
 
-This is the long description.  No limit, and you can use Markdown (as well as in the following sections).
+Uber Post Formats is a free WordPress plugin that will allow you to use proper featured content instead of static
+featured images. Your website or blog will have content just as any premium WordPress theme.
 
-For backwards compatibility, if this section is missing, the full length of the short description will be used, and
-Markdown parsed.
+You will be able to use:
 
-A few notes about the sections above:
+- Any WordPress supported oEmbed site content for your audio post formats
+- Any WordPress supported oEmbed site content for your video post formats
+- Slider with multiple images for your gallery post formats
+- Real links for link post formats
+- Real quotations with author reference for your quote post formats
 
-*   "Contributors" is a comma separated list of wp.org/wp-plugins.org usernames
-*   "Tags" is a comma separated list of tags that apply to the plugin
-*   "Requires at least" is the lowest version that the plugin will work on
-*   "Tested up to" is the highest version that you've *successfully used to test the plugin*. Note that it might work on
-higher versions... this is just the highest one you've verified.
-*   Stable tag should indicate the Subversion "tag" of the latest stable version, or "trunk," if you use `/trunk/` for
-stable.
+List of global options in the WordPress customizer will allow you to fine tune plugins appearance:
 
-    Note that the `readme.txt` of the stable tag is the one that is considered the defining one for the plugin, so
-if the `/trunk/readme.txt` file says that the stable tag is `4.3`, then it is `/tags/4.3/readme.txt` that'll be used
-for displaying information about the plugin.  In this situation, the only thing considered from the trunk `readme.txt`
-is the stable tag pointer.  Thus, if you develop in trunk, you can update the trunk `readme.txt` to reflect changes in
-your in-development version, without having that information incorrectly disclosed about the current stable version
-that lacks those changes -- as long as the trunk's `readme.txt` points to the correct stable tag.
+- Location, description
+- Content width on lists, description
+- Content width on singles, description
+- Skin, description
 
-    If no stable tag is provided, it is assumed that trunk is stable, but you should specify "trunk" if that's where
-you put the stable version, in order to eliminate any doubt.
+You can check out Uber Post Formats plugin in action [here](http://demo.rgblab.net/uber-post-formats)
+
+Need help? Have feature request? Visit [support thread](https://wordpress.org/support/plugin/uber-post-formats)
+
+Please consider donating even a small sum via
+[PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TZHDKYP4K759W&source=url)
 
 == Installation ==
 
-This section describes how to install the plugin and get it working.
-
-e.g.
-
-1. Upload `featured-media.php` to the `/wp-content/plugins/` directory
-1. Activate the plugin through the 'Plugins' menu in WordPress
-1. Place `<?php do_action('plugin_name_hook'); ?>` in your templates
+Install the Uber Post Formats plugin as any other WordPress plugin. More info can be found in official WordPress step by
+step guide [here](https://wordpress.org/support/article/managing-plugins/#installing-plugins)
 
 == Frequently Asked Questions ==
 
-= A question that someone might have =
+= I don't see plugins options in the customizer =
 
-An answer to that question.
+Please make sure your current theme supports any of required post formats: audio, video, gallery, link or quote. If this
+is not the case, you will see plugins warning notice in your dashboard at the top of the page.
 
-= What about foo bar? =
+= I don't see plugins meta boxes on my post edit screen =
 
-Answer to foo bar dilemma.
+Please make sure your theme supports any of required post formats. If this is not the case, you will see plugins warning
+notice in your dashboard at the top of the page. Next, In the post formats dropdown on your edit post screen choose any
+of following: audio, video, gallery, link or quote.
+
+= I've added values in plugins meta box, but my post is broken =
+
+Please make sure your have enabled javascript in your browser.
 
 == Screenshots ==
 
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
-the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets
-directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png`
-(or jpg, jpeg, gif).
-2. This is the second screen shot
+1. Audio post format meta boxes
+2. Video post format meta boxes
+3. Gallery post format meta boxes
+4. Link post format meta boxes
+5. Quote post format meta boxes
+6. Uber Post Format settings in WordPress customizer
 
 == Changelog ==
 

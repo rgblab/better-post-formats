@@ -45,7 +45,7 @@ $skin_input_field_attr = $input_field_attr . '[' . $skin_key . ']';
     <div class="upf-control__select">
         <label class="upf-control__label" for="<?php echo esc_attr( $skin_input_field_attr ); ?>"><?php esc_html_e( 'Set content skin', 'upf' ) ?></label>
         <select class="upf-control__select-field" name="<?php echo esc_attr( $skin_input_field_attr ); ?>">
-            <option value="default" <?php echo ( 'default' === $skin_value ) ? 'selected' : ''; ?>><?php esc_html_e( 'Default', 'upf' ); ?></option>
+            <option value="global" <?php echo ( 'global' === $skin_value ) ? 'selected' : ''; ?>><?php esc_html_e( 'Global from the customizer', 'upf' ); ?></option>
             <option value="light" <?php echo ( 'light' === $skin_value ) ? 'selected' : ''; ?>><?php esc_html_e( 'Light', 'upf' ); ?></option>
             <option value="dark" <?php echo ( 'dark' === $skin_value ) ? 'selected' : ''; ?>><?php esc_html_e( 'Dark', 'upf' ); ?></option>
         </select>

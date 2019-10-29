@@ -327,7 +327,7 @@ if ( ! class_exists( 'uberPostFormatsHelper' ) ) {
 		public static function getSkin( $local_skin ) {
 			$global_skin = get_option( UPF_OPTIONS )['skin'] ? get_option( UPF_OPTIONS )['skin'] : 'none';
 
-			$skin = ( 'default' === $local_skin ) ? $global_skin : $local_skin;
+			$skin = ( 'global' === $local_skin ) ? $global_skin : $local_skin;
 			$skin = ( 'none' === $skin ) ? '' : UPF_PREFIX . '-content--' . $skin;
 
 			return $skin;

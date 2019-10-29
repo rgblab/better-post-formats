@@ -5,7 +5,7 @@ Plugin Name: Uber Post Formats
 Author: RGB Lab
 Author URI: http://rgblab.net
 Version: 1.0.0
-Description: Use proper "featured content" instead of "featured images" for audio, video, gallery, link and quote post formats. Just like in any premium WP theme.
+Description: Use proper "featured content" instead of "featured images" for audio, video, gallery, link and quote post formats. Just like in any premium WordPress theme.
 Text Domain: uber-post-formats
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
