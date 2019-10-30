@@ -26,10 +26,10 @@ You will be able to use:
 
 List of global options in the WordPress customizer will allow you to fine tune plugins appearance:
 
-- Location, description
-- Content width on lists, description
-- Content width on singles, description
-- Skin, description
+- Location, choose where you want to use plugin on the frontend of your website
+- Content width on lists, set plugin content width on lists
+- Content width on singles, set plugin content width on singles
+- Skin, choose plugin content skin. Light skin goes well with dark content while dark skin goes well with light content
 
 You can check out Uber Post Formats plugin in action [here](http://demo.rgblab.net/uber-post-formats)
 
