@@ -3,11 +3,47 @@ jQuery(function ($) {
 
     $(document).ready(function () {
         upfDependency.init();
+        upfObserver.init();
     });
 
     $(window).load(function () {
         upfDependency.init();
+        upfObserver.init();
     });
+
+    var upfObserver = {
+        init: function () {
+            var mutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
+
+            // create mutation observer prototype for attribute changes
+            $.fn.attrChange = function (callback) {
+                if (mutationObserver) {
+                    var options = {
+                        attributes: true,
+                        attributeFilter: ['class'],
+                        subtree: false,
+                    };
+
+                    var observer = new mutationObserver(function (mutations) {
+                        mutations.forEach(function (event) {
+                            callback.call(event.target);
+                        });
+                    });
+
+                    return this.each(function () {
+                        observer.observe(this, options);
+                    });
+                }
+            };
+
+            // append event listener
+            $('.edit-post-sidebar__panel-tabs ul li:first-child button').attrChange(function () {
+                if ($(this).hasClass('is-active')) {
+                    upfDependency.init();
+                }
+            });
+        }
+    };
 
     var upfDependency = {
         init: function () {
@@ -88,21 +124,21 @@ jQuery(function ($) {
                     // add
                     $(document).on('click', '.upf-control__add', function (event) {
                         event.preventDefault();
-                        // call media frame handler
+                        // call media frame method
                         upfGallery.getMediaFrame($(this), true);
                     });
 
                     // replace
                     $(document).on('click', '.upf-control__replace', function (event) {
                         event.preventDefault();
-                        // call media frame handler
+                        // call media frame method
                         upfGallery.getMediaFrame($(this), false);
                     });
 
                     // remove
                     $(document).on('click', '.upf-control__remove', function (event) {
                         event.preventDefault();
-                        // call remove item handler
+                        // call remove item method
                         upfGallery.removeItem($(this));
                     });
                 });

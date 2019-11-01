@@ -15,21 +15,21 @@ jQuery(function ($) {
                     // add
                     $(document).on('click', '.upf-control__add', function (event) {
                         event.preventDefault();
-                        // call media frame handler
+                        // call media frame method
                         upfGallery.getMediaFrame($(this), true);
                     });
 
                     // replace
                     $(document).on('click', '.upf-control__replace', function (event) {
                         event.preventDefault();
-                        // call media frame handler
+                        // call media frame method
                         upfGallery.getMediaFrame($(this), false);
                     });
 
                     // remove
                     $(document).on('click', '.upf-control__remove', function (event) {
                         event.preventDefault();
-                        // call remove item handler
+                        // call remove item method
                         upfGallery.removeItem($(this));
                     });
                 });

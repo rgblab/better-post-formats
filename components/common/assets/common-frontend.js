@@ -24,7 +24,7 @@ jQuery(function ($) {
 
             if (holder.length) {
                 holder.each(function () {
-                    // call modify tag handler
+                    // call modify tag method
                     upfModifyTag.modifyTag($(this));
                 });
             }
@@ -50,7 +50,7 @@ jQuery(function ($) {
         init: function () {
             var holder = $('.upf-content iframe');
 
-            // call resize handler
+            // call resize method
             if (holder.length) {
                 holder.each(function () {
                     upfResizeIFrame.resize($(this));

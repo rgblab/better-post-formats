@@ -24,7 +24,7 @@ jQuery(function ($) {
 
             if (holder.length) {
                 holder.each(function () {
-                    // call modify tag handler
+                    // call modify tag method
                     upfModifyTag.modifyTag($(this));
                 });
             }
@@ -50,7 +50,7 @@ jQuery(function ($) {
         init: function () {
             var holder = $('.upf-content iframe');
 
-            // call resize handler
+            // call resize method
             if (holder.length) {
                 holder.each(function () {
                     upfResizeIFrame.resize($(this));
@@ -140,11 +140,11 @@ jQuery(function ($) {
 
                     // play/pause
                     $(this).on({
-                        // on mouse enter call pause handler
+                        // on mouse enter call pause method
                         mouseenter: function () {
                             upfGallery.pause(interval);
                         },
-                        // on mouse leave call play handler
+                        // on mouse leave call play method
                         mouseleave: function () {
                             interval = upfGallery.play(currentHolder, noOfItems);
                         }
@@ -153,14 +153,14 @@ jQuery(function ($) {
                     // goto prev
                     prev.on('click', function (event) {
                         event.preventDefault();
-                        // call set new index handler
+                        // call set new index method
                         upfGallery.setNewIndex(currentHolder, noOfItems, 'prev');
                     });
 
                     // goto next
                     next.on('click', function (event) {
                         event.preventDefault();
-                        // call set new index handler
+                        // call set new index method
                         upfGallery.setNewIndex(currentHolder, noOfItems, 'next');
                     });
 
@@ -170,7 +170,7 @@ jQuery(function ($) {
                     // goto specific
                     pagination.on('click', function (event) {
                         event.preventDefault();
-                        // call set active classes handler if current bullet is not active
+                        // call set active classes method if current bullet is not active
                         if (!$(this).hasClass('active')) {
                             upfGallery.setActiveClasses(currentHolder, $(this).index());
                         }
@@ -202,7 +202,7 @@ jQuery(function ($) {
 
         play: function (holder, noOfItems) {
             return setInterval(function () {
-                // call set new index handler
+                // call set new index method
                 upfGallery.setNewIndex(holder, noOfItems, 'next');
             }, 3000);
         },
@@ -220,7 +220,7 @@ jQuery(function ($) {
                 newIndex = (noOfItems === currentIndex + 1) ? 0 : currentIndex + 1;
             }
 
-            // call set active classes handler
+            // call set active classes method
             upfGallery.setActiveClasses(holder, newIndex);
         },
 
