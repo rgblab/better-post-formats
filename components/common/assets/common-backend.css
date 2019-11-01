@@ -2,8 +2,13 @@
   margin: 12px 0 0 0;
 }
 
-.upf-control__text, .upf-control__textarea {
+.upf-control__text, .upf-control__textarea, .upf-control__select {
   margin: 0 0 12px 0;
+}
+
+.upf-control__text-field, .upf-control__textarea-field, .upf-control__select-field {
+  margin: 0;
+  width: 100%;
 }
 
 .upf-control__label {
@@ -12,9 +17,8 @@
   width: 100%;
 }
 
-.upf-control__text-field, .upf-control__textarea-field, .upf-control__select-field {
-  margin: 0;
-  width: 100%;
+.upf-control--no-bottom-margin {
+  margin-bottom: 0;
 }
 
 .block-editor__container .upf-control__select-field {
