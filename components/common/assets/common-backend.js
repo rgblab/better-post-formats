@@ -1,11 +1,6 @@
 jQuery(function ($) {
     'use strict';
 
-    $(document).ready(function () {
-        upfDependency.init();
-        upfObserver.init();
-    });
-
     $(window).load(function () {
         upfDependency.init();
         upfObserver.init();
@@ -15,8 +10,8 @@ jQuery(function ($) {
         init: function () {
             var mutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
 
-            // create mutation observer prototype for attribute changes
-            $.fn.attrChange = function (callback) {
+            // create mutation observer prototype for class changes
+            $.fn.attrChange = function (attrChangeCallback) {
                 if (mutationObserver) {
                     var options = {
                         attributes: true,
@@ -26,7 +21,7 @@ jQuery(function ($) {
 
                     var observer = new mutationObserver(function (mutations) {
                         mutations.forEach(function (event) {
-                            callback.call(event.target);
+                            attrChangeCallback.call(event.target);
                         });
                     });
 
