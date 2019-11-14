@@ -5,10 +5,10 @@ jQuery(function ($) {
         upfModifyTag.init();
         upfResizeIFrame.init();
         upfAddArticleClass.init();
-        upfAddBodyId.init();
+        upfAddBodyClass.init();
     });
 
-    $(document).ajaxComplete(function (event, request, settings) {
+    $(document).ajaxComplete(function () {
         upfModifyTag.init();
         upfResizeIFrame.init();
         upfAddArticleClass.init();
@@ -24,26 +24,61 @@ jQuery(function ($) {
 
             if (holder.length) {
                 holder.each(function () {
-                    // call modify tag method
-                    upfModifyTag.modifyTag($(this));
+                    // call replace permalink method
+                    var modifiedPermalink = upfModifyTag.replacePermalink($(this));
+
+                    // if there is no permalink, call modify tag method
+                    if (!modifiedPermalink) {
+                        upfModifyTag.modifyTag($(this), 'replace');
+                    }
                 });
             }
         },
 
-        modifyTag: function (holder) {
-            var default_permalink = holder.closest('a');
+        replacePermalink: function (holder) {
+            var defaultPermalink = holder.closest('a');
 
-            if (default_permalink.length) {
-                default_permalink.replaceWith(function () {
-                    var html = this.innerHTML.replace(/var/g, 'a').replace(/data-/g, '');
+            if (defaultPermalink.length) {
+                // replace a with div
+                defaultPermalink.replaceWith(function () {
+                    // call modify tag method
+                    var newHtml = upfModifyTag.modifyTag($(this), 'return');
 
                     return $('<div/>', {
                         class: 'upf-default-permalink--replaced',
-                        html: html,
+                        html: newHtml,
                     });
                 });
+
+                return true;
+            } else {
+                return false;
             }
         },
+
+        modifyTag: function (holder, option) {
+            var oldHtml = holder.html(),
+                newHtml = '';
+
+            if ('replace' === option) {
+                if (holder.hasClass('upf-content--format-link') || holder.hasClass('upf-content--format-quote')) {
+                    newHtml = oldHtml.replace(/var/g, 'a').replace(/data-/g, '');
+                    holder.html(newHtml);
+
+                    console.log('replace');
+                }
+            } else if ('return' === option) {
+                if (holder.find('.upf-content--format-link') || holder.find('.upf-content--format-quote')) {
+                    newHtml = oldHtml.replace(/var/g, 'a').replace(/data-/g, '');
+                } else {
+                    newHtml = oldHtml;
+                }
+
+                console.log('return');
+
+                return newHtml;
+            }
+        }
     };
 
     var upfResizeIFrame = {
@@ -62,8 +97,6 @@ jQuery(function ($) {
             var ratio = holder.attr('width') / holder.attr('height');
 
             holder.height(holder.width() / ratio);
-
-            console.log('resized');
         },
     };
 
@@ -96,9 +129,9 @@ jQuery(function ($) {
         },
     };
 
-    var upfAddBodyId = {
+    var upfAddBodyClass = {
         init: function () {
-            $('body').attr('id', 'upf-content');
+            $('body').addClass('upf-clear-foreign-content');
         },
     };
 });

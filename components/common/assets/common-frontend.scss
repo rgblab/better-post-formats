@@ -7,7 +7,7 @@
     }
 }
 
-#upf-content {
+body.upf-clear-foreign-content {
     @include upfClearForeignContent();
 }
 

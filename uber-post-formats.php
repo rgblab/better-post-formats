@@ -166,7 +166,7 @@ if ( ! class_exists( 'uberPostFormats' ) ) {
 		 */
 		public function enqueueBackendAssets( $hook ) {
 			if ( 'post.php' === $hook || 'post-new.php' == $hook ) {
-				wp_enqueue_script( 'upf-backend', UPF_URL_PATH . 'assets/backend.min.js', array(), false, true );
+				wp_enqueue_script( 'upf-backend', UPF_URL_PATH . 'assets/backend.min.js', array( 'jquery' ), false, true );
 			}
 			if ( 'edit.php' === $hook || 'post.php' == $hook || 'post-new.php' == $hook ) {
 				wp_enqueue_style( 'upf-backend', UPF_URL_PATH . 'assets/backend.min.css' );
@@ -182,7 +182,7 @@ if ( ! class_exists( 'uberPostFormats' ) ) {
 		 */
 		public function enqueueFrontendAssets() {
 			wp_enqueue_style( 'dashicons' );
-			wp_enqueue_script( 'upf-frontend', UPF_URL_PATH . 'assets/frontend.min.js', array(), false, true );
+			wp_enqueue_script( 'upf-frontend', UPF_URL_PATH . 'assets/frontend.min.js', array( 'jquery' ), false, true );
 			wp_enqueue_style( 'upf-frontend', UPF_URL_PATH . 'assets/frontend.min.css' );
 
 			uberPostFormatsHelper::generateStyles();

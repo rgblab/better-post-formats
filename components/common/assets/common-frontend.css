@@ -2,11 +2,11 @@
   display: none;
 }
 
-#upf-content .upf-content *:not([class*="upf-content"]) {
+body.upf-clear-foreign-content .upf-content *:not([class*="upf-content"]) {
   display: none;
 }
 
-#upf-content .upf-content iframe {
+body.upf-clear-foreign-content .upf-content iframe {
   display: block !important;
 }
 
