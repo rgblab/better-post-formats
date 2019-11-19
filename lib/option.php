@@ -67,9 +67,7 @@ if ( ! class_exists( 'uberPostFormatsCustomizerSettings' ) ) {
 			// init customizer settings on 'customize_register' hook
 			switch ( $post_format ) {
 				case 'common':
-					if ( ! empty( uberPostFormatsHelper::getPostFormats() ) ) {
-						add_action( 'customize_register', array( $this, 'initCommon' ) );
-					}
+					add_action( 'customize_register', array( $this, 'initCommon' ) );
 					break;
 			}
 		}

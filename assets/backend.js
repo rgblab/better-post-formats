@@ -175,7 +175,7 @@ jQuery(function ($) {
                         attachment = attachment.toJSON();
 
                         // append markup as in meta box template
-                        $('.upf-control__gallery').append('<li><input type="hidden" name="upf-gallery[' + index + ']" value="' + attachment.id + '"><img class="upf-control__image" src="' + attachment.sizes.thumbnail.url + '"><a class="upf-control__replace" href="#" data-uploader-title="Replace image" data-uploader-button-text="Replace image"><span class="dashicons dashicons-edit"></span></a><a class="upf-control__remove" href="#"><span class="dashicons dashicons-trash"></span></a></li>');
+                        $('.upf-control__gallery').append('<li><input type="hidden" name="upf-gallery[' + index + ']" value="' + attachment.id + '"><img class="upf-control__image" src="' + attachment.sizes.thumbnail.url + '"><a class="upf-control__replace" href="#" data-uploader-title="' + backendLabels.uploaderTitle + '" data-uploader-button-text="' + backendLabels.uploaderButtonText + '"><span class="dashicons dashicons-edit"></span></a><a class="upf-control__remove" href="#"><span class="dashicons dashicons-trash"></span></a></li>');
                     });
                 });
 

@@ -16,4 +16,5 @@ $animation  = 'upf-content--fade'; // TODO check global value for slider animati
         <div class="upf-content__gallery-prev"></div>
         <div class="upf-content__gallery-next"></div>
     </div>
+    <div class="upf-content__gallery-pagination"></div>
 </div>

@@ -45,7 +45,7 @@ msgstr ""
 msgid "Add images"
 msgstr ""
 
-#: ../wp-content/plugins/uber-post-formats/components/gallery/templates/meta-box.php:27, ../wp-content/plugins/uber-post-formats/components/gallery/templates/meta-box.php:27
+#: ../wp-content/plugins/uber-post-formats/components/gallery/templates/meta-box.php:27, ../wp-content/plugins/uber-post-formats/components/gallery/templates/meta-box.php:27, ../wp-content/plugins/uber-post-formats/uber-post-formats.php:123, ../wp-content/plugins/uber-post-formats/uber-post-formats.php:124
 msgid "Replace image"
 msgstr ""
 
@@ -57,11 +57,11 @@ msgstr ""
 msgid "Global from the customizer"
 msgstr ""
 
-#: ../wp-content/plugins/uber-post-formats/components/gallery/templates/meta-box.php:49, ../wp-content/plugins/uber-post-formats/components/link/templates/meta-box.php:27, ../wp-content/plugins/uber-post-formats/components/quote/templates/meta-box.php:24, ../wp-content/plugins/uber-post-formats/lib/option.php:158
+#: ../wp-content/plugins/uber-post-formats/components/gallery/templates/meta-box.php:49, ../wp-content/plugins/uber-post-formats/components/link/templates/meta-box.php:27, ../wp-content/plugins/uber-post-formats/components/quote/templates/meta-box.php:24, ../wp-content/plugins/uber-post-formats/lib/option.php:156
 msgid "Light"
 msgstr ""
 
-#: ../wp-content/plugins/uber-post-formats/components/gallery/templates/meta-box.php:50, ../wp-content/plugins/uber-post-formats/components/link/templates/meta-box.php:28, ../wp-content/plugins/uber-post-formats/components/quote/templates/meta-box.php:25, ../wp-content/plugins/uber-post-formats/lib/option.php:159
+#: ../wp-content/plugins/uber-post-formats/components/gallery/templates/meta-box.php:50, ../wp-content/plugins/uber-post-formats/components/link/templates/meta-box.php:28, ../wp-content/plugins/uber-post-formats/components/quote/templates/meta-box.php:25, ../wp-content/plugins/uber-post-formats/lib/option.php:157
 msgid "Dark"
 msgstr ""
 
@@ -74,11 +74,11 @@ msgid "Set where to open link"
 msgstr ""
 
 #: ../wp-content/plugins/uber-post-formats/components/link/templates/meta-box.php:19
-msgid "New Browser Tab"
+msgid "New browser tab"
 msgstr ""
 
 #: ../wp-content/plugins/uber-post-formats/components/link/templates/meta-box.php:20
-msgid "Same Browser Tab"
+msgid "Same browser tab"
 msgstr ""
 
 #: ../wp-content/plugins/uber-post-formats/components/quote/templates/meta-box.php:13
@@ -97,7 +97,7 @@ msgstr ""
 msgid "Enter URL pointing to video file or video streaming provider"
 msgstr ""
 
-#: ../wp-content/plugins/uber-post-formats/lib/helper.php:197, ../wp-content/plugins/uber-post-formats/lib/helper.php:207, ../wp-content/plugins/uber-post-formats/lib/helper.php:239, ../wp-content/plugins/uber-post-formats/lib/helper.php:249
+#: ../wp-content/plugins/uber-post-formats/lib/helper.php:192, ../wp-content/plugins/uber-post-formats/lib/helper.php:202, ../wp-content/plugins/uber-post-formats/lib/helper.php:234, ../wp-content/plugins/uber-post-formats/lib/helper.php:244
 msgid "File not found"
 msgstr ""
 
@@ -109,58 +109,58 @@ msgstr ""
 msgid "Uber Post Formats"
 msgstr ""
 
-#: ../wp-content/plugins/uber-post-formats/lib/option.php:97
+#: ../wp-content/plugins/uber-post-formats/lib/option.php:95
 msgid "Choose where you want to use UPF on the frontend of your website"
 msgstr ""
 
-#: ../wp-content/plugins/uber-post-formats/lib/option.php:98
+#: ../wp-content/plugins/uber-post-formats/lib/option.php:96
 msgid "Location"
 msgstr ""
 
-#: ../wp-content/plugins/uber-post-formats/lib/option.php:103
+#: ../wp-content/plugins/uber-post-formats/lib/option.php:101
 msgid "On both lists and singles"
 msgstr ""
 
-#: ../wp-content/plugins/uber-post-formats/lib/option.php:104
+#: ../wp-content/plugins/uber-post-formats/lib/option.php:102
 msgid "On singles only"
 msgstr ""
 
-#: ../wp-content/plugins/uber-post-formats/lib/option.php:105
+#: ../wp-content/plugins/uber-post-formats/lib/option.php:103
 msgid "On lists only"
 msgstr ""
 
-#: ../wp-content/plugins/uber-post-formats/lib/option.php:119
+#: ../wp-content/plugins/uber-post-formats/lib/option.php:117
 msgid "Set UPF content width on lists. Default value is \"100%\""
 msgstr ""
 
-#: ../wp-content/plugins/uber-post-formats/lib/option.php:120
+#: ../wp-content/plugins/uber-post-formats/lib/option.php:118
 msgid "Content width on lists"
 msgstr ""
 
-#: ../wp-content/plugins/uber-post-formats/lib/option.php:135
+#: ../wp-content/plugins/uber-post-formats/lib/option.php:133
 msgid "Set UPF content width on singles. Default value is \"1200px\""
 msgstr ""
 
-#: ../wp-content/plugins/uber-post-formats/lib/option.php:136
+#: ../wp-content/plugins/uber-post-formats/lib/option.php:134
 msgid "Content width on singles"
 msgstr ""
 
-#: ../wp-content/plugins/uber-post-formats/lib/option.php:151
+#: ../wp-content/plugins/uber-post-formats/lib/option.php:149
 msgid "Choose UPF content skin. Light skin goes well with dark content while dark skin goes well with light content. Choose \"None\" to use themes color scheme"
 msgstr ""
 
-#: ../wp-content/plugins/uber-post-formats/lib/option.php:152
+#: ../wp-content/plugins/uber-post-formats/lib/option.php:150
 msgid "Skin"
 msgstr ""
 
-#: ../wp-content/plugins/uber-post-formats/lib/option.php:157
+#: ../wp-content/plugins/uber-post-formats/lib/option.php:155
 msgid "None"
 msgstr ""
 
-#: ../wp-content/plugins/uber-post-formats/uber-post-formats.php:109
+#: ../wp-content/plugins/uber-post-formats/uber-post-formats.php:103
 msgid "Docs & Demo"
 msgstr ""
 
-#: ../wp-content/plugins/uber-post-formats/uber-post-formats.php:111
+#: ../wp-content/plugins/uber-post-formats/uber-post-formats.php:105
 msgid "Donate"
 msgstr ""

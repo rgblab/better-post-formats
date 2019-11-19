@@ -23,7 +23,7 @@ $skin_input_field_attr = $input_field_attr . '[' . $skin_key . ']';
 
                     <li>
                         <input name="<?php echo esc_attr( $input_field_attr . '[' . $key . ']' ); ?>" type="hidden" value="<?php echo esc_attr( $value ); ?>">
-                        <img alt="thumbnail" class="upf-control__image" src="<?php echo esc_url( $image ); ?>">
+                        <img alt="Thumbnail image" class="upf-control__image" src="<?php echo esc_url( $image ); ?>">
                         <a class="upf-control__replace" href="#" data-uploader-title="<?php esc_attr_e( 'Replace image', 'upf' ); ?>" data-uploader-button-text="<?php esc_attr_e( 'Replace image', 'upf' ); ?>">
                             <span class="dashicons dashicons-edit"></span>
                         </a>

@@ -32,31 +32,8 @@ if ( ! class_exists( 'uberPostFormatsHelper' ) ) {
 		}
 
 		/**
-		 * is post format supported function
-		 * check if post format is supported by current theme
-		 *
-		 * @param string $post_format
-		 *
-		 * @return bool
-		 * @since 1.0.0
-		 */
-		public static function isPostFormatSupported( $post_format ) {
-			if ( current_theme_supports( 'post-formats' ) ) {
-				$post_formats = get_theme_support( 'post-formats' );
-
-				if ( is_array( $post_formats[0] ) ) {
-					if ( in_array( $post_format, $post_formats[0] ) ) {
-						return true;
-					}
-				}
-			}
-
-			return false;
-		}
-
-		/**
 		 * get post formats function
-		 * get array of all post formats in current theme handled by plugin
+		 * get array of all post formats handled by plugin
 		 *
 		 * @return array
 		 * @since 1.0.0
@@ -83,6 +60,24 @@ if ( ! class_exists( 'uberPostFormatsHelper' ) ) {
 			$post_formats[] = $post_format;
 
 			return $post_formats;
+		}
+
+		/**
+		 * init post format function
+		 * set post format and include component files
+		 *
+		 * @param string $post_format - post format
+		 *
+		 * @since 1.0.0
+		 */
+		public static function initPostFormat( $post_format ) {
+			// add post format to array of post formats
+			add_filter( 'upf_set_post_format', function ( $post_formats ) use ( $post_format ) {
+				return self::setPostFormat( $post_formats, $post_format );
+			} );
+
+			// include component
+			self::getComponent( $post_format, 'require' );
 		}
 
 		/**
