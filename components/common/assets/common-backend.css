@@ -7,6 +7,7 @@
 }
 
 .upf-control__text-field, .upf-control__textarea-field, .upf-control__select-field {
+  box-sizing: border-box;
   margin: 0;
   width: 100%;
 }
@@ -19,10 +20,6 @@
 
 .upf-control--no-bottom-margin {
   margin-bottom: 0;
-}
-
-.block-editor__container .upf-control__select-field {
-  width: calc(100% - 6px);
 }
 
 .wp-list-table.posts .row-title:before {

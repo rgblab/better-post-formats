@@ -11,6 +11,7 @@
         margin: 0 0 $backend-distance--large 0;
 
         &-field {
+            box-sizing: border-box;
             margin: 0;
             width: 100%;
         }
@@ -24,13 +25,6 @@
 
     &--no-bottom-margin {
         margin-bottom: 0;
-    }
-}
-
-// select fix for gutenberg
-.block-editor__container {
-    .upf-control__select-field {
-        width: calc(100% - 6px); // reduce width for padding and border, can't use box sizing
     }
 }
 
