@@ -45,20 +45,21 @@ step guide [here](https://wordpress.org/support/article/managing-plugins/#instal
 
 == Frequently Asked Questions ==
 
-= I don't see plugins options in the customizer =
+= Should I use Gutenberg or Classic editor? =
 
-Please make sure your current theme supports any of required post formats: audio, video, gallery, link or quote. If this
-is not the case, you will see plugins warning notice in your dashboard at the top of the page.
+Short answer - you can use both. Better Post Formats plugin works with both Gutenberg or Classic editor.
 
-= I don't see plugins meta boxes on my post edit screen =
+= My current theme does not support post formats, can I use Better Post Formats plugin? =
 
-Please make sure your theme supports any of required post formats. If this is not the case, you will see plugins warning
-notice in your dashboard at the top of the page. Next, In the post formats dropdown on your edit post screen choose any
-of following: audio, video, gallery, link or quote.
+Yes of course, even if your theme does not support post formats, Better Post Formats plugin will add support for audio, video, gallery, link and quote post formats.
 
-= I've added values in plugins meta box, but my post is broken =
+= I have set featured content, can I switch theme? =
 
-Please make sure your have enabled javascript in your browser.
+Yes of course, plugin does not depend on themes, data related to plugin content is saved in database independently.
+
+= I have set featured content, but I can not see it on my website? =
+
+Please try to switch to any default WordPress theme (TwentyX). If content appears on your website, most likely your previous theme does not use get_the_post_thumbnail WordPress filter for featured image display.
 
 == Screenshots ==
 
