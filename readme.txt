@@ -59,7 +59,7 @@ Yes of course, plugin does not depend on themes, data related to plugin content 
 
 = I have set featured content, but I can not see it on my website? =
 
-Please try to switch to any default WordPress theme (TwentyX). If content appears on your website, most likely your previous theme does not use get_the_post_thumbnail WordPress filter for featured image display.
+Please try to switch to any default WordPress theme (TwentyX). If content appears on your website, most likely your previous theme does not use get_the_post_thumbnail WordPress function for featured image display.
 
 == Screenshots ==
 
