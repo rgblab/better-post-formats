@@ -1,9 +1,9 @@
-.upf-content--format-audio audio {
+.bpf-content--format-audio audio {
   display: block;
   width: 100%;
 }
 
-.upf-content--format-audio .upf-content__image {
+.bpf-content--format-audio .bpf-content__image {
   display: block;
   width: 100%;
 }

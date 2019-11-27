@@ -1,3 +1,3 @@
 <?php
 
-new uberPostFormatsMeta( 'quote' );
+new betterPostFormatsMeta( 'quote' );

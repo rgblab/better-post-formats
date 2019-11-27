@@ -1,3 +1,3 @@
 <?php
 
-new uberPostFormatsMeta( 'video' );
+new betterPostFormatsMeta( 'video' );

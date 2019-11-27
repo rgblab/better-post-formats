@@ -1,10 +1,10 @@
 // import mixins and variables
 @import '../../common/assets/_common.scss';
 
-.upf-content {
+.bpf-content {
     &--format-video {
         video {
-            @include upfDisplayBlock();
+            @include bpfDisplayBlock();
         }
     }
 }

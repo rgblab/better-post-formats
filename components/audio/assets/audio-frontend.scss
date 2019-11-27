@@ -1,15 +1,15 @@
 // import mixins and variables
 @import '../../common/assets/common.scss';
 
-.upf-content {
+.bpf-content {
     &--format-audio {
         audio {
-            @include upfDisplayBlock();
+            @include bpfDisplayBlock();
         }
 
-        .upf-content {
+        .bpf-content {
             &__image {
-                @include upfDisplayBlock();
+                @include bpfDisplayBlock();
             }
         }
     }

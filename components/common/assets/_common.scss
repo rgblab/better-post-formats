@@ -32,7 +32,7 @@ $frontend-icon-distance: 1em;
 $frontend-link-quote-distance: 2.5em;
 
 // mixins
-@mixin upfClearfix() {
+@mixin bpfClearfix() {
     &:after {
         clear: both;
         content: '';
@@ -40,24 +40,24 @@ $frontend-link-quote-distance: 2.5em;
     }
 }
 
-@mixin upfDisplayBlock($width:100%) {
+@mixin bpfDisplayBlock($width:100%) {
     display: block;
     width: $width;
 }
 
-@mixin upfPositionAbsolute($height,$width) {
+@mixin bpfPositionAbsolute($height,$width) {
     height: $height;
     position: absolute;
     width: $width;
 }
 
-@mixin upfBackgroundStyle() {
+@mixin bpfBackgroundStyle() {
     background-color: rgba($frontend-color--medium, 0.3);
     background-position: center;
     background-size: cover;
 }
 
-@mixin upfIcon($content,$size) {
+@mixin bpfIcon($content,$size) {
     content: $content;
     font-family: dashicons;
     font-size: $size;
@@ -68,20 +68,20 @@ $frontend-link-quote-distance: 2.5em;
     top: 0;
     width: $size;
 
-    @include upfPositionAbsolute($size, $size);
+    @include bpfPositionAbsolute($size, $size);
 }
 
-@mixin upfResetText() {
+@mixin bpfResetText() {
     border: 0 !important;
     color: inherit !important;
     margin: 0 !important;
     padding: 0 !important;
 }
 
-@mixin upfClearForeignContent() {
-    .upf-content {
+@mixin bpfClearForeignContent() {
+    .bpf-content {
         * {
-            &:not([class*="upf-content"]) {
+            &:not([class*="bpf-content"]) {
                 display: none;
             }
         }

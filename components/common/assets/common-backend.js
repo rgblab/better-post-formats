@@ -2,23 +2,23 @@ jQuery(function ($) {
     'use strict';
 
     $(window).load(function () {
-        upfDependency.init();
-        upfObserver.init();
+        bpfDependency.init();
+        bpfObserver.init();
     });
 
-    var upfDependency = {
+    var bpfDependency = {
         init: function () {
             var gutenbergEditorHolder = $('.editor-post-format').find('select'),
                 classicEditorHolder = $('#post-formats-select').find('input');
 
             // call gutenberg handler method
             if (gutenbergEditorHolder.length) {
-                upfDependency.gutenbergEditorHandler(gutenbergEditorHolder);
+                bpfDependency.gutenbergEditorHandler(gutenbergEditorHolder);
             }
 
             // call classic handler method
             if (classicEditorHolder.length) {
-                upfDependency.classicEditorHandler(classicEditorHolder);
+                bpfDependency.classicEditorHandler(classicEditorHolder);
             }
         },
 
@@ -27,16 +27,16 @@ jQuery(function ($) {
                 // show if selected
                 if ($(this).is(':selected')) {
                     // call set meta box visibility method
-                    upfDependency.setMetaBoxVisibility('show', $(this).val());
+                    bpfDependency.setMetaBoxVisibility('show', $(this).val());
                 } else {
                     // call set meta box visibility method
-                    upfDependency.setMetaBoxVisibility('hide', $(this).val());
+                    bpfDependency.setMetaBoxVisibility('hide', $(this).val());
                 }
             });
 
             // call handler method on change
             holder.on('change', function () {
-                upfDependency.gutenbergEditorHandler(holder);
+                bpfDependency.gutenbergEditorHandler(holder);
             });
         },
 
@@ -46,33 +46,33 @@ jQuery(function ($) {
                 // show if checked
                 if ($(this).is(':checked')) {
                     // call set meta box visibility method
-                    upfDependency.setMetaBoxVisibility('show', $(this).val());
+                    bpfDependency.setMetaBoxVisibility('show', $(this).val());
                 } else {
                     // call set meta box visibility method
-                    upfDependency.setMetaBoxVisibility('hide', $(this).val());
+                    bpfDependency.setMetaBoxVisibility('hide', $(this).val());
                 }
             });
 
             // call handler method on click
             holder.on('click', function () {
-                upfDependency.classicEditorHandler(holder);
+                bpfDependency.classicEditorHandler(holder);
             });
         },
 
         setMetaBoxVisibility: function (visibility, postFormat) {
             // if hide
             if ('hide' === visibility) {
-                $('#upf_' + postFormat).hide();
+                $('#bpf_' + postFormat).hide();
             }
 
             // if show
             if ('show' === visibility) {
-                $('#upf_' + postFormat).fadeIn();
+                $('#bpf_' + postFormat).fadeIn();
             }
         }
     };
 
-    var upfObserver = {
+    var bpfObserver = {
         init: function () {
             var holder = $('.edit-post-sidebar__panel-tabs ul li:first-child button');
 
@@ -87,7 +87,7 @@ jQuery(function ($) {
                     mutationObserver = new MutationObserver(function (mutations) {
                         mutations.forEach(function (mutation) {
                             if (holder.hasClass('is-active')) {
-                                upfDependency.init();
+                                bpfDependency.init();
                             }
                         });
                     });

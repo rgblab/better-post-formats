@@ -2,47 +2,47 @@ jQuery(function ($) {
     'use strict';
 
     $(document).ready(function () {
-        upfGallery.init();
+        bpfGallery.init();
     });
 
     $(document).ajaxComplete(function (event, request, settings) {
-        upfGallery.init();
+        bpfGallery.init();
     });
 
-    var upfGallery = {
+    var bpfGallery = {
         init: function () {
-            var holder = $('.upf-content--format-gallery');
+            var holder = $('.bpf-content--format-gallery');
 
             if (holder.length) {
                 holder.each(function () {
                     var currentHolder = $(this),
                         interval,
                         noOfItems,
-                        prev = $('.upf-content__gallery-prev'),
-                        next = $('.upf-content__gallery-next'),
+                        prev = $('.bpf-content__gallery-prev'),
+                        next = $('.bpf-content__gallery-next'),
                         pagination;
 
                     // get no of items
-                    noOfItems = upfGallery.getNoOfItems(currentHolder);
+                    noOfItems = bpfGallery.getNoOfItems(currentHolder);
 
                     // generate pagination
-                    upfGallery.generatePagination(currentHolder, noOfItems);
+                    bpfGallery.generatePagination(currentHolder, noOfItems);
 
                     // set initial active classes for first image
-                    upfGallery.setActiveClasses(currentHolder, 0);
+                    bpfGallery.setActiveClasses(currentHolder, 0);
 
                     // play
-                    interval = upfGallery.play(currentHolder, noOfItems);
+                    interval = bpfGallery.play(currentHolder, noOfItems);
 
                     // play/pause
                     $(this).on({
                         // on mouse enter call pause method
                         mouseenter: function () {
-                            upfGallery.pause(interval);
+                            bpfGallery.pause(interval);
                         },
                         // on mouse leave call play method
                         mouseleave: function () {
-                            interval = upfGallery.play(currentHolder, noOfItems);
+                            interval = bpfGallery.play(currentHolder, noOfItems);
                         }
                     });
 
@@ -50,25 +50,25 @@ jQuery(function ($) {
                     prev.on('click', function (event) {
                         event.preventDefault();
                         // call set new index method
-                        upfGallery.setNewIndex(currentHolder, noOfItems, 'prev');
+                        bpfGallery.setNewIndex(currentHolder, noOfItems, 'prev');
                     });
 
                     // goto next
                     next.on('click', function (event) {
                         event.preventDefault();
                         // call set new index method
-                        upfGallery.setNewIndex(currentHolder, noOfItems, 'next');
+                        bpfGallery.setNewIndex(currentHolder, noOfItems, 'next');
                     });
 
                     // must go after generate pagination
-                    pagination = $('.upf-content__gallery-pagination li');
+                    pagination = $('.bpf-content__gallery-pagination li');
 
                     // goto specific
                     pagination.on('click', function (event) {
                         event.preventDefault();
                         // call set active classes method if current bullet is not active
                         if (!$(this).hasClass('active')) {
-                            upfGallery.setActiveClasses(currentHolder, $(this).index());
+                            bpfGallery.setActiveClasses(currentHolder, $(this).index());
                         }
                     });
                 });
@@ -76,35 +76,35 @@ jQuery(function ($) {
         },
 
         getNoOfItems: function (holder) {
-            return holder.find('.upf-content__gallery-image').length;
+            return holder.find('.bpf-content__gallery-image').length;
         },
 
         generatePagination: function (holder, noOfItems) {
-            var paginationHolder = holder.find('.upf-content__gallery-pagination');
+            var paginationHolder = holder.find('.bpf-content__gallery-pagination');
 
             while (noOfItems--) {
-                paginationHolder.append('<li class="upf-content__gallery-page"></li>');
+                paginationHolder.append('<li class="bpf-content__gallery-page"></li>');
             }
         },
 
         setActiveClasses: function (holder, nextIndex) {
             // remove active class from all
-            holder.find('.upf-content__gallery-image').removeClass('active');
-            holder.find('.upf-content__gallery-pagination li').removeClass('active');
+            holder.find('.bpf-content__gallery-image').removeClass('active');
+            holder.find('.bpf-content__gallery-pagination li').removeClass('active');
             // set active class to new
-            holder.find('.upf-content__gallery-image').eq(nextIndex).addClass('active');
-            holder.find('.upf-content__gallery-pagination li').eq(nextIndex).addClass('active');
+            holder.find('.bpf-content__gallery-image').eq(nextIndex).addClass('active');
+            holder.find('.bpf-content__gallery-pagination li').eq(nextIndex).addClass('active');
         },
 
         play: function (holder, noOfItems) {
             return setInterval(function () {
                 // call set new index method
-                upfGallery.setNewIndex(holder, noOfItems, 'next');
+                bpfGallery.setNewIndex(holder, noOfItems, 'next');
             }, 3000);
         },
 
         setNewIndex: function (holder, noOfItems, newIndex) {
-            var currentIndex = holder.find('.upf-content__gallery-image.active').index();
+            var currentIndex = holder.find('.bpf-content__gallery-image.active').index();
 
             // set new index if prev
             if ('prev' === newIndex) {
@@ -117,7 +117,7 @@ jQuery(function ($) {
             }
 
             // call set active classes method
-            upfGallery.setActiveClasses(holder, newIndex);
+            bpfGallery.setActiveClasses(holder, newIndex);
         },
 
         pause: function (interval) {

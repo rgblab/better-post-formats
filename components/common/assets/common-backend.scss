@@ -1,8 +1,8 @@
 // import mixins and variables
 @import '../../common/assets/_common.scss';
 
-// upf control
-.upf-control {
+// bpf control
+.bpf-control {
     margin: $backend-distance--large 0 0 0;
 
     &__text,
@@ -20,7 +20,7 @@
     &__label {
         margin: 0 0 $backend-distance--small 0;
 
-        @include upfDisplayBlock();
+        @include bpfDisplayBlock();
     }
 
     &--no-bottom-margin {

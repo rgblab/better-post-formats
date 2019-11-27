@@ -1,3 +1,3 @@
 <?php
 
-new uberPostFormatsMeta( 'link' );
+new betterPostFormatsMeta( 'link' );

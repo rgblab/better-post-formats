@@ -1,10 +1,10 @@
 <?php
 
-if ( ! class_exists( 'uberPostFormatsHelper' ) ) {
+if ( ! class_exists( 'betterPostFormatsHelper' ) ) {
 	/**
-	 * class uberPostFormatsHelper
+	 * class betterPostFormatsHelper
 	 */
-	class uberPostFormatsHelper {
+	class betterPostFormatsHelper {
 		/**
 		 * check appearance function
 		 * determine where to apply plugin
@@ -14,7 +14,7 @@ if ( ! class_exists( 'uberPostFormatsHelper' ) ) {
 		 */
 		public static function checkAppearance() {
 			$appearance = '';
-			$location   = get_option( UPF_OPTIONS )['location'] ? get_option( UPF_OPTIONS )['location'] : 'both';
+			$location   = get_option( BPF_OPTIONS )['location'] ? get_option( BPF_OPTIONS )['location'] : 'both';
 
 			if ( 'both' === $location ) {
 				$appearance = true;
@@ -40,7 +40,7 @@ if ( ! class_exists( 'uberPostFormatsHelper' ) ) {
 		 */
 		public static function getPostFormats() {
 			$post_formats = array();
-			$post_formats = apply_filters( 'upf_set_post_format', $post_formats );
+			$post_formats = apply_filters( 'bpf_set_post_format', $post_formats );
 
 			return $post_formats;
 		}
@@ -51,7 +51,7 @@ if ( ! class_exists( 'uberPostFormatsHelper' ) ) {
 		 * @param array $post_formats - all post formats handled by plugin
 		 * @param string $post_format
 		 *
-		 * hooked on 'upf_set_post_format' filter
+		 * hooked on 'bpf_set_post_format' filter
 		 *
 		 * @return array
 		 * @since 1.0.0
@@ -72,7 +72,7 @@ if ( ! class_exists( 'uberPostFormatsHelper' ) ) {
 		 */
 		public static function initPostFormat( $post_format ) {
 			// add post format to array of post formats
-			add_filter( 'upf_set_post_format', function ( $post_formats ) use ( $post_format ) {
+			add_filter( 'bpf_set_post_format', function ( $post_formats ) use ( $post_format ) {
 				return self::setPostFormat( $post_formats, $post_format );
 			} );
 
@@ -126,7 +126,7 @@ if ( ! class_exists( 'uberPostFormatsHelper' ) ) {
 
 				// if current post format is handled by plugin
 				if ( in_array( $post_format, self::getPostFormats() ) ) {
-					$meta_value = get_post_meta( get_the_ID(), UPF_PREFIX . '_' . $post_format, true );
+					$meta_value = get_post_meta( get_the_ID(), BPF_PREFIX . '_' . $post_format, true );
 
 					// if current post have featured media for current post format
 					// meta value array must have more than one element (gallery) and first element must be not empty
@@ -161,7 +161,7 @@ if ( ! class_exists( 'uberPostFormatsHelper' ) ) {
 				$featured_image_url = get_the_post_thumbnail_url( $post->ID, 'full' );
 
 				$params = array(
-					'meta_key'           => UPF_PREFIX . '_' . $post_format,
+					'meta_key'           => BPF_PREFIX . '_' . $post_format,
 					'featured_image_url' => $featured_image_url
 				);
 
@@ -183,13 +183,13 @@ if ( ! class_exists( 'uberPostFormatsHelper' ) ) {
 		 */
 		public static function getComponent( $component, $method ) {
 			if ( is_admin() ) {
-				$file = UPF_ABS_PATH . '/components/' . $component . '/' . $component . '.php';
+				$file = BPF_ABS_PATH . '/components/' . $component . '/' . $component . '.php';
 
 				if ( 'require' === $method ) {
 					if ( file_exists( $file ) ) {
 						require $file;
 					} else {
-						echo esc_html__( 'File not found', 'upf' );
+						echo esc_html__( 'File not found', 'bpf' );
 					}
 				}
 				if ( 'return' === $method ) {
@@ -199,7 +199,7 @@ if ( ! class_exists( 'uberPostFormatsHelper' ) ) {
 
 						return ob_get_clean();
 					} else {
-						return esc_html__( 'File not found', 'upf' );
+						return esc_html__( 'File not found', 'bpf' );
 					}
 				}
 			}
@@ -224,14 +224,14 @@ if ( ! class_exists( 'uberPostFormatsHelper' ) ) {
 				extract( $params );
 			}
 
-			$file = UPF_ABS_PATH . '/components/' . $component . '/templates/' . $template . '.php';
+			$file = BPF_ABS_PATH . '/components/' . $component . '/templates/' . $template . '.php';
 
 			if ( 'require' === $method ) {
 				if ( file_exists( $file ) ) {
 
 					require $file;
 				} else {
-					echo esc_html__( 'File not found', 'upf' );
+					echo esc_html__( 'File not found', 'bpf' );
 				}
 			}
 			if ( 'return' === $method ) {
@@ -241,7 +241,7 @@ if ( ! class_exists( 'uberPostFormatsHelper' ) ) {
 
 					return ob_get_clean();
 				} else {
-					return esc_html__( 'File not found', 'upf' );
+					return esc_html__( 'File not found', 'bpf' );
 				}
 			}
 		}
@@ -320,24 +320,24 @@ if ( ! class_exists( 'uberPostFormatsHelper' ) ) {
 		 * @since 1.0.0
 		 */
 		public static function getSkin( $local_skin ) {
-			$global_skin = get_option( UPF_OPTIONS )['skin'] ? get_option( UPF_OPTIONS )['skin'] : 'none';
+			$global_skin = get_option( BPF_OPTIONS )['skin'] ? get_option( BPF_OPTIONS )['skin'] : 'none';
 
 			$skin = ( 'global' === $local_skin ) ? $global_skin : $local_skin;
-			$skin = ( 'none' === $skin ) ? '' : UPF_PREFIX . '-content--' . $skin;
+			$skin = ( 'none' === $skin ) ? '' : BPF_PREFIX . '-content--' . $skin;
 
 			return $skin;
 		}
 
 		public static function generateStyles() {
 			$style = '';
-			$style = apply_filters( 'upf_set_style', $style );
+			$style = apply_filters( 'bpf_set_style', $style );
 
-			wp_add_inline_style( 'upf-frontend', $style );
+			wp_add_inline_style( 'bpf-frontend', $style );
 		}
 	}
 }
 
-if ( ! function_exists( 'upf_var_dump' ) ) {
+if ( ! function_exists( 'bpf_var_dump' ) ) {
 	/**
 	 * formatted var dump function
 	 *
@@ -345,7 +345,7 @@ if ( ! function_exists( 'upf_var_dump' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
-	function upf_var_dump( $data ) {
+	function bpf_var_dump( $data ) {
 		echo '<pre>';
 		var_dump( $data );
 		echo '</pre>';

@@ -1,19 +1,19 @@
 <?php
 
-if ( ! class_exists( 'uberPostsFormatsCustomizerSection' ) ) {
+if ( ! class_exists( 'betterPostsFormatsCustomizerSection' ) ) {
 	/**
-	 * class uberPostsFormatsCustomizerSection
+	 * class betterPostsFormatsCustomizerSection
 	 */
-	class uberPostsFormatsCustomizerSection {
+	class betterPostsFormatsCustomizerSection {
 		// instance var
 		private static $instance;
 
 		/**
 		 * get instance function
 		 *
-		 * get single instance of uberPostsFormatsCustomizerSection class
+		 * get single instance of betterPostsFormatsCustomizerSection class
 		 *
-		 * @return object uberPostsFormatsCustomizerSection
+		 * @return object betterPostsFormatsCustomizerSection
 		 */
 		public static function getInstance() {
 			if ( ! ( self::$instance instanceof self ) ) {
@@ -24,7 +24,7 @@ if ( ! class_exists( 'uberPostsFormatsCustomizerSection' ) ) {
 		}
 
 		/**
-		 * uberPostsFormatsCustomizerSection constructor
+		 * betterPostsFormatsCustomizerSection constructor
 		 *
 		 * @since 1.0.0
 		 */
@@ -43,21 +43,21 @@ if ( ! class_exists( 'uberPostsFormatsCustomizerSection' ) ) {
 		 * @since 1.0.0
 		 */
 		public function initSection( $wp_customize ) {
-			$wp_customize->add_section( UPF_OPTIONS_SECTION, array(
+			$wp_customize->add_section( BPF_OPTIONS_SECTION, array(
 				'capability' => 'edit_theme_options',
 				'priority'   => 200,
-				'title'      => esc_html__( 'Uber Post Formats', 'upf' ),
+				'title'      => esc_html__( 'Better Post Formats', 'bpf' ),
 			) );
 		}
 	}
 }
 
-uberPostsFormatsCustomizerSection::getInstance();
+betterPostsFormatsCustomizerSection::getInstance();
 
-if ( ! class_exists( 'uberPostFormatsCustomizerSettings' ) ) {
-	class uberPostFormatsCustomizerSettings {
+if ( ! class_exists( 'betterPostFormatsCustomizerSettings' ) ) {
+	class betterPostFormatsCustomizerSettings {
 		/**
-		 * uberPostFormatsCustomizerSettings constructor
+		 * betterPostFormatsCustomizerSettings constructor
 		 *
 		 * @param string $post_format
 		 *
@@ -83,7 +83,7 @@ if ( ! class_exists( 'uberPostFormatsCustomizerSettings' ) ) {
 		 */
 		public function initCommon( $wp_customize ) {
 			// enable plugin setting
-			$wp_customize->add_setting( UPF_OPTIONS . '[location]', array(
+			$wp_customize->add_setting( BPF_OPTIONS . '[location]', array(
 				'capability'        => 'edit_theme_options',
 				'default'           => 'both',
 				'sanitize_callback' => 'sanitize_text_field',
@@ -91,21 +91,21 @@ if ( ! class_exists( 'uberPostFormatsCustomizerSettings' ) ) {
 			) );
 
 			// enable plugin control
-			$wp_customize->add_control( UPF_PREFIX . '_location', array(
-				'description' => esc_html__( 'Choose where you want to use UPF on the frontend of your website', 'upf' ),
-				'label'       => esc_html__( 'Location', 'upf' ),
-				'section'     => UPF_OPTIONS_SECTION,
-				'settings'    => UPF_OPTIONS . '[location]',
+			$wp_customize->add_control( BPF_PREFIX . '_location', array(
+				'description' => esc_html__( 'Choose where you want to use BPF on the frontend of your website', 'bpf' ),
+				'label'       => esc_html__( 'Location', 'bpf' ),
+				'section'     => BPF_OPTIONS_SECTION,
+				'settings'    => BPF_OPTIONS . '[location]',
 				'type'        => 'select',
 				'choices'     => array(
-					'both'   => esc_html__( 'On both lists and singles', 'upf' ),
-					'single' => esc_html__( 'On singles only', 'upf' ),
-					'list'   => esc_html__( 'On lists only', 'upf' ),
+					'both'   => esc_html__( 'On both lists and singles', 'bpf' ),
+					'single' => esc_html__( 'On singles only', 'bpf' ),
+					'list'   => esc_html__( 'On lists only', 'bpf' ),
 				),
 			) );
 
 			// content width on lists setting
-			$wp_customize->add_setting( UPF_OPTIONS . '[content_width_list]', array(
+			$wp_customize->add_setting( BPF_OPTIONS . '[content_width_list]', array(
 				'capability'        => 'edit_theme_options',
 				'default'           => '100%',
 				'sanitize_callback' => 'sanitize_text_field',
@@ -113,15 +113,15 @@ if ( ! class_exists( 'uberPostFormatsCustomizerSettings' ) ) {
 			) );
 
 			// content width on lists control
-			$wp_customize->add_control( UPF_PREFIX . '_content_width_list', array(
-				'description' => esc_html__( 'Set UPF content width on lists. Default value is "100%"', 'upf' ),
-				'label'       => esc_html__( 'Content width on lists', 'upf' ),
-				'section'     => UPF_OPTIONS_SECTION,
-				'settings'    => UPF_OPTIONS . '[content_width_list]',
+			$wp_customize->add_control( BPF_PREFIX . '_content_width_list', array(
+				'description' => esc_html__( 'Set BPF content width on lists. Default value is "100%"', 'bpf' ),
+				'label'       => esc_html__( 'Content width on lists', 'bpf' ),
+				'section'     => BPF_OPTIONS_SECTION,
+				'settings'    => BPF_OPTIONS . '[content_width_list]',
 			) );
 
 			// content width on single setting
-			$wp_customize->add_setting( UPF_OPTIONS . '[content_width_single]', array(
+			$wp_customize->add_setting( BPF_OPTIONS . '[content_width_single]', array(
 				'capability'        => 'edit_theme_options',
 				'default'           => '1200px',
 				'sanitize_callback' => 'sanitize_text_field',
@@ -129,15 +129,15 @@ if ( ! class_exists( 'uberPostFormatsCustomizerSettings' ) ) {
 			) );
 
 			// content width on single control
-			$wp_customize->add_control( UPF_PREFIX . '_content_width_single', array(
-				'description' => esc_html__( 'Set UPF content width on singles. Default value is "1200px"', 'upf' ),
-				'label'       => esc_html__( 'Content width on singles', 'upf' ),
-				'section'     => UPF_OPTIONS_SECTION,
-				'settings'    => UPF_OPTIONS . '[content_width_single]',
+			$wp_customize->add_control( BPF_PREFIX . '_content_width_single', array(
+				'description' => esc_html__( 'Set BPF content width on singles. Default value is "1200px"', 'bpf' ),
+				'label'       => esc_html__( 'Content width on singles', 'bpf' ),
+				'section'     => BPF_OPTIONS_SECTION,
+				'settings'    => BPF_OPTIONS . '[content_width_single]',
 			) );
 
 			// skin setting
-			$wp_customize->add_setting( UPF_OPTIONS . '[skin]', array(
+			$wp_customize->add_setting( BPF_OPTIONS . '[skin]', array(
 				'capability'        => 'edit_theme_options',
 				'default'           => 'none',
 				'sanitize_callback' => 'sanitize_text_field',
@@ -145,16 +145,16 @@ if ( ! class_exists( 'uberPostFormatsCustomizerSettings' ) ) {
 			) );
 
 			// skin control
-			$wp_customize->add_control( UPF_PREFIX . '_skin', array(
-				'description' => esc_html__( 'Choose UPF content skin. Light skin goes well with dark content while dark skin goes well with light content. Choose "None" to use themes color scheme', 'upf' ),
-				'label'       => esc_html__( 'Skin', 'upf' ),
-				'section'     => UPF_OPTIONS_SECTION,
-				'settings'    => UPF_OPTIONS . '[skin]',
+			$wp_customize->add_control( BPF_PREFIX . '_skin', array(
+				'description' => esc_html__( 'Choose BPF content skin. Light skin goes well with dark content while dark skin goes well with light content. Choose "None" to use themes color scheme', 'bpf' ),
+				'label'       => esc_html__( 'Skin', 'bpf' ),
+				'section'     => BPF_OPTIONS_SECTION,
+				'settings'    => BPF_OPTIONS . '[skin]',
 				'type'        => 'select',
 				'choices'     => array(
-					'none'  => esc_html__( 'None', 'upf' ),
-					'light' => esc_html__( 'Light', 'upf' ),
-					'dark'  => esc_html__( 'Dark', 'upf' ),
+					'none'  => esc_html__( 'None', 'bpf' ),
+					'light' => esc_html__( 'Light', 'bpf' ),
+					'dark'  => esc_html__( 'Dark', 'bpf' ),
 				),
 			) );
 		}

@@ -1,11 +1,11 @@
 // import mixins and variables
 @import '../../common/assets/_common.scss';
 
-.upf-control {
+.bpf-control {
     &__gallery {
         margin: $backend-distance--small -#{$backend-distance--small} $backend-distance--small 0;
 
-        @include upfClearfix();
+        @include bpfClearfix();
 
         li {
             display: block;
@@ -13,22 +13,22 @@
             margin: $backend-distance--small $backend-distance--small 0 0;
             position: relative;
 
-            @include upfDisplayBlock(calc((100% / 3) - #{$backend-distance--small}));
+            @include bpfDisplayBlock(calc((100% / 3) - #{$backend-distance--small}));
 
             &:hover {
-                .upf-control__image {
+                .bpf-control__image {
                     opacity: 1;
                 }
 
-                .upf-control__replace,
-                .upf-control__remove {
+                .bpf-control__replace,
+                .bpf-control__remove {
                     visibility: visible;
                 }
             }
         }
 
         &:hover {
-            .upf-control__image {
+            .bpf-control__image {
                 opacity: 0.8;
             }
         }
@@ -43,7 +43,7 @@
         position: relative;
         transition: $backend-opacity-transition;
 
-        @include upfDisplayBlock();
+        @include bpfDisplayBlock();
     }
 
     &__replace,
@@ -56,7 +56,7 @@
         top: $backend-icon-offset;
         visibility: hidden;
 
-        @include upfPositionAbsolute($backend-icon, $backend-icon);
+        @include bpfPositionAbsolute($backend-icon, $backend-icon);
 
         .dashicons {
             color: $backend-color--light;

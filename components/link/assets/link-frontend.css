@@ -1,15 +1,15 @@
 @charset "UTF-8";
-.upf-content--format-link {
+.bpf-content--format-link {
   background-color: rgba(128, 128, 128, 0.3);
   background-position: center;
   background-size: cover;
 }
 
-.upf-content--format-link .upf-content__grid {
+.bpf-content--format-link .bpf-content__grid {
   padding: 2.5em 2.5em 2.5em calc(1em * 2 + 40px);
 }
 
-.upf-content--format-link .upf-content__icon:after {
+.bpf-content--format-link .bpf-content__icon:after {
   content: "";
   font-family: dashicons;
   font-size: 40px;
@@ -24,20 +24,20 @@
   width: 40px;
 }
 
-.upf-content__permalink:hover ~ .upf-content__title {
+.bpf-content__permalink:hover ~ .bpf-content__title {
   color: #808080 !important;
 }
 
-.upf-content__link {
+.bpf-content__link {
   color: inherit !important;
   transition: color 0.3s ease-in-out;
 }
 
-.upf-content__link:hover {
+.bpf-content__link:hover {
   color: #808080 !important;
 }
 
-.upf-content__title {
+.bpf-content__title {
   border: 0 !important;
   color: inherit !important;
   margin: 0 !important;

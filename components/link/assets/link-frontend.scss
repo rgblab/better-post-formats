@@ -1,18 +1,18 @@
 // import mixins and variables
 @import '../../common/assets/_common.scss';
 
-.upf-content {
+.bpf-content {
     &--format-link {
-        @include upfBackgroundStyle();
+        @include bpfBackgroundStyle();
 
-        .upf-content {
+        .bpf-content {
             &__grid {
                 padding: $frontend-link-quote-distance $frontend-link-quote-distance $frontend-link-quote-distance calc(#{$frontend-icon-distance} * 2 + #{$frontend-icon-size});
             }
 
             &__icon {
                 &:after {
-                    @include upfIcon('\f103', $frontend-icon-size);
+                    @include bpfIcon('\f103', $frontend-icon-size);
                 }
             }
         }
@@ -20,7 +20,7 @@
 
     &__permalink {
         &:hover {
-            ~ .upf-content__title {
+            ~ .bpf-content__title {
                 color: $frontend-color--medium !important;
             }
         }
@@ -36,7 +36,7 @@
     }
 
     &__title {
-        @include upfResetText();
+        @include bpfResetText();
 
         transition: $frontend-color-transition;
     }

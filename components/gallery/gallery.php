@@ -1,3 +1,3 @@
 <?php
 
-new uberPostFormatsMeta( 'gallery' );
+new betterPostFormatsMeta( 'gallery' );

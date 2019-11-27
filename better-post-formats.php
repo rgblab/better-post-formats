@@ -1,30 +1,30 @@
 <?php
 
 /*
-Plugin Name: Uber Post Formats
+Plugin Name: Better Post Formats
 Author: RGB Lab
 Author URI: http://rgblab.net
 Version: 1.0.0
 Description: Use proper "featured content" instead of "featured images" for audio, video, gallery, link and quote post formats. Just like in any premium WordPress theme.
-Text Domain: uber-post-formats
+Text Domain: bpf
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
-if ( ! class_exists( 'uberPostFormats' ) ) {
+if ( ! class_exists( 'betterPostFormats' ) ) {
 	/**
-	 * class uberPostFormats
+	 * class betterPostFormats
 	 */
-	class uberPostFormats {
+	class betterPostFormats {
 		// instance var
 		private static $instance;
 
 		/**
 		 * get instance function
 		 *
-		 * get single instance of uberPostFormats class
+		 * get single instance of betterPostFormats class
 		 *
-		 * @return object uberPostFormats
+		 * @return object betterPostFormats
 		 */
 		public static function getInstance() {
 			if ( ! ( self::$instance instanceof self ) ) {
@@ -35,7 +35,7 @@ if ( ! class_exists( 'uberPostFormats' ) ) {
 		}
 
 		/**
-		 * uberPostFormats constructor
+		 * betterPostFormats constructor
 		 *
 		 * @since 1.0.0
 		 */
@@ -55,11 +55,11 @@ if ( ! class_exists( 'uberPostFormats' ) ) {
 			require_once 'define.php';
 
 			// include helper
-			require_once UPF_ABS_PATH . '/lib/helper.php';
+			require_once BPF_ABS_PATH . '/lib/helper.php';
 
 			if ( is_admin() ) {
 				// include backend logic
-				require_once UPF_ABS_PATH . '/lib/meta.php';
+				require_once BPF_ABS_PATH . '/lib/meta.php';
 
 				// show additional links in dashboard on 'plugin_row_meta' hook
 				add_filter( 'plugin_row_meta', array( $this, 'dashboardLinks' ), 10, 2 );
@@ -69,7 +69,7 @@ if ( ! class_exists( 'uberPostFormats' ) ) {
 				add_action( 'admin_enqueue_scripts', array( $this, 'enqueueBackendAssets' ), 5 );
 			} else {
 				// include frontend logic
-				require_once UPF_ABS_PATH . '/lib/frontend.php';
+				require_once BPF_ABS_PATH . '/lib/frontend.php';
 
 				// include frontend assets on 'wp_enqueue_scripts' hook
 				add_action( 'wp_enqueue_scripts', array( $this, 'enqueueFrontendAssets' ) );
@@ -84,7 +84,7 @@ if ( ! class_exists( 'uberPostFormats' ) ) {
 			add_action( 'after_setup_theme', array( $this, 'includeComponents' ), 100 );
 
 			// textdomain
-			load_plugin_textdomain( 'upf', false, UPF_REL_PATH . '/languages' );
+			load_plugin_textdomain( 'bpf', false, BPF_REL_PATH . '/languages' );
 		}
 
 		/**
@@ -99,10 +99,10 @@ if ( ! class_exists( 'uberPostFormats' ) ) {
 		 * @since 1.0.0
 		 */
 		public function dashboardLinks( $links, $file ) {
-			if ( plugin_basename( dirname( __FILE__ ) . '/uber-post-formats.php' ) === $file ) {
-				$links[] = '<a href="http://demo.rgblab.net/uber-post-formats" target="_blank">' . esc_html__( 'Docs & Demo', 'upf' ) . '</a>';
-				$links[] = '<a href="https://wordpress.org/support/plugin/uber-post-formats/reviews/#new-post" target="_blank">Please rate with ★★★★★</a>';
-				$links[] = '<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TZHDKYP4K759W&source=url" target="_blank">' . esc_html__( 'Donate', 'upf' ) . '</a>';
+			if ( plugin_basename( dirname( __FILE__ ) . '/better-post-formats.php' ) === $file ) {
+				$links[] = '<a href="http://demo.rgblab.net/better-post-formats" target="_blank">' . esc_html__( 'Docs & Demo', 'bpf' ) . '</a>';
+				$links[] = '<a href="https://wordpress.org/support/plugin/better-post-formats/reviews/#new-post" target="_blank">Please rate with ★★★★★</a>';
+				$links[] = '<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TZHDKYP4K759W&source=url" target="_blank">' . esc_html__( 'Donate', 'bpf' ) . '</a>';
 			}
 
 			return $links;
@@ -120,16 +120,16 @@ if ( ! class_exists( 'uberPostFormats' ) ) {
 		public function enqueueBackendAssets( $hook ) {
 			if ( 'post.php' === $hook || 'post-new.php' == $hook ) {
 				$backend_labels = array(
-					'uploaderTitle'      => esc_html__( 'Replace image', 'upf' ),
-					'uploaderButtonText' => esc_html__( 'Replace image', 'upf' ),
+					'uploaderTitle'      => esc_html__( 'Replace image', 'bpf' ),
+					'uploaderButtonText' => esc_html__( 'Replace image', 'bpf' ),
 				);
 
-				wp_register_script( 'upf-backend', UPF_URL_PATH . 'assets/backend.min.js', array( 'jquery' ), false, true );
-				wp_localize_script( 'upf-backend', 'backendLabels', $backend_labels );
-				wp_enqueue_script( 'upf-backend' );
+				wp_register_script( 'bpf-backend', BPF_URL_PATH . 'assets/backend.min.js', array( 'jquery' ), false, true );
+				wp_localize_script( 'bpf-backend', 'backendLabels', $backend_labels );
+				wp_enqueue_script( 'bpf-backend' );
 			}
 			if ( 'edit.php' === $hook || 'post.php' == $hook || 'post-new.php' == $hook ) {
-				wp_enqueue_style( 'upf-backend', UPF_URL_PATH . 'assets/backend.min.css' );
+				wp_enqueue_style( 'bpf-backend', BPF_URL_PATH . 'assets/backend.min.css' );
 			}
 		}
 
@@ -142,10 +142,10 @@ if ( ! class_exists( 'uberPostFormats' ) ) {
 		 */
 		public function enqueueFrontendAssets() {
 			wp_enqueue_style( 'dashicons' );
-			wp_enqueue_script( 'upf-frontend', UPF_URL_PATH . 'assets/frontend.min.js', array( 'jquery' ), false, true );
-			wp_enqueue_style( 'upf-frontend', UPF_URL_PATH . 'assets/frontend.min.css' );
+			wp_enqueue_script( 'bpf-frontend', BPF_URL_PATH . 'assets/frontend.min.js', array( 'jquery' ), false, true );
+			wp_enqueue_style( 'bpf-frontend', BPF_URL_PATH . 'assets/frontend.min.css' );
 
-			uberPostFormatsHelper::generateStyles();
+			betterPostFormatsHelper::generateStyles();
 		}
 
 		/**
@@ -157,7 +157,7 @@ if ( ! class_exists( 'uberPostFormats' ) ) {
 		 */
 		public function includeOptions() {
 			// include options
-			require_once UPF_ABS_PATH . '/lib/option.php';
+			require_once BPF_ABS_PATH . '/lib/option.php';
 		}
 
 		/**
@@ -168,9 +168,9 @@ if ( ! class_exists( 'uberPostFormats' ) ) {
 		 * @since 1.0.0
 		 */
 		public function includeComponents() {
-			require_once UPF_ABS_PATH . '/components/load.php';
+			require_once BPF_ABS_PATH . '/components/load.php';
 		}
 	}
 }
 
-uberPostFormats::getInstance();
+betterPostFormats::getInstance();

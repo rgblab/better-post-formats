@@ -2,34 +2,34 @@ jQuery(function ($) {
     'use strict';
 
     $(document).ready(function () {
-        upfModifyTag.init();
-        upfResizeIFrame.init();
-        upfAddArticleClass.init();
-        upfAddBodyClass.init();
+        bpfModifyTag.init();
+        bpfResizeIFrame.init();
+        bpfAddArticleClass.init();
+        bpfAddBodyClass.init();
     });
 
     $(document).ajaxComplete(function () {
-        upfModifyTag.init();
-        upfResizeIFrame.init();
-        upfAddArticleClass.init();
+        bpfModifyTag.init();
+        bpfResizeIFrame.init();
+        bpfAddArticleClass.init();
     });
 
     $(window).resize(function () {
-        upfResizeIFrame.init();
+        bpfResizeIFrame.init();
     });
 
-    var upfModifyTag = {
+    var bpfModifyTag = {
         init: function () {
-            var holder = $('.upf-content');
+            var holder = $('.bpf-content');
 
             if (holder.length) {
                 holder.each(function () {
                     // call replace permalink method
-                    var modifiedPermalink = upfModifyTag.replacePermalink($(this));
+                    var modifiedPermalink = bpfModifyTag.replacePermalink($(this));
 
                     // if there is no permalink, call modify tag method
                     if (!modifiedPermalink) {
-                        upfModifyTag.modifyTag($(this), 'replace');
+                        bpfModifyTag.modifyTag($(this), 'replace');
                     }
                 });
             }
@@ -42,10 +42,10 @@ jQuery(function ($) {
                 // replace a with div
                 defaultPermalink.replaceWith(function () {
                     // call modify tag method
-                    var newHtml = upfModifyTag.modifyTag($(this), 'return');
+                    var newHtml = bpfModifyTag.modifyTag($(this), 'return');
 
                     return $('<div/>', {
-                        class: 'upf-default-permalink--replaced',
+                        class: 'bpf-default-permalink--replaced',
                         html: newHtml,
                     });
                 });
@@ -61,14 +61,14 @@ jQuery(function ($) {
                 newHtml = '';
 
             if ('replace' === option) {
-                if (holder.hasClass('upf-content--format-link') || holder.hasClass('upf-content--format-quote')) {
+                if (holder.hasClass('bpf-content--format-link') || holder.hasClass('bpf-content--format-quote')) {
                     newHtml = oldHtml.replace(/var/g, 'a').replace(/data-/g, '');
                     holder.html(newHtml);
 
                     console.log('replace');
                 }
             } else if ('return' === option) {
-                if (holder.find('.upf-content--format-link') || holder.find('.upf-content--format-quote')) {
+                if (holder.find('.bpf-content--format-link') || holder.find('.bpf-content--format-quote')) {
                     newHtml = oldHtml.replace(/var/g, 'a').replace(/data-/g, '');
                 } else {
                     newHtml = oldHtml;
@@ -81,14 +81,14 @@ jQuery(function ($) {
         }
     };
 
-    var upfResizeIFrame = {
+    var bpfResizeIFrame = {
         init: function () {
-            var holder = $('.upf-content iframe');
+            var holder = $('.bpf-content iframe');
 
             // call resize method
             if (holder.length) {
                 holder.each(function () {
-                    upfResizeIFrame.resize($(this));
+                    bpfResizeIFrame.resize($(this));
                 });
             }
         },
@@ -100,24 +100,24 @@ jQuery(function ($) {
         },
     };
 
-    var upfAddArticleClass = {
+    var bpfAddArticleClass = {
         init: function () {
             var body = $('body'),
                 holder = $('.format-link, .format-quote');
 
             if (holder.length) {
                 holder.each(function () {
-                    // if single and upf content in body
+                    // if single and bpf content in body
                     if (body.hasClass('single')) {
-                        if (body.find('.upf-content').length) {
+                        if (body.find('.bpf-content').length) {
                             // call add class method
-                            upfAddArticleClass.addClass(body);
+                            bpfAddArticleClass.addClass(body);
                         }
                     } else {
-                        // if not single and upf content in wrapper, should be article tag
-                        if ($(this).find('.upf-content').length) {
+                        // if not single and bpf content in wrapper, should be article tag
+                        if ($(this).find('.bpf-content').length) {
                             // call add class method
-                            upfAddArticleClass.addClass($(this));
+                            bpfAddArticleClass.addClass($(this));
                         }
                     }
                 });
@@ -125,13 +125,13 @@ jQuery(function ($) {
         },
 
         addClass: function (holder) {
-            holder.addClass('upf-hide-default-title');
+            holder.addClass('bpf-hide-default-title');
         },
     };
 
-    var upfAddBodyClass = {
+    var bpfAddBodyClass = {
         init: function () {
-            $('body').addClass('upf-clear-foreign-content');
+            $('body').addClass('bpf-clear-foreign-content');
         },
     };
 });

@@ -1,10 +1,10 @@
 <?php
 
-if ( ! class_exists( 'uberPostFormatsMeta' ) ) {
+if ( ! class_exists( 'betterPostFormatsMeta' ) ) {
 	/**
-	 * class uberPostFormatsMeta
+	 * class betterPostFormatsMeta
 	 */
-	class uberPostFormatsMeta {
+	class betterPostFormatsMeta {
 		// base var
 		private $post_format;
 
@@ -13,7 +13,7 @@ if ( ! class_exists( 'uberPostFormatsMeta' ) ) {
 		private $nonce;
 
 		/**
-		 * uberPostFormatsMeta constructor
+		 * betterPostFormatsMeta constructor
 		 *
 		 * @param string $post_format
 		 *
@@ -24,8 +24,8 @@ if ( ! class_exists( 'uberPostFormatsMeta' ) ) {
 			$this->post_format = $post_format;
 
 			// set additional vars
-			$this->meta_key = UPF_PREFIX . '_' . $this->post_format;
-			$this->nonce    = UPF_PREFIX . '_' . $this->post_format . '_nonce';
+			$this->meta_key = BPF_PREFIX . '_' . $this->post_format;
+			$this->nonce    = BPF_PREFIX . '_' . $this->post_format . '_nonce';
 
 			// init meta box on 'load-posts.php' hook
 			add_action( 'load-post.php', array( $this, 'initMetaBox' ) );
@@ -59,7 +59,7 @@ if ( ! class_exists( 'uberPostFormatsMeta' ) ) {
 		public function addMetaBox() {
 			add_meta_box(
 				$this->meta_key, // id
-				esc_html__( 'Featured Content', 'upf' ), // title
+				esc_html__( 'Featured Content', 'bpf' ), // title
 				array( $this, 'displayMetaBox' ), // callback, function to display meta box html
 				'post', // screen, where to show meta box
 				'side', // context, position of meta box
@@ -83,7 +83,7 @@ if ( ! class_exists( 'uberPostFormatsMeta' ) ) {
 				'meta_key' => $this->meta_key,
 			);
 
-			uberPostFormatsHelper::getComponentTemplate( $this->post_format, 'meta-box', 'require', $params );
+			betterPostFormatsHelper::getComponentTemplate( $this->post_format, 'meta-box', 'require', $params );
 		}
 
 		/**
@@ -121,11 +121,11 @@ if ( ! class_exists( 'uberPostFormatsMeta' ) ) {
 			foreach ( $_POST as $input_field_name => $input_field_value ) {
 				// check if key starts with plugins prefix
 				// FIXME set prefix from constant
-				if ( preg_match( '/^upf/', $input_field_name ) ) {
+				if ( preg_match( '/^bpf/', $input_field_name ) ) {
 					// get posted key
-					$meta_key = uberPostFormatsHelper::swapUnderscoreDash( $input_field_name, 'reverse' );
+					$meta_key = betterPostFormatsHelper::swapUnderscoreDash( $input_field_name, 'reverse' );
 					// get posted value and sanitize it
-					$new_meta_value = ( ! empty( $_POST[ $input_field_name ] ) ? uberPostFormatsHelper::sanitizeInput( $_POST[ $input_field_name ] ) : '' );
+					$new_meta_value = ( ! empty( $_POST[ $input_field_name ] ) ? betterPostFormatsHelper::sanitizeInput( $_POST[ $input_field_name ] ) : '' );
 					// get last saved meta value
 					$meta_value = get_post_meta( $post_id, $meta_key, true );
 

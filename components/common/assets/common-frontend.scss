@@ -1,17 +1,17 @@
 // import mixins and variables
 @import '../../common/assets/common.scss';
 
-.upf-hide-default-title {
+.bpf-hide-default-title {
     .entry-title {
         display: none;
     }
 }
 
-body.upf-clear-foreign-content {
-    @include upfClearForeignContent();
+body.bpf-clear-foreign-content {
+    @include bpfClearForeignContent();
 }
 
-.upf-content {
+.bpf-content {
     position: relative;
 
     &--light {
@@ -23,7 +23,7 @@ body.upf-clear-foreign-content {
     }
 
     iframe {
-        @include upfDisplayBlock();
+        @include bpfDisplayBlock();
 
         margin: 0;
         background-color: $frontend-color--dark;
@@ -36,7 +36,7 @@ body.upf-clear-foreign-content {
     }
 
     &__permalink {
-        @include upfPositionAbsolute(100%, 100%);
+        @include bpfPositionAbsolute(100%, 100%);
 
         left: 0;
         top: 0;
@@ -44,11 +44,11 @@ body.upf-clear-foreign-content {
     }
 
     &__title {
-        @include upfResetText();
+        @include bpfResetText();
     }
 
     &__icon {
-        @include upfPositionAbsolute($frontend-icon-size, $frontend-icon-size);
+        @include bpfPositionAbsolute($frontend-icon-size, $frontend-icon-size);
 
         left: $frontend-icon-distance;
         text-align: center;
@@ -56,7 +56,7 @@ body.upf-clear-foreign-content {
         z-index: 20;
 
         &:after {
-            @include upfDisplayBlock($frontend-icon-size);
+            @include bpfDisplayBlock($frontend-icon-size);
         }
     }
 }

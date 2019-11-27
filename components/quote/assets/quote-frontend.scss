@@ -1,18 +1,18 @@
 // import mixins and variables
 @import '../../common/assets/_common.scss';
 
-.upf-content {
+.bpf-content {
     &--format-quote {
-        @include upfBackgroundStyle();
+        @include bpfBackgroundStyle();
 
-        .upf-content {
+        .bpf-content {
             &__grid {
                 padding: $frontend-link-quote-distance $frontend-link-quote-distance $frontend-link-quote-distance calc(#{$frontend-icon-distance} * 2 + #{$frontend-icon-size});
             }
 
             &__icon {
                 &:after {
-                    @include upfIcon('\f122', $frontend-icon-size);
+                    @include bpfIcon('\f122', $frontend-icon-size);
                 }
             }
         }
@@ -20,23 +20,23 @@
 
     &__permalink {
         &:hover {
-            ~ .upf-content__quote {
+            ~ .bpf-content__quote {
                 color: $frontend-color--medium !important;
             }
         }
     }
 
     &__quote {
-        @include upfResetText();
+        @include bpfResetText();
 
         transition: $frontend-color-transition;
 
         &-text {
-            @include upfResetText();
+            @include bpfResetText();
         }
 
         &-author {
-            @include upfResetText();
+            @include bpfResetText();
         }
     }
 }

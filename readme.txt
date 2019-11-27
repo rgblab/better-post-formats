@@ -1,4 +1,4 @@
-=== Uber Post Formats ===
+=== Better Post Formats ===
 Contributors: rgblab
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TZHDKYP4K759W&source=url
 Tags: post format, featured image, featured media
@@ -13,7 +13,7 @@ like in any premium WordPress theme.
 
 == Description ==
 
-Uber Post Formats is a free WordPress plugin that will allow you to use proper featured content instead of static
+Better Post Formats is a free WordPress plugin that will allow you to use proper featured content instead of static
 featured images. Your website or blog will have content just as any premium WordPress theme.
 
 You will be able to use:
@@ -31,16 +31,16 @@ List of global options in the WordPress customizer will allow you to fine tune p
 - Content width on singles, set plugin content width on singles
 - Skin, choose plugin content skin. Light skin goes well with dark content while dark skin goes well with light content
 
-You can check out Uber Post Formats plugin in action [here](http://demo.rgblab.net/uber-post-formats)
+You can check out Better Post Formats plugin in action [here](http://demo.rgblab.net/better-post-formats)
 
-Need help? Have feature request? Visit [support thread](https://wordpress.org/support/plugin/uber-post-formats)
+Need help? Have feature request? Visit [support thread](https://wordpress.org/support/plugin/better-post-formats)
 
 Please consider donating even a small sum via
 [PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TZHDKYP4K759W&source=url)
 
 == Installation ==
 
-Install the Uber Post Formats plugin as any other WordPress plugin. More info can be found in official WordPress step by
+Install the Better Post Formats plugin as any other WordPress plugin. More info can be found in official WordPress step by
 step guide [here](https://wordpress.org/support/article/managing-plugins/#installing-plugins)
 
 == Frequently Asked Questions ==
@@ -67,7 +67,7 @@ Please make sure your have enabled javascript in your browser.
 3. Gallery post format meta boxes
 4. Link post format meta boxes
 5. Quote post format meta boxes
-6. Uber Post Format settings in WordPress customizer
+6. Better Post Format settings in WordPress customizer
 
 == Changelog ==
 

@@ -1,7 +1,7 @@
 // import mixins and variables
 @import '../../common/assets/common.scss';
 
-.upf-content {
+.bpf-content {
     &--format-gallery {
         position: relative;
     }
@@ -11,14 +11,14 @@
             opacity: 0;
             transition: $frontend-opacity-transition;
 
-            @include upfDisplayBlock();
+            @include bpfDisplayBlock();
 
             &:not(:first-child) {
                 left: 0;
                 object-fit: cover;
                 top: 0;
 
-                @include upfPositionAbsolute(100%, 100%);
+                @include bpfPositionAbsolute(100%, 100%);
             }
 
             &.active {
@@ -38,7 +38,7 @@
             transform: translateY(-50%);
             transition: $frontend-color-transition;
 
-            @include upfPositionAbsolute($frontend-arrow-size, $frontend-arrow-size);
+            @include bpfPositionAbsolute($frontend-arrow-size, $frontend-arrow-size);
 
             &:hover {
                 color: $frontend-color--medium;
@@ -49,7 +49,7 @@
             left: 0;
 
             &:after {
-                @include upfIcon('\f341', $frontend-arrow-size);
+                @include bpfIcon('\f341', $frontend-arrow-size);
             }
         }
 
@@ -57,7 +57,7 @@
             right: 0;
 
             &:after {
-                @include upfIcon('\f345', $frontend-arrow-size);
+                @include bpfIcon('\f345', $frontend-arrow-size);
             }
         }
 
@@ -69,7 +69,7 @@
             margin: 0;
             padding: 0;
 
-            @include upfPositionAbsolute(auto, 100%);
+            @include bpfPositionAbsolute(auto, 100%);
 
             li {
                 background-color: currentColor;
@@ -79,7 +79,7 @@
                 padding: 0;
                 transition: $frontend-background-color-transition;
 
-                @include upfDisplayBlock(40px);
+                @include bpfDisplayBlock(40px);
 
                 &:hover,
                 &.active {

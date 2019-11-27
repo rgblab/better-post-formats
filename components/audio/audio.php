@@ -1,3 +1,3 @@
 <?php
 
-new uberPostFormatsMeta( 'audio' );
+new betterPostFormatsMeta( 'audio' );
