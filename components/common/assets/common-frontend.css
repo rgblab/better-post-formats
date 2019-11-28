@@ -2,12 +2,8 @@
   display: none;
 }
 
-body.bpf-clear-foreign-content .bpf-content *:not([class*="bpf-content"]) {
+body .bpf-content *:not([class*="bpf-content"]) {
   display: none;
-}
-
-body.bpf-clear-foreign-content .bpf-content iframe {
-  display: block !important;
 }
 
 .bpf-content {
@@ -23,7 +19,7 @@ body.bpf-clear-foreign-content .bpf-content iframe {
 }
 
 .bpf-content iframe {
-  display: block;
+  display: block !important;
   width: 100%;
   margin: 0;
   background-color: #000000;

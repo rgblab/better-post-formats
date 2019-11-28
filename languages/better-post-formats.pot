@@ -13,6 +13,18 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: ../wp-content/plugins/better-post-formats/better-post-formats.php:103
+msgid "Docs & Demo"
+msgstr ""
+
+#: ../wp-content/plugins/better-post-formats/better-post-formats.php:105
+msgid "Donate"
+msgstr ""
+
+#: ../wp-content/plugins/better-post-formats/better-post-formats.php:123, ../wp-content/plugins/better-post-formats/better-post-formats.php:124, ../wp-content/plugins/better-post-formats/components/gallery/templates/meta-box.php:27, ../wp-content/plugins/better-post-formats/components/gallery/templates/meta-box.php:27
+msgid "Replace image"
+msgstr ""
+
 #: ../wp-content/plugins/better-post-formats/components/audio/templates/media.php:15
 msgid "Featured Image"
 msgstr ""
@@ -43,10 +55,6 @@ msgstr ""
 
 #: ../wp-content/plugins/better-post-formats/components/gallery/templates/meta-box.php:12, ../wp-content/plugins/better-post-formats/components/gallery/templates/meta-box.php:12
 msgid "Add images"
-msgstr ""
-
-#: ../wp-content/plugins/better-post-formats/components/gallery/templates/meta-box.php:27, ../wp-content/plugins/better-post-formats/components/gallery/templates/meta-box.php:27, ../wp-content/plugins/better-post-formats/better-post-formats.php:123, ../wp-content/plugins/better-post-formats/better-post-formats.php:124
-msgid "Replace image"
 msgstr ""
 
 #: ../wp-content/plugins/better-post-formats/components/gallery/templates/meta-box.php:46, ../wp-content/plugins/better-post-formats/components/link/templates/meta-box.php:24, ../wp-content/plugins/better-post-formats/components/quote/templates/meta-box.php:21
@@ -155,12 +163,4 @@ msgstr ""
 
 #: ../wp-content/plugins/better-post-formats/lib/option.php:155
 msgid "None"
-msgstr ""
-
-#: ../wp-content/plugins/better-post-formats/better-post-formats.php:103
-msgid "Docs & Demo"
-msgstr ""
-
-#: ../wp-content/plugins/better-post-formats/better-post-formats.php:105
-msgid "Donate"
 msgstr ""

@@ -7,7 +7,7 @@
     }
 }
 
-body.bpf-clear-foreign-content {
+body {
     @include bpfClearForeignContent();
 }
 
@@ -23,7 +23,7 @@ body.bpf-clear-foreign-content {
     }
 
     iframe {
-        @include bpfDisplayBlock();
+        @include bpfDisplayBlock(100%, !important);
 
         margin: 0;
         background-color: $frontend-color--dark;

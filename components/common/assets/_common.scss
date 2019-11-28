@@ -40,8 +40,8 @@ $frontend-link-quote-distance: 2.5em;
     }
 }
 
-@mixin bpfDisplayBlock($width:100%) {
-    display: block;
+@mixin bpfDisplayBlock($width:100%,$important:null) {
+    display: block $important;
     width: $width;
 }
 
@@ -84,10 +84,6 @@ $frontend-link-quote-distance: 2.5em;
             &:not([class*="bpf-content"]) {
                 display: none;
             }
-        }
-
-        iframe {
-            display: block !important;
         }
     }
 }

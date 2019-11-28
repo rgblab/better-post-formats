@@ -5,7 +5,6 @@ jQuery(function ($) {
         bpfModifyTag.init();
         bpfResizeIFrame.init();
         bpfAddArticleClass.init();
-        bpfAddBodyClass.init();
     });
 
     $(document).ajaxComplete(function () {
@@ -128,12 +127,7 @@ jQuery(function ($) {
             holder.addClass('bpf-hide-default-title');
         },
     };
-
-    var bpfAddBodyClass = {
-        init: function () {
-            $('body').addClass('bpf-clear-foreign-content');
-        },
-    };
+    
 });
 jQuery(function ($) {
     'use strict';

@@ -25,7 +25,7 @@ if ( ! class_exists( 'betterPostFormatsMeta' ) ) {
 
 			// set additional vars
 			$this->meta_key = BPF_PREFIX . '_' . $this->post_format;
-			$this->nonce    = BPF_PREFIX . '_' . $this->post_format . '_nonce';
+			$this->nonce    = BPF_PREFIX . '_nonce';
 
 			// init meta box on 'load-posts.php' hook
 			add_action( 'load-post.php', array( $this, 'initMetaBox' ) );

@@ -24,7 +24,7 @@ You will be able to use:
 - Real links for link post formats
 - Real quotations with author reference for your quote post formats
 
-List of global options in the WordPress customizer will allow you to fine tune plugins appearance:
+List of global options in the WordPress Customizer that will allow you to fine tune plugins appearance:
 
 - Location, choose where you want to use plugin on the frontend of your website
 - Content width on lists, set plugin content width on lists
