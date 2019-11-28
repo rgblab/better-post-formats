@@ -68,7 +68,8 @@ Please try to switch to any default WordPress theme (TwentyX). If content appear
 3. Gallery post format meta boxes
 4. Link post format meta boxes
 5. Quote post format meta boxes
-6. Better Post Format settings in WordPress customizer
+6. Better Post Format settings in WordPress Customizer
+7. Post format icons in Dashboard
 
 == Changelog ==
 

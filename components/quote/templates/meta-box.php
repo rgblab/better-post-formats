@@ -17,7 +17,7 @@ $skin_input_field_attr = $input_field_attr . '[' . $skin_key . ']';
         <label class="bpf-control__label" for="<?php echo esc_attr( $input_field_attr . '[1]' ); ?>"><?php esc_html_e( 'Enter quotation author', 'bpf' ) ?></label>
         <input class="bpf-control__text-field" type="text" name="<?php echo esc_attr( $input_field_attr . '[1]' ); ?>" value="<?php echo esc_attr( $meta_value[1] ); ?>">
     </div>
-    <div class="bpf-control__select">
+    <div class="bpf-control__select bpf-control--no-bottom-margin">
         <label class="bpf-control__label" for="<?php echo esc_attr( $skin_input_field_attr ); ?>"><?php esc_html_e( 'Set content skin', 'bpf' ) ?></label>
         <select class="bpf-control__select-field" name="<?php echo esc_attr( $skin_input_field_attr ); ?>">
             <option value="global" <?php echo ( 'global' === $skin_value ) ? 'selected' : ''; ?>><?php esc_html_e( 'Global from the customizer', 'bpf' ); ?></option>

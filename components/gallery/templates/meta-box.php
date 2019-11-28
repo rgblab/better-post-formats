@@ -42,7 +42,7 @@ $skin_input_field_attr = $input_field_attr . '[' . $skin_key . ']';
 
     </ul>
 
-    <div class="bpf-control__select">
+    <div class="bpf-control__select bpf-control--no-bottom-margin">
         <label class="bpf-control__label" for="<?php echo esc_attr( $skin_input_field_attr ); ?>"><?php esc_html_e( 'Set content skin', 'bpf' ) ?></label>
         <select class="bpf-control__select-field" name="<?php echo esc_attr( $skin_input_field_attr ); ?>">
             <option value="global" <?php echo ( 'global' === $skin_value ) ? 'selected' : ''; ?>><?php esc_html_e( 'Global from the customizer', 'bpf' ); ?></option>

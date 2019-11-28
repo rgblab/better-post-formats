@@ -52,7 +52,7 @@ $frontend-link-quote-distance: 2.5em;
 }
 
 @mixin bpfBackgroundStyle() {
-    background-color: rgba($frontend-color--medium, 0.3);
+    background-color: lighten($frontend-color--medium, 30);
     background-position: center;
     background-size: cover;
 }

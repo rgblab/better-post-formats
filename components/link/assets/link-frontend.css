@@ -1,6 +1,6 @@
 @charset "UTF-8";
 .bpf-content--format-link {
-  background-color: rgba(128, 128, 128, 0.3);
+  background-color: #cdcdcd;
   background-position: center;
   background-size: cover;
 }
