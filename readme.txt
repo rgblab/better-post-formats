@@ -9,13 +9,11 @@ Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Use proper "featured content" instead of "featured images" for audio, video, gallery, link and quote post formats. Just
-like in any premium WordPress theme.
+Use proper "featured content" instead of "featured images" for audio, video, gallery, link and quote post formats. Just like in any premium WordPress theme.
 
 == Description ==
 
-Better Post Formats is a free WordPress plugin that will allow you to use proper featured content instead of static
-featured images. Your website or blog will have content just as any premium WordPress theme.
+Better Post Formats is a free WordPress plugin that will allow you to use proper featured content instead of static featured images. Your website or blog will have content just as any premium WordPress theme.
 
 You will be able to use:
 
