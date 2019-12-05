@@ -4,7 +4,8 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: post format, featured image, featured media
 Requires at least: 5.0
 Tested up to: 5.3
-Stable tag: 1.0.0
+Requires PHP: 5.3
+Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -75,3 +76,7 @@ Please try to switch to any default WordPress theme (TwentyX). If content appear
 
 = 1.0.0 =
 * Initial release
+
+== Upgrade Notice ==
+
+Best practice is to always use latest plugin version
