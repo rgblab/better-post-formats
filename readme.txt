@@ -1,6 +1,6 @@
 === Better Post Formats ===
 Contributors: rgblab
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TZHDKYP4K759W&source=url
+Donate link: https://www.paypal.me/rgblab
 Tags: post format, featured image, featured media
 Requires at least: 5.0
 Tested up to: 5.8.1
@@ -34,13 +34,11 @@ You can check out Better Post Formats plugin in action [here](http://demo.rgblab
 
 Need help? Have feature request? Visit [support thread](https://wordpress.org/support/plugin/better-post-formats)
 
-Please consider donating even a small sum via
-[PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TZHDKYP4K759W&source=url)
+Please consider donating even a small sum via [PayPal](https://www.paypal.me/rgblab)
 
 == Installation ==
 
-Install the Better Post Formats plugin as any other WordPress plugin. More info can be found in official WordPress step by
-step guide [here](https://wordpress.org/support/article/managing-plugins/#installing-plugins)
+Install the Better Post Formats plugin as any other WordPress plugin. More info can be found in official WordPress step by step guide [here](https://wordpress.org/support/article/managing-plugins/#installing-plugins)
 
 == Frequently Asked Questions ==
 

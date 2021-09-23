@@ -102,7 +102,7 @@ if ( ! class_exists( 'betterPostFormats' ) ) {
 			if ( plugin_basename( dirname( __FILE__ ) . '/better-post-formats.php' ) === $file ) {
 				$links[] = '<a href="http://demo.rgblab.net/better-post-formats" target="_blank">' . esc_html__( 'Docs & Demo', 'bpf' ) . '</a>';
 				$links[] = '<a href="https://wordpress.org/support/plugin/better-post-formats/reviews/#new-post" target="_blank">Please rate with ★★★★★</a>';
-				$links[] = '<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TZHDKYP4K759W&source=url" target="_blank">' . esc_html__( 'Donate', 'bpf' ) . '</a>';
+				$links[] = '<a href="https://www.paypal.me/rgblab" target="_blank">' . esc_html__( 'Donate', 'bpf' ) . '</a>';
 			}
 
 			return $links;
