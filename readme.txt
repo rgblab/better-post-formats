@@ -70,7 +70,7 @@ Please try to switch to any default WordPress theme (TwentyX). If content appear
 
 == Changelog ==
 
-= 1.0.1 (23. September 2021)
+= 1.0.1 (23. September 2021) =
 * Code maintenance
 * Fixed warning when options from customizer don't exist in database
 
