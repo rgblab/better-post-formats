@@ -2,76 +2,79 @@
 @import '../../common/assets/_common.scss';
 
 .bpf-control {
-    &__gallery {
-        margin: $backend-distance--small -#{$backend-distance--small} $backend-distance--small 0;
 
-        @include bpfClearfix();
+	&__gallery {
+		margin: $backend-distance--small -#{$backend-distance--small} $backend-distance--small 0;
 
-        li {
-            display: block;
-            float: left;
-            margin: $backend-distance--small $backend-distance--small 0 0;
-            position: relative;
+		@include bpfClearfix();
 
-            @include bpfDisplayBlock(calc((100% / 3) - #{$backend-distance--small}));
+		li {
+			display: block;
+			float: left;
+			margin: $backend-distance--small $backend-distance--small 0 0;
+			position: relative;
 
-            &:hover {
-                .bpf-control__image {
-                    opacity: 1;
-                }
+			@include bpfDisplayBlock(calc((100% / 3) - #{$backend-distance--small}));
 
-                .bpf-control__replace,
-                .bpf-control__remove {
-                    visibility: visible;
-                }
-            }
-        }
+			&:hover {
 
-        &:hover {
-            .bpf-control__image {
-                opacity: 0.8;
-            }
-        }
-    }
+				.bpf-control__image {
+					opacity: 1;
+				}
 
-    &__add {
-        margin: $backend-distance--small 0 0 0 !important; // to override default wp button margin
-    }
+				.bpf-control__replace,
+				.bpf-control__remove {
+					visibility: visible;
+				}
+			}
+		}
 
-    &__image {
-        cursor: move;
-        position: relative;
-        transition: $backend-opacity-transition;
+		&:hover {
 
-        @include bpfDisplayBlock();
-    }
+			.bpf-control__image {
+				opacity: 0.8;
+			}
+		}
+	}
 
-    &__replace,
-    &__remove {
-        background-color: currentColor;
-        border: 1px solid $backend-color--light;
-        border-radius: 50%;
-        box-sizing: border-box;
-        text-decoration: none;
-        top: $backend-icon-offset;
-        visibility: hidden;
+	&__add {
+		margin: $backend-distance--small 0 0 0 !important; // to override default wp button margin
+	}
 
-        @include bpfPositionAbsolute($backend-icon, $backend-icon);
+	&__image {
+		cursor: move;
+		position: relative;
+		transition: $backend-opacity-transition;
 
-        .dashicons {
-            color: $backend-color--light;
-            font-size: 13px;
-            height: $backend-icon-inner;
-            line-height: $backend-icon-inner;
-            width: $backend-icon-inner;
-        }
-    }
+		@include bpfDisplayBlock();
+	}
 
-    &__replace {
-        right: $backend-icon + ($backend-icon-offset * 2);
-    }
+	&__replace,
+	&__remove {
+		background-color: currentColor;
+		border: 1px solid $backend-color--light;
+		border-radius: 50%;
+		box-sizing: border-box;
+		text-decoration: none;
+		top: $backend-icon-offset;
+		visibility: hidden;
 
-    &__remove {
-        right: $backend-icon-offset;
-    }
+		@include bpfPositionAbsolute($backend-icon, $backend-icon);
+
+		.dashicons {
+			color: $backend-color--light;
+			font-size: 13px;
+			height: $backend-icon-inner;
+			line-height: $backend-icon-inner;
+			width: $backend-icon-inner;
+		}
+	}
+
+	&__replace {
+		right: $backend-icon + ($backend-icon-offset * 2);
+	}
+
+	&__remove {
+		right: $backend-icon-offset;
+	}
 }

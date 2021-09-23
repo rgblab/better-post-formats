@@ -2,91 +2,92 @@
 @import '../../common/assets/common.scss';
 
 .bpf-content {
-    &--format-gallery {
-        position: relative;
-    }
 
-    &__gallery {
-        &-image {
-            opacity: 0;
-            transition: $frontend-opacity-transition;
+	&--format-gallery {
+		position: relative;
+	}
 
-            @include bpfDisplayBlock();
+	&__gallery {
 
-            &:not(:first-child) {
-                left: 0;
-                object-fit: cover;
-                top: 0;
+		&-image {
+			opacity: 0;
+			transition: $frontend-opacity-transition;
 
-                @include bpfPositionAbsolute(100%, 100%);
-            }
+			@include bpfDisplayBlock();
 
-            &.active {
-                opacity: 1;
-            }
-        }
+			&:not(:first-child) {
+				left: 0;
+				object-fit: cover;
+				top: 0;
 
-        &-navigation {
-        }
+				@include bpfPositionAbsolute(100%, 100%);
+			}
 
-        &-prev,
-        &-next {
-            cursor: pointer;
-            font-size: $frontend-arrow-size;
-            text-align: center;
-            top: 50%;
-            transform: translateY(-50%);
-            transition: $frontend-color-transition;
+			&.active {
+				opacity: 1;
+			}
+		}
 
-            @include bpfPositionAbsolute($frontend-arrow-size, $frontend-arrow-size);
+		&-navigation {
+		}
 
-            &:hover {
-                color: $frontend-color--medium;
-            }
-        }
+		&-prev,
+		&-next {
+			cursor: pointer;
+			font-size: $frontend-arrow-size;
+			text-align: center;
+			top: 50%;
+			transform: translateY(-50%);
+			transition: $frontend-color-transition;
 
-        &-prev {
-            left: 0;
+			@include bpfPositionAbsolute($frontend-arrow-size, $frontend-arrow-size);
 
-            &:after {
-                @include bpfIcon('\f341', $frontend-arrow-size);
-            }
-        }
+			&:hover {
+				color: $frontend-color--medium;
+			}
+		}
 
-        &-next {
-            right: 0;
+		&-prev {
+			left: 0;
 
-            &:after {
-                @include bpfIcon('\f345', $frontend-arrow-size);
-            }
-        }
+			&:after {
+				@include bpfIcon('\f341', $frontend-arrow-size);
+			}
+		}
 
-        &-pagination {
-            bottom: 20px;
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            margin: 0;
-            padding: 0;
+		&-next {
+			right: 0;
 
-            @include bpfPositionAbsolute(auto, 100%);
+			&:after {
+				@include bpfIcon('\f345', $frontend-arrow-size);
+			}
+		}
 
-            li {
-                background-color: currentColor;
-                cursor: pointer;
-                height: 5px;
-                margin: 0 5px;
-                padding: 0;
-                transition: $frontend-background-color-transition;
+		&-pagination {
+			bottom: 20px;
+			display: flex;
+			justify-content: center;
+			list-style: none;
+			margin: 0;
+			padding: 0;
 
-                @include bpfDisplayBlock(40px);
+			@include bpfPositionAbsolute(auto, 100%);
 
-                &:hover,
-                &.active {
-                    background-color: $frontend-color--medium;
-                }
-            }
-        }
-    }
+			li {
+				background-color: currentColor;
+				cursor: pointer;
+				height: 5px;
+				margin: 0 5px;
+				padding: 0;
+				transition: $frontend-background-color-transition;
+
+				@include bpfDisplayBlock(40px);
+
+				&:hover,
+				&.active {
+					background-color: $frontend-color--medium;
+				}
+			}
+		}
+	}
 }
-

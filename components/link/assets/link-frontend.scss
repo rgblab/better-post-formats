@@ -2,42 +2,47 @@
 @import '../../common/assets/_common.scss';
 
 .bpf-content {
-    &--format-link {
-        @include bpfBackgroundStyle();
 
-        .bpf-content {
-            &__grid {
-                padding: $frontend-link-quote-distance $frontend-link-quote-distance $frontend-link-quote-distance calc(#{$frontend-icon-distance} * 2 + #{$frontend-icon-size});
-            }
+	&--format-link {
+		@include bpfBackgroundStyle();
 
-            &__icon {
-                &:after {
-                    @include bpfIcon('\f103', $frontend-icon-size);
-                }
-            }
-        }
-    }
+		.bpf-content {
 
-    &__permalink {
-        &:hover {
-            ~ .bpf-content__title {
-                color: $frontend-color--medium !important;
-            }
-        }
-    }
+			&__grid {
+				padding: $frontend-link-quote-distance $frontend-link-quote-distance $frontend-link-quote-distance calc(#{$frontend-icon-distance} * 2 + #{$frontend-icon-size});
+			}
 
-    &__link {
-        color: inherit !important;
-        transition: $frontend-color-transition;
+			&__icon {
 
-        &:hover {
-            color: $frontend-color--medium !important;
-        }
-    }
+				&:after {
+					@include bpfIcon('\f103', $frontend-icon-size);
+				}
+			}
+		}
+	}
 
-    &__title {
-        @include bpfResetText();
+	&__permalink {
 
-        transition: $frontend-color-transition;
-    }
+		&:hover {
+
+			~ .bpf-content__title {
+				color: $frontend-color--medium !important;
+			}
+		}
+	}
+
+	&__link {
+		color: inherit !important;
+		transition: $frontend-color-transition;
+
+		&:hover {
+			color: $frontend-color--medium !important;
+		}
+	}
+
+	&__title {
+		@include bpfResetText();
+
+		transition: $frontend-color-transition;
+	}
 }

@@ -4,7 +4,7 @@
 Plugin Name: Better Post Formats
 Author: RGB Lab
 Author URI: http://rgblab.net
-Version: 1.0.0
+Version: 1.0.1
 Description: Use proper "featured content" instead of "featured images" for audio, video, gallery, link and quote post formats. Just like in any premium WordPress theme.
 Text Domain: bpf
 License: GPLv2 or later
@@ -90,8 +90,8 @@ if ( ! class_exists( 'betterPostFormats' ) ) {
 		/**
 		 * dashboard links function
 		 *
-		 * @param array $links - plugin links from plugin meta
-		 * @param string $file - name of main plugin file
+		 * @param array  $links - plugin links from plugin meta
+		 * @param string $file  - name of main plugin file
 		 *
 		 * hooked on 'plugin_row_meta' filter
 		 *

@@ -92,7 +92,7 @@ if ( ! class_exists( 'betterPostFormatsMeta' ) ) {
 		 *
 		 * hooked on 'save_post' action
 		 *
-		 * @param int $post_id
+		 * @param int    $post_id
 		 * @param object $post - global wp var containing post object
 		 *
 		 * @return mixed
@@ -100,7 +100,7 @@ if ( ! class_exists( 'betterPostFormatsMeta' ) ) {
 		 */
 		public function saveMetaBox( $post_id, $post ) {
 			// bail if doing autosave
-			if ( defined( "DOING_AUTOSAVE" ) && DOING_AUTOSAVE ) {
+			if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 				return $post_id;
 			}
 

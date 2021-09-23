@@ -14,7 +14,7 @@ if ( ! class_exists( 'betterPostFormatsHelper' ) ) {
 		 */
 		public static function checkAppearance() {
 			$appearance = '';
-			$location   = get_option( BPF_OPTIONS )['location'] ? get_option( BPF_OPTIONS )['location'] : 'both';
+			$location   = ! empty( get_option( BPF_OPTIONS )['location'] ) ? get_option( BPF_OPTIONS )['location'] : 'both';
 
 			if ( 'both' === $location ) {
 				$appearance = true;
@@ -48,7 +48,7 @@ if ( ! class_exists( 'betterPostFormatsHelper' ) ) {
 		/**
 		 * set post format function
 		 *
-		 * @param array $post_formats - all post formats handled by plugin
+		 * @param array  $post_formats - all post formats handled by plugin
 		 * @param string $post_format
 		 *
 		 * hooked on 'bpf_set_post_format' filter
@@ -72,9 +72,12 @@ if ( ! class_exists( 'betterPostFormatsHelper' ) ) {
 		 */
 		public static function initPostFormat( $post_format ) {
 			// add post format to array of post formats
-			add_filter( 'bpf_set_post_format', function ( $post_formats ) use ( $post_format ) {
-				return self::setPostFormat( $post_formats, $post_format );
-			} );
+			add_filter(
+				'bpf_set_post_format',
+				function ( $post_formats ) use ( $post_format ) {
+					return self::setPostFormat( $post_formats, $post_format );
+				}
+			);
 
 			// include component
 			self::getComponent( $post_format, 'require' );
@@ -87,7 +90,7 @@ if ( ! class_exists( 'betterPostFormatsHelper' ) ) {
 		 * hooked on 'has_post_thumbnail' filter
 		 *
 		 * @return bool
-		 * @see has_post_thumbnail
+		 * @see   has_post_thumbnail
 		 * @since 1.0.0
 		 */
 		public static function setFeatured() {
@@ -147,7 +150,7 @@ if ( ! class_exists( 'betterPostFormatsHelper' ) ) {
 		 * hooked on 'post_thumbnail_html' filter
 		 *
 		 * @return string
-		 * @see get_the_post_thumbnail
+		 * @see   get_the_post_thumbnail
 		 * @since 1.0.0
 		 */
 		public static function getFeaturedMedia( $html ) {
@@ -162,10 +165,11 @@ if ( ! class_exists( 'betterPostFormatsHelper' ) ) {
 
 				$params = array(
 					'meta_key'           => BPF_PREFIX . '_' . $post_format,
-					'featured_image_url' => $featured_image_url
+					'featured_image_url' => $featured_image_url,
 				);
 
-				return self::getComponentTemplate( $post_format, 'media', 'return', $params );;
+				return self::getComponentTemplate( $post_format, 'media', 'return', $params );
+
 			} else {
 				return $html;
 			}
@@ -176,7 +180,7 @@ if ( ! class_exists( 'betterPostFormatsHelper' ) ) {
 		 * load component only on backend
 		 *
 		 * @param string $component - name of component
-		 * @param string $method - either return (to put in var) or require
+		 * @param string $method    - either return (to put in var) or require
 		 *
 		 * @return string
 		 * @since 1.0.0
@@ -209,9 +213,9 @@ if ( ! class_exists( 'betterPostFormatsHelper' ) ) {
 		 * get component template function
 		 *
 		 * @param string $component - name of component
-		 * @param string $template - name of template
-		 * @param string $method - either return (to put in var) or require
-		 * @param array $params - params, for meta boxes it is meta_box_id
+		 * @param string $template  - name of template
+		 * @param string $method    - either return (to put in var) or require
+		 * @param array  $params    - params, for meta boxes it is meta_box_id
 		 *
 		 * @return string
 		 * @since 1.0.0
@@ -320,7 +324,7 @@ if ( ! class_exists( 'betterPostFormatsHelper' ) ) {
 		 * @since 1.0.0
 		 */
 		public static function getSkin( $local_skin ) {
-			$global_skin = get_option( BPF_OPTIONS )['skin'] ? get_option( BPF_OPTIONS )['skin'] : 'none';
+			$global_skin = ! empty( get_option( BPF_OPTIONS )['skin'] ) ? get_option( BPF_OPTIONS )['skin'] : 'none';
 
 			$skin = ( 'global' === $local_skin ) ? $global_skin : $local_skin;
 			$skin = ( 'none' === $skin ) ? '' : BPF_PREFIX . '-content--' . $skin;
@@ -328,6 +332,11 @@ if ( ! class_exists( 'betterPostFormatsHelper' ) ) {
 			return $skin;
 		}
 
+		/**
+		 * generate styles function
+		 *
+		 * @since 1.0.0
+		 */
 		public static function generateStyles() {
 			$style = '';
 			$style = apply_filters( 'bpf_set_style', $style );

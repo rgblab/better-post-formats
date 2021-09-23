@@ -33,57 +33,59 @@ $frontend-link-quote-distance: 2.5em;
 
 // mixins
 @mixin bpfClearfix() {
-    &:after {
-        clear: both;
-        content: '';
-        display: table;
-    }
+	&:after {
+		clear: both;
+		content: '';
+		display: table;
+	}
 }
 
 @mixin bpfDisplayBlock($width:100%,$important:null) {
-    display: block $important;
-    width: $width;
+	display: block $important;
+	width: $width;
 }
 
 @mixin bpfPositionAbsolute($height,$width) {
-    height: $height;
-    position: absolute;
-    width: $width;
+	height: $height;
+	position: absolute;
+	width: $width;
 }
 
 @mixin bpfBackgroundStyle() {
-    background-color: lighten($frontend-color--medium, 30);
-    background-position: center;
-    background-size: cover;
+	background-color: lighten($frontend-color--medium, 30);
+	background-position: center;
+	background-size: cover;
 }
 
 @mixin bpfIcon($content,$size) {
-    content: $content;
-    font-family: dashicons;
-    font-size: $size;
-    font-weight: 400;
-    height: $size;
-    line-height: 100%;
-    right: 0;
-    top: 0;
-    width: $size;
+	content: $content;
+	font-family: dashicons;
+	font-size: $size;
+	font-weight: 400;
+	height: $size;
+	line-height: 100%;
+	right: 0;
+	top: 0;
+	width: $size;
 
-    @include bpfPositionAbsolute($size, $size);
+	@include bpfPositionAbsolute($size, $size);
 }
 
 @mixin bpfResetText() {
-    border: 0 !important;
-    color: inherit !important;
-    margin: 0 !important;
-    padding: 0 !important;
+	border: 0 !important;
+	color: inherit !important;
+	margin: 0 !important;
+	padding: 0 !important;
 }
 
 @mixin bpfClearForeignContent() {
-    .bpf-content {
-        * {
-            &:not([class*="bpf-content"]) {
-                display: none;
-            }
-        }
-    }
+	.bpf-content {
+
+		* {
+
+			&:not([class*="bpf-content"]) {
+				display: none;
+			}
+		}
+	}
 }

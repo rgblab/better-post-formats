@@ -2,15 +2,18 @@
 @import '../../common/assets/common.scss';
 
 .bpf-content {
-    &--format-audio {
-        audio {
-            @include bpfDisplayBlock();
-        }
 
-        .bpf-content {
-            &__image {
-                @include bpfDisplayBlock();
-            }
-        }
-    }
+	&--format-audio {
+
+		audio {
+			@include bpfDisplayBlock();
+		}
+
+		.bpf-content {
+
+			&__image {
+				@include bpfDisplayBlock();
+			}
+		}
+	}
 }

@@ -3,7 +3,7 @@ Contributors: rgblab
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TZHDKYP4K759W&source=url
 Tags: post format, featured image, featured media
 Requires at least: 5.0
-Tested up to: 5.3
+Tested up to: 5.8.1
 Requires PHP: 5.3
 Stable tag: trunk
 License: GPLv2 or later
@@ -72,7 +72,11 @@ Please try to switch to any default WordPress theme (TwentyX). If content appear
 
 == Changelog ==
 
-= 1.0.0 =
+= 1.0.1 (23. September 2021)
+* Code maintenance
+* Fixed warning when options from customizer don't exist in database
+
+= 1.0.0 (5. December 2019) =
 * Initial release
 
 == Upgrade Notice ==

@@ -2,41 +2,46 @@
 @import '../../common/assets/_common.scss';
 
 .bpf-content {
-    &--format-quote {
-        @include bpfBackgroundStyle();
 
-        .bpf-content {
-            &__grid {
-                padding: $frontend-link-quote-distance $frontend-link-quote-distance $frontend-link-quote-distance calc(#{$frontend-icon-distance} * 2 + #{$frontend-icon-size});
-            }
+	&--format-quote {
+		@include bpfBackgroundStyle();
 
-            &__icon {
-                &:after {
-                    @include bpfIcon('\f122', $frontend-icon-size);
-                }
-            }
-        }
-    }
+		.bpf-content {
 
-    &__permalink {
-        &:hover {
-            ~ .bpf-content__quote {
-                color: $frontend-color--medium !important;
-            }
-        }
-    }
+			&__grid {
+				padding: $frontend-link-quote-distance $frontend-link-quote-distance $frontend-link-quote-distance calc(#{$frontend-icon-distance} * 2 + #{$frontend-icon-size});
+			}
 
-    &__quote {
-        @include bpfResetText();
+			&__icon {
 
-        transition: $frontend-color-transition;
+				&:after {
+					@include bpfIcon('\f122', $frontend-icon-size);
+				}
+			}
+		}
+	}
 
-        &-text {
-            @include bpfResetText();
-        }
+	&__permalink {
 
-        &-author {
-            @include bpfResetText();
-        }
-    }
+		&:hover {
+
+			~ .bpf-content__quote {
+				color: $frontend-color--medium !important;
+			}
+		}
+	}
+
+	&__quote {
+		@include bpfResetText();
+
+		transition: $frontend-color-transition;
+
+		&-text {
+			@include bpfResetText();
+		}
+
+		&-author {
+			@include bpfResetText();
+		}
+	}
 }

@@ -3,89 +3,102 @@
 
 // bpf control
 .bpf-control {
-    margin: $backend-distance--large 0 0 0;
+	margin: $backend-distance--large 0 0 0;
 
-    &__text,
-    &__textarea,
-    &__select {
-        margin: 0 0 $backend-distance--large 0;
+	&__text,
+	&__textarea,
+	&__select {
+		margin: 0 0 $backend-distance--large 0;
 
-        &-field {
-            box-sizing: border-box;
-            margin: 0;
-            width: 100%;
-        }
-    }
+		&-field {
+			box-sizing: border-box;
+			margin: 0;
+			width: 100%;
+		}
+	}
 
-    &__label {
-        margin: 0 0 $backend-distance--small 0;
+	&__label {
+		margin: 0 0 $backend-distance--small 0;
 
-        @include bpfDisplayBlock();
-    }
+		@include bpfDisplayBlock();
+	}
 
-    &--no-bottom-margin {
-        margin-bottom: 0;
-    }
+	&--no-bottom-margin {
+		margin-bottom: 0;
+	}
 }
 
 // post list
 .wp-list-table.posts {
-    .row-title {
-        &:before {
-            color: currentColor;
-            display: inline-block;
-            font-family: dashicons;
-            font-size: 20px;
-            font-weight: 400;
-            height: 20px;
-            line-height: 1em;
-            margin-right: 7px;
-            opacity: 0.3;
-            position: relative;
-            top: 4px;
-            width: 20px;
-        }
-    }
 
-    .format {
-        &-audio {
-            .row-title {
-                &:before {
-                    content: '\f127';
-                }
-            }
-        }
+	.row-title {
 
-        &-gallery {
-            .row-title {
-                &:before {
-                    content: '\f161';
-                }
-            }
-        }
+		&:before {
+			color: currentColor;
+			display: inline-block;
+			font-family: dashicons;
+			font-size: 20px;
+			font-weight: 400;
+			height: 20px;
+			line-height: 1em;
+			margin-right: 7px;
+			opacity: 0.3;
+			position: relative;
+			top: 4px;
+			width: 20px;
+		}
+	}
 
-        &-link {
-            .row-title {
-                &:before {
-                    content: '\f103';
-                }
-            }
-        }
+	.format {
 
-        &-quote {
-            .row-title {
-                &:before {
-                    content: '\f122';
-                }
-            }
-        }
+		&-audio {
 
-        &-video {
-            .row-title {
-                &:before {
-                    content: '\f126';
-                }
-            }
-        }
-    }
+			.row-title {
+
+				&:before {
+					content: '\f127';
+				}
+			}
+		}
+
+		&-gallery {
+
+			.row-title {
+
+				&:before {
+					content: '\f161';
+				}
+			}
+		}
+
+		&-link {
+
+			.row-title {
+
+				&:before {
+					content: '\f103';
+				}
+			}
+		}
+
+		&-quote {
+
+			.row-title {
+
+				&:before {
+					content: '\f122';
+				}
+			}
+		}
+
+		&-video {
+
+			.row-title {
+
+				&:before {
+					content: '\f126';
+				}
+			}
+		}
+	}
 }
