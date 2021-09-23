@@ -36,6 +36,10 @@
   transition: color 0.3s ease-in-out;
 }
 
+.bpf-content__quote:before, .bpf-content__quote:after {
+  display: none !important;
+}
+
 .bpf-content__quote-text {
   border: 0 !important;
   color: inherit !important;
@@ -43,11 +47,19 @@
   padding: 0 !important;
 }
 
+.bpf-content__quote-text:before, .bpf-content__quote-text:after {
+  display: none !important;
+}
+
 .bpf-content__quote-author {
   border: 0 !important;
   color: inherit !important;
   margin: 0 !important;
   padding: 0 !important;
+}
+
+.bpf-content__quote-author:before, .bpf-content__quote-author:after {
+  display: none !important;
 }
 
 /*# sourceMappingURL=quote-frontend.css.map */

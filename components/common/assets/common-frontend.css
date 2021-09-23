@@ -47,6 +47,10 @@ body .bpf-content *:not([class*="bpf-content"]) {
   padding: 0 !important;
 }
 
+.bpf-content__title:before, .bpf-content__title:after {
+  display: none !important;
+}
+
 .bpf-content__icon {
   height: 40px;
   position: absolute;

@@ -45,4 +45,8 @@
   transition: color 0.3s ease-in-out;
 }
 
+.bpf-content__title:before, .bpf-content__title:after {
+  display: none !important;
+}
+
 /*# sourceMappingURL=link-frontend.css.map */

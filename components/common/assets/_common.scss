@@ -76,6 +76,11 @@ $frontend-link-quote-distance: 2.5em;
 	color: inherit !important;
 	margin: 0 !important;
 	padding: 0 !important;
+
+	&:before,
+	&:after {
+		display: none !important;
+	}
 }
 
 @mixin bpfClearForeignContent() {

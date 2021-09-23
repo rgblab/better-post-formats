@@ -71,8 +71,9 @@ Please try to switch to any default WordPress theme (TwentyX). If content appear
 == Changelog ==
 
 = 1.0.1 (23. September 2021) =
-* Code maintenance
+* Added Twenty Twenty-One theme compatibility
 * Fixed warning when options from customizer don't exist in database
+* Code maintenance
 
 = 1.0.0 (5. December 2019) =
 * Initial release
